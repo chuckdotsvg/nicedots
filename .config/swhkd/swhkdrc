@@ -1,0 +1,17 @@
+xf86audioraisevolume
+	changevolume.sh high
+
+xf86audiolowervolume
+	changevolume.sh low
+
+xf86audiomute
+	changevolume.sh muted
+
+xf86audiomicmute
+  pactl set-source-mute 0 toggle
+
+Mod4 + print
+	screenshot.sh
+
+Super + Shift + return
+  alacritty
