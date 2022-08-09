@@ -1,0 +1,12 @@
+[Default Applications]
+x-scheme-handler/notion=notion-app.desktop
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop
+text/html=brave-browser.desktop
+x-scheme-handler/http=brave-browser.desktop
+x-scheme-handler/https=brave-browser.desktop
+x-scheme-handler/about=brave-browser.desktop
+x-scheme-handler/unknown=brave-browser.desktop
+
+[Added Associations]
+text/x-chdr=libreoffice-writer.desktop;
+image/jpeg=imv.desktop;
