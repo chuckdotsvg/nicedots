@@ -2,7 +2,7 @@
 ln             # LINK
 # or      l       # ORPHAN
 # tw      t       # STICKY_OTHER_WRITABLE
-# ow      d       # OTHER_WRITABLE
+ow             # OTHER_WRITABLE
 # st      t       # STICKY
 di             # DIR
 # pi      p       # FIFO

@@ -7,11 +7,11 @@ set autoquit on
 # commands
 
 cmd trash %trash-put $fx
-
 cmd mkdir %mkdir "$@"
+cmd dragon %dragon-drop -a -x $fx
 
 # keybinds
 
 map MD push :mkdir<space>
-
 map DD :trash
+map DR :dragon

@@ -79,10 +79,15 @@ _G.packer_plugins = {
     path = "/home/chuck/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  ["vim-colors-solarized"] = {
+  vim = {
     loaded = true,
-    path = "/home/chuck/.local/share/nvim/site/pack/packer/start/vim-colors-solarized",
-    url = "https://github.com/altercation/vim-colors-solarized"
+    path = "/home/chuck/.local/share/nvim/site/pack/packer/start/vim",
+    url = "https://github.com/dracula/vim"
+  },
+  ["vim-lastplace"] = {
+    loaded = true,
+    path = "/home/chuck/.local/share/nvim/site/pack/packer/start/vim-lastplace",
+    url = "https://github.com/farmergreg/vim-lastplace"
   },
   ["vim-surround"] = {
     loaded = true,

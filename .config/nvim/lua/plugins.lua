@@ -42,9 +42,10 @@ require('packer').startup(function()
   --use 'williamboman/nvim-lsp-installer'
 
 	use 'jiangmiao/auto-pairs'
-	use 'altercation/vim-colors-solarized'
+	use 'dracula/vim'
   use 'vimwiki/vimwiki'
   use 'tpope/vim-surround'
+  use 'farmergreg/vim-lastplace'
 	--use {
 	--	'rrethy/vim-hexokinase', 
 	--	run = 'cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase	&& make hexokinase'
