@@ -1,10 +1,15 @@
 clock
 timestr=%T
 datestr=%a, %F
+
 indicator
 indicator-caps-lock
 indicator-radius=100
 ignore-empty-password
 grace=10
+fade-in=1
+
 image=/home/chuck/Pictures/artix.png
+effect-greyscale
+
 font=JetBrains Mono

@@ -74,15 +74,20 @@ _G.packer_plugins = {
     path = "/home/chuck/.local/share/nvim/site/pack/packer/start/auto-pairs",
     url = "https://github.com/jiangmiao/auto-pairs"
   },
+  gruvbox = {
+    loaded = true,
+    path = "/home/chuck/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/morhetz/gruvbox"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/chuck/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  vim = {
+  ["vim-hexokinase"] = {
     loaded = true,
-    path = "/home/chuck/.local/share/nvim/site/pack/packer/start/vim",
-    url = "https://github.com/dracula/vim"
+    path = "/home/chuck/.local/share/nvim/site/pack/packer/start/vim-hexokinase",
+    url = "https://github.com/rrethy/vim-hexokinase"
   },
   ["vim-lastplace"] = {
     loaded = true,

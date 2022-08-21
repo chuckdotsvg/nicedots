@@ -45,7 +45,7 @@
     # Turn on the progess bar. It appears when a progress hint is passed with
     # for example dunstify -h int:value:12
     progress_bar = true
-	  highlight = "#bd93f9"
+	  highlight = "#fabd2f"
 
     # Set the progress bar height. This includes the frame, so make sure
     # it's at least twice as big as the frame width.
@@ -82,14 +82,14 @@
     horizontal_padding = 16
 
     # Padding between text and icon.
-    text_icon_padding = 5
+    text_icon_padding = 16
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
     frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#bd93f9"
+    frame_color = "#d5c4a1"
 
     # Define a color for the separator.
     # possible values are:
@@ -292,23 +292,23 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#282a36"
-    foreground = "#6272a4"
+    background = "#98971a"
+    foreground = "#000000"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     # default_icon = 
 
 [urgency_normal]
-    background = "#282a36"
-    foreground = "#bd93f9"
-    timeout = 7
+    background = "#504945"
+    foreground = "#d5c4a1"
+    timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     # default_icon = preferences-system-notifications-symbolic.symbolic
 
 [urgency_critical]
-    background = "#ff5555"
-    foreground = "#f8f8f2"
-    frame_color = "#ff5555"
+    background = "#fb4934"
+    foreground = "#ebdbb2"
+    # frame_color = "#ff5555"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     default_icon = dialog-warning

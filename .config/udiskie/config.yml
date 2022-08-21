@@ -36,7 +36,7 @@ program_options:
   #   # "builtin:gui" and "builtin:tty" signify to use udiskie's
   #   # builtin password prompt.
 
-  notify_command: "mpv /usr/share/sounds/freedesktop/stereo/device-added.oga"
+  notify_command: "mpv /home/chuck/.local/share/sounds/custom/severomagiusto.m4a"
   #  # [string|list] Set command to be executed on any device event.
   #  # This is specified like `password_prompt`.
 
