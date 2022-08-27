@@ -7,9 +7,12 @@ indicator-caps-lock
 indicator-radius=100
 ignore-empty-password
 grace=10
-fade-in=1
+fade-in=0.4
 
-image=/home/chuck/Pictures/artix.png
+screenshots
 effect-greyscale
+effect-blur=5x5
+effect-pixelate=4
+effect-vignette=0.5:0.5
 
 font=JetBrains Mono

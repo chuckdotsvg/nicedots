@@ -8,6 +8,7 @@
 # SYSTEM ALIASES
 alias dwl='XDG_CURRENT_DESKTOP=dwl dbus-run-session dwl -s "startway.sh"'
 alias ls='ls --color=auto --group-directories-first --classify --file-type'
+alias pendrive='lf /run/media/chuck'
 
 # GITHUB ALIASES
 alias config='git --git-dir=$HOME/nicedots --work-tree=$HOME'
