@@ -46,8 +46,9 @@ require('packer').startup(function()
   use 'vimwiki/vimwiki'
   use 'tpope/vim-surround'
   use 'farmergreg/vim-lastplace'
-	use {
-		'rrethy/vim-hexokinase', 
-		run = 'cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase	&& make hexokinase'
-	}
+  use 'ap/vim-css-color'
+	--use {
+		--'rrethy/vim-hexokinase', 
+		--run = 'cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase	&& make hexokinase'
+	--}
 end)

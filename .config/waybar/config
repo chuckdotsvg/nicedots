@@ -7,8 +7,9 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     // "modules-left": ["custom/dwlbar"],
-    "modules-center": ["clock"],
-    "modules-right": ["network", "cpu", "memory", "temperature", "battery", "tray"],
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["network", "cpu", "memory", "temperature", "battery", "clock","tray"],
     // Modules configuration
 	"custom/dwlbar": {
         "format": "{}",
@@ -66,27 +67,9 @@
         "format-linked": " {ifname} (No IP)",
         "format-disconnected": "⚠ Disconnected"
     },
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        // "on-click": "pavucontrol"
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% ",
-    },
+
+  "sway/mode": {
+    "format": " {}",
+    "max-length": 50
+  }
 }

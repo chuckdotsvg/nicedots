@@ -7,7 +7,12 @@
 
 # SYSTEM ALIASES
 alias dwl='XDG_CURRENT_DESKTOP=dwl dbus-run-session dwl -s "startway.sh"'
+alias sway='dbus-run-session sway'
+alias Hyprland='dbus-run-session Hyprland'
+
+
 alias ls='ls --color=auto --group-directories-first --classify --file-type'
+alias pbin="curl -F 'f:1=<-' ix.io"
 alias pendrive='lf /run/media/chuck'
 
 # GITHUB ALIASES

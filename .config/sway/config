@@ -14,11 +14,11 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+# set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_run
+# set $menu dmenu_run
 
 ### Output configuration
 #
@@ -35,10 +35,10 @@ set $menu dmenu_run
 #
 # Example configuration:
 #
-exec swayidle -w \
-	timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-	timeout 900 '[[ $(cat /sys/class/power_supply/AC/online) -eq 0 ]] && systemctl suspend' \
-	before-sleep 'swaylock'
+# exec swayidle -w \
+# 	timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+# 	timeout 900 '[[ $(cat /sys/class/power_supply/AC/online) -eq 0 ]] && systemctl suspend' \
+# 	before-sleep 'swaylock'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -48,10 +48,14 @@ exec swayidle -w \
 #
 # Example configuration:
 #
-input "2:14:ETPS/2_Elantech_Touchpad" {
+input type:touchpad {
 	dwt enabled
 	tap enabled
-        natural_scroll enabled
+}
+
+input type:keyboard {
+  repeat_delay 350
+  repeat_rate 30
 }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -62,13 +66,13 @@ input "2:14:ETPS/2_Elantech_Touchpad" {
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Shift+Return exec $term
+    # bindsym $mod+Shift+Return exec $term
 
     # Kill focused window
     bindsym $mod+Shift+c kill
 
     # Start your launcher
-    bindsym $mod+p exec $menu
+    # bindsym $mod+p exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -202,22 +206,22 @@ bindsym $mod+r mode "resize"
 # CUSTOM WINDOW RULES
 for_window [app_id="wpa_gui"] floating enable
 	# doesn't apply for tabbed/stacked mode
+# for_window [app_id="mpv"] swaymsg 'focus left,split vertical, focus right, move left, layout stacking'
+
 default_border pixel 2
+gaps inner 10
+client.focused #98971a #98971a #ebdbb2
 
 # CUSTOM KEYMAPS
-bindsym $mod+Print exec /home/carlo/scripts/keybinds/./screenshot.sh
-bindsym XF86AudioRaiseVolume exec /home/carlo/scripts/keybinds/./changevolume.sh high
-bindsym XF86AudioLowerVolume exec /home/carlo/scripts/keybinds/./changevolume.sh low
-bindsym XF86AudioMute exec /home/carlo/scripts/keybinds/./changevolume.sh muted
+# bindsym $mod+Print exec /home/carlo/scripts/keybinds/./screenshot.sh
+# bindsym XF86AudioRaiseVolume exec /home/carlo/scripts/keybinds/./changevolume.sh high
+# bindsym XF86AudioLowerVolume exec /home/carlo/scripts/keybinds/./changevolume.sh low
+# bindsym XF86AudioMute exec /home/carlo/scripts/keybinds/./changevolume.sh muted
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86MonBrightnessDown exec /home/carlo/scripts/keybinds/./ctlbright.sh -
-bindsym XF86MonBrightnessUp exec /home/carlo/scripts/keybinds/./ctlbright.sh +
+bindsym XF86MonBrightnessDown exec ~/scripts/ctlbright.sh dec
+bindsym XF86MonBrightnessUp exec ~/scripts/ctlbright.sh inc
 
 # STARTUP COMMANDS
-exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
-exec waybar &
-exec oguri &
-exec wlsunset -L 41.50 -l 12.30 &
-exec dunst &
+exec ~/scripts/startway.sh
 
 include /etc/sway/config.d/*

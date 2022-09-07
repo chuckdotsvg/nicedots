@@ -1,2 +1,3 @@
-timeout 300 'swaylock'
-timeout 600 'loginctl suspend'
+timeout 300 'swaylock && sleep 60 && hyprctl dispatch dmps off'
+timeout 600 'test $(cat /sys/class/power_supply/AC/online) -eq 0 && loginctl suspend'
+before-sleep 'pidof swaylock || swaylock --grace 0'

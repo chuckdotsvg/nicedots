@@ -16,6 +16,7 @@ export EDITOR=nvim
 export MOZ_ENABLE_WAYLAND=1
 export PATH=$PATH:$HOME/scripts
 export XKB_DEFAULT_LAYOUT=it
+export XCURSOR_SIZE=24
 
 export PF_INFO="ascii title os kernel shell uptime pkgs memory palette"
 export BEMENU_OPTS="--list 7 \
@@ -32,3 +33,5 @@ export BEMENU_OPTS="--list 7 \
   --sf '#50fa7b'\
   --scb '#282a36'\
   --scf '#ff79c6'"
+
+# END: display manager (fu systemd)

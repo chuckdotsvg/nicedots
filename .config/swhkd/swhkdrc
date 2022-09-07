@@ -1,3 +1,4 @@
+# volume stuff
 xf86audioraisevolume
 	changevolume.sh high
 
@@ -7,11 +8,26 @@ xf86audiolowervolume
 xf86audiomute
 	changevolume.sh muted
 
-xf86audiomicmute
-  pactl set-source-mute 0 toggle
-
-Mod4 + print
-	screenshot.sh
+#custom scripts
+super + print
+	wscreenshot.sh
 
 Super + Shift + return
   alacritty
+
+super + shift + p
+  powermenu.sh
+
+# media keybinds
+xf86audioplay
+  playerctl play-pause
+
+xf86audioprev
+  playerctl previous
+
+xf86audionext
+  playerctl next
+
+xf86audiostop
+  playerctl stop
+

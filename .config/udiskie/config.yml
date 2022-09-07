@@ -19,11 +19,11 @@ program_options:
   #                           # disabled by default. It can be disabled
   #                           # explicitly by setting it to false
 
-  file_manager: foot -e lf
+  file_manager: alacritty -e lf
   #  # [string] Set program to open directories. It will be invoked
   #  # with the folder path as its last command line argument.
 
-  terminal: 'foot -D'
+  terminal: 'foot --working-directory'
   #  # [string] Set terminal command line to open directories. It will be
   #   # invoked with the folder path as its last command line argument.
 
@@ -83,8 +83,8 @@ notifications:
   # Specify only if you want to overwrite the default:
   device_mounted: -1       # mount notification
   device_unmounted: -1   # unmount notification
-  device_added: false   # device has appeared
-  device_removed: false   # device has disappeared
+  device_added: -1   # device has appeared
+  device_removed: -1   # device has disappeared
   device_unlocked: -1      # encrypted device was unlocked
   device_locked: -1      # encrypted device was locked
   job_failed: -1      # mount/unlock/.. has failed
