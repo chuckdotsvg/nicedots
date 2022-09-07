@@ -5,12 +5,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# SYSTEM ALIASES
+# temporary wm commands
 alias dwl='XDG_CURRENT_DESKTOP=dwl dbus-run-session dwl -s "startway.sh"'
 alias sway='dbus-run-session sway'
 alias Hyprland='dbus-run-session Hyprland'
 
-
+# SYSTEM ALIASES
 alias ls='ls --color=auto --group-directories-first --classify --file-type'
 alias pbin="curl -F 'f:1=<-' ix.io"
 alias pendrive='lf /run/media/chuck'
