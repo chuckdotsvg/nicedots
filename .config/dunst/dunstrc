@@ -196,7 +196,7 @@
     max_icon_size = 64
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Papirus/32x32/status/
+    icon_path = /usr/share/icons/Arc/status/64/
 
     ### History ###
 
@@ -303,7 +303,7 @@
     foreground = "#d5c4a1"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
-    default_icon = dialog-information.svg
+    default_icon = dialog-information
 
 [urgency_critical]
     background = "#fb4934"
