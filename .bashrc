@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # temporary wm commands
-alias dwl='XDG_CURRENT_DESKTOP=dwl dbus-run-session dwl -s "startway.sh"'
+alias dwl='XDG_CURRENT_DESKTOP=dwl exec dbus-run-session dwl -s "startway.sh"'
 alias sway='XDG_CURRENT_DESKTOP=sway exec dbus-run-session sway'
 alias Hyprland='exec dbus-run-session Hyprland'
 

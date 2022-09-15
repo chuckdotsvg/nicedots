@@ -1,0 +1,71 @@
+(defwidget bar []
+  (centerbox :orientation "h"
+    (workspaces)
+    (music)
+    (sidestuff)))
+
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+    (ram)
+    (battery)
+    time))
+
+(defwidget battery []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end" :tooltip "${EWW_BATTERY.BAT0.capacity}%"
+    (metric :label ""
+            :value {EWW_BATTERY.BAT0.capacity}
+            :onchange "")
+  ))
+
+(defwidget ram []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end" :tooltip "${round(EWW_RAM.used_mem_perc, 0)}%"
+    (metric :label ""
+            :value {EWW_RAM.used_mem_perc}
+            :onchange "")
+  ))
+
+(defwidget workspaces []
+  (box :class "workspaces"
+       :orientation "h"
+       :space-evenly true
+       :halign "start"
+       :spacing 10
+    (button :onclick "wmctrl -s 0" 1)
+    (button :onclick "wmctrl -s 1" 2)
+    (button :onclick "wmctrl -s 2" 3)
+    (button :onclick "wmctrl -s 3" 4)
+    (button :onclick "wmctrl -s 4" 5)))
+
+(defwidget music []
+  (box :class "music"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+    {music != "" ? "🎵 ${music}" : ""}))
+
+(deflisten music :initial ""
+  "playerctl --follow metadata --format '{{emoji(status)}} {{ artist }} - {{ title }}' || true")
+
+(defwidget metric [label value onchange]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (box :class "label" label)
+    (scale :min 0
+           :max 100
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)))
+
+(defpoll time :interval "1s"
+  "date '+ %b %d %a  %X'")
+
+(defwindow bar
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "10px"
+                      :anchor "top center")
+  :exclusive true
+  (bar))

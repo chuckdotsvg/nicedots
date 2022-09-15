@@ -1,0 +1,51 @@
+(defwidget bar []
+  (box :class "statusbar" :orientation "h"
+    (left)
+    (music)
+    (right)
+    ))
+
+(defwidget left []
+  (box  :class "leftstuff"
+        :orientation "h"
+        :space-evenly "false"
+        :halign "start"
+    (box :class "battery" :space-evenly false :spacing 3
+				(label :class "txt" :limit-width 4 :show-truncated false :text " ${EWW_BATTERY.BAT0.capacity} %"))
+    (box :class "cpu" :space-evenly false :spacing 3
+				(label :class "txt" :limit-width 4 :show-truncated false :text "${EWW_CPU.avg}"))
+    (box :class "cpu" :space-evenly false :spacing 3
+				(label :class "txt" :limit-width 4 :show-truncated false :text "${EWW_TEMPS.HWMON3.temperature}"))
+  )
+)
+
+(defwidget music []
+  (box :class "music"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+    {music != "" ? "${music}" : ""}))
+
+(deflisten music :initial ""
+  "playerctl --follow metadata -f '{{emoji(status)}}  | {{artist}} - {{title}}  {{duration(position)}}/{{duration(mpris:length)}}'")
+
+(defpoll time :interval "1s"
+  "date '+ %a %d %b |  %X'")
+
+(defwidget right []
+  (box  :class "sidestuff" 
+        :orientation "h" 
+        :space-evenly false 
+        :halign "end"
+    time)
+    )
+
+(defwindow bar
+  :exclusive true
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "15px"
+                      :anchor "center top")
+  (bar))

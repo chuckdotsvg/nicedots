@@ -223,5 +223,7 @@ bindsym XF86MonBrightnessUp exec ~/scripts/ctlbright.sh inc
 
 # STARTUP COMMANDS
 exec ~/scripts/startway.sh
+exec killall xdg-desktop-portal xdg-desktop-portal-wlr && /usr/lib/xdg-desktop-portal -r & /usr/lib/xdg-desktop-portal-wlr -r
+
 
 include /etc/sway/config.d/*

@@ -22,6 +22,7 @@ if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
 fi
 
 export EDITOR=nvim
+export GTK_USE_PORTAL=0
 export MOZ_ENABLE_WAYLAND=1
 export PATH=$PATH:$HOME/scripts
 export XKB_DEFAULT_LAYOUT=it
