@@ -28,7 +28,7 @@ export PATH=$PATH:$HOME/scripts
 export XKB_DEFAULT_LAYOUT=it
 export XCURSOR_SIZE=24
 
-export PF_INFO="ascii title os kernel shell uptime pkgs memory palette"
+# export PF_INFO="ascii title os kernel shell uptime pkgs memory palette"
 export BEMENU_OPTS="--list 7 \
   --fn 'JetBrains Mono 12'\
   --tb '#ff79c6'\

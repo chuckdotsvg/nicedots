@@ -18,7 +18,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_run
+set $menu dmenu_run_i
 
 ### Output configuration
 #
@@ -213,17 +213,26 @@ gaps inner 10
 client.focused #98971a #98971a #ebdbb2
 
 # CUSTOM KEYMAPS
-bindsym $mod+Print exec /home/carlo/scripts/keybinds/./screenshot.sh
-bindsym XF86AudioRaiseVolume exec /home/carlo/scripts/keybinds/./changevolume.sh high
-bindsym XF86AudioLowerVolume exec /home/carlo/scripts/keybinds/./changevolume.sh low
-bindsym XF86AudioMute exec /home/carlo/scripts/keybinds/./changevolume.sh muted
+bindsym $mod+Print exec ~/scripts/wscreenshot.sh
+bindsym XF86AudioRaiseVolume exec ~/scripts/changevolume.sh high
+bindsym XF86AudioLowerVolume exec ~/scripts/changevolume.sh low
+bindsym XF86AudioMute exec ~/scripts/changevolume.sh muted
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86MonBrightnessDown exec ~/scripts/ctlbright.sh dec
 bindsym XF86MonBrightnessUp exec ~/scripts/ctlbright.sh inc
 
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioPrev exec playerctl prev
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+
+bindsym XF86NotificationCenter exec playerctl stop
+bindsym XF86PickupPhone exec playerctl prev
+bindsym XF86HangupPhone exec playerctl play-pause
+bindsym XF86Favorites exec playerctl next
+
 # STARTUP COMMANDS
 exec ~/scripts/startway.sh
-exec killall xdg-desktop-portal xdg-desktop-portal-wlr && /usr/lib/xdg-desktop-portal -r & /usr/lib/xdg-desktop-portal-wlr -r
-
+exec dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 include /etc/sway/config.d/*
