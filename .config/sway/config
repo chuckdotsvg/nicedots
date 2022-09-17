@@ -233,6 +233,6 @@ bindsym XF86Favorites exec playerctl next
 
 # STARTUP COMMANDS
 exec ~/scripts/startway.sh
-exec dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+# exec dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 include /etc/sway/config.d/*
