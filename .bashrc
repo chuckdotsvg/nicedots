@@ -6,16 +6,16 @@
 [[ $- != *i* ]] && return
 
 # temporary wm commands
-alias dwl='XDG_CURRENT_DESKTOP=dwl dbus-run-session dwl -s "startway.sh"'
-alias sway='XDG_CURRENT_DESKTOP=sway dbus-run-session sway'
-alias Hyprland='dbus-run-session Hyprland'
+# alias dwl='XDG_CURRENT_DESKTOP=dwl dbus-run-session dwl -s "startway.sh"'
+# alias sway='XDG_CURRENT_DESKTOP=sway dbus-run-session sway'
+# alias Hyprland='dbus-run-session Hyprland'
 
 # SYSTEM ALIASES
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto --group-directories-first --classify --file-type'
 alias pbin="curl -F 'f:1=<-' ix.io"
-alias pendrive='lf /run/media/chuck'
+alias rm="echo Not today :D && false"
 
 # GITHUB ALIASES
 alias config='git --git-dir=$HOME/nicedots --work-tree=$HOME'

@@ -6,9 +6,18 @@
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    (ram)
+    (temp)
     (battery)
     time))
+
+(defwidget temp []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end" :tooltip "${EWW_TEMPS.THINKPAD_CPU}°C"
+    (scale :min 30
+            :max 100)
+    (metric :label ""
+            :value {EWW_TEMPS.THINKPAD_CPU}
+            :onchange "")
+  ))
 
 (defwidget battery []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end" :tooltip "${EWW_BATTERY.BAT0.capacity}%"
@@ -43,8 +52,7 @@
        :halign "center"
     {music != "" ? "🎵 ${music}" : ""}))
 
-(deflisten music :initial ""
-  "playerctl --follow metadata --format '{{emoji(status)}} {{ artist }} - {{ title }}' || true")
+(deflisten music "playerctl --follow metadata --format '{{emoji(status)}} {{ artist }} - {{ title }}' || true")
 
 (defwidget metric [label value onchange]
   (box :orientation "h"

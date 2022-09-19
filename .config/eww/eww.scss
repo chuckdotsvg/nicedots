@@ -32,21 +32,12 @@
   margin-left: 10px;
   margin-right: 20px;
 }
-.metric scale trough highlight {
-  all: unset;
-  background-color: #D35D6E;
-  color: #000000;
-  border-radius: 10px;
-}
 
-.label-ram {
-  font-size: large;
-}
 .workspaces button:hover {
   color: #D35D6E;
 }
 
-.tooltip {
+.metric scale tooltip {
   all: unset;
   background-color: #282828;
   color: #fff322;
