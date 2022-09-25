@@ -23,7 +23,7 @@ program_options:
   #  # [string] Set program to open directories. It will be invoked
   #  # with the folder path as its last command line argument.
 
-  terminal: 'foot --working-directory'
+  terminal: 'st'
   #  # [string] Set terminal command line to open directories. It will be
   #   # invoked with the folder path as its last command line argument.
 

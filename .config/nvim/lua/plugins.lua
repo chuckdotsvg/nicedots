@@ -36,10 +36,11 @@ packer.init {
 require('packer').startup(function()
 	use 'wbthomason/packer.nvim'
 
-  --use 'ms-jpq/coq_nvim'
-  --use 'ms-jpq/coq.artifacts'
+  use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
 
-  --use 'williamboman/nvim-lsp-installer'
+  use { 'ms-jpq/coq_nvim', run = 'python3 -m coq deps' }
+  use 'ms-jpq/coq.artifacts'
+  use 'ms-jpq/coq.thirdparty'
 
 	use 'jiangmiao/auto-pairs'
 	use 'morhetz/gruvbox'
@@ -47,8 +48,13 @@ require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'farmergreg/vim-lastplace'
   use 'ap/vim-css-color'
+  use 'glepnir/dashboard-nvim'
+  use 'tomasiser/vim-code-dark'
 	--use {
 		--'rrethy/vim-hexokinase', 
 		--run = 'cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase	&& make hexokinase'
 	--}
 end)
+
+require 'pg/dashboard'
+require 'pg/coq'

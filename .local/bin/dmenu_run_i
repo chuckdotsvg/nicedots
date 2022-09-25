@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# dmenu_run improved
+# command ending with '!', is started in the terminal.
+
+cmd="$(dmenu_path | dmenu "$@")"
+
+# case $cmd in
+#     *\!) gtk-launch ${cmd%?} & ;;
+#     *)   "${cmd}" & ;;
+# esac
+
+echo $cmd | grep --quiet "!" && DT="gtk-launch" && cmd=${cmd%?}
+
+$DT ${cmd} &

@@ -1,9 +1,10 @@
-prompt=
 lines=8
 width=25%
 
 allow_images=true
 image_size=24
 
-term=foot
+show=drun,run
+
 insensitive
+exec-search

@@ -21,10 +21,11 @@
 #     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 # fi
 
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 export EDITOR=nvim
 export GTK_USE_PORTAL=0
-export MOZ_ENABLE_WAYLAND=1
-export PATH=$PATH:$HOME/scripts
+export PATH=$PATH:$HOME/.local/bin/
 export XKB_DEFAULT_LAYOUT=it
 export XCURSOR_SIZE=24
 

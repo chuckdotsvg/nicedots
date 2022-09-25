@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# case $BLOCK_BUTTON in
+# 	1) setsid -f st -e pulsemixer ;;
+# 	3) notify-send "📢 Volume module" "\- Shows volume 🔊, 🔇 if muted.
+# - Middle click to mute.
+# - Scroll to change." ;;
+# #	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+# esac
+
+[[ $BLOCK_BUTTON -eq 1 ]] && setsid -f st -e pulsemixer
+
+vol="$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')"
+STATUS=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+
+icon="ﱝ "
+[[ $vol -gt 0 ]] && icon="🔈 "
+[[ $vol -gt 33 ]] && icon="🔉 "
+[[ $vol -gt 66 ]] && icon="🔊 "
+[[ $STATUS = "yes" ]] && icon="🔇 " && echo "$icon" && exit
+
+echo "^b#005577^$icon$vol%"

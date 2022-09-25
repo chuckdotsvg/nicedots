@@ -18,7 +18,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_run_i
+set $menu "wofi --show drun,run"
 
 ### Output configuration
 #
@@ -56,6 +56,7 @@ input type:touchpad {
 input type:keyboard {
   repeat_delay 350
   repeat_rate 30
+  xkb_layout "it"
 }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -222,6 +223,8 @@ bindsym XF86NotificationCenter exec playerctl stop
 bindsym XF86PickupPhone exec playerctl previous
 bindsym XF86HangupPhone exec playerctl play-pause
 bindsym XF86Favorites exec playerctl next
+
+bindsym XF86Calculator exec mate-calc
 
 # STARTUP COMMANDS
 exec ~/scripts/startway.sh

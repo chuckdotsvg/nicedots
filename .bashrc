@@ -10,6 +10,9 @@
 # alias sway='XDG_CURRENT_DESKTOP=sway dbus-run-session sway'
 # alias Hyprland='dbus-run-session Hyprland'
 
+# PACMAN
+alias upg='doas pacman -Syu'
+
 # SYSTEM ALIASES
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'

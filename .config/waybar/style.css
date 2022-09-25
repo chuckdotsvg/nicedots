@@ -91,12 +91,13 @@ window#waybar.PCSX2 #window {
 	padding-left: 12px;
 	padding-right: 12px;
 	transition: none;
+
+	color: #282828;
 }
 
 
 #mpd {
 	background: #282a36;
-	color: #4d4d4d;
 }
 
 #mpd.disconnected,
@@ -106,17 +107,14 @@ window#waybar.PCSX2 #window {
 }
 
 #network {
-	color: #4d4d4d;
 	background: #bd93f9;
 }
 
 #pulseaudio {
-	color: #4d4d4d;
 	background: #9aedfe;
 }
 
 #temperature {
-	color: #4d4d4d;
 	background: #7aa6da;
 }
 
@@ -138,12 +136,10 @@ window#waybar.PCSX2 #window {
 }
 
 #cpu {
-	color: #4d4d4d;
 	background: #f1fa8c;
 }
 
 #memory {
-	color: #4d4d4d;
 	background: #ff6e67;
 }
 

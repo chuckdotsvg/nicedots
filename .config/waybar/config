@@ -67,7 +67,7 @@
     "format-icons": ["", "", "", "", ""]
   },
   "custom/media": {
-    "exec": "playerctl --follow metadata --format '{{ emoji(status) }} {{ artist }} - {{ title }}'",
+    "exec": "playerctl --follow metadata --format '{{ emoji(status) }} {{ artist }} | {{ title }}'",
     //"exec": "playerctl -a metadata --format '{\"text\": \"{{playerName}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
     //"return-type": "json",
     "max-lenght": 40,
@@ -76,13 +76,13 @@
 	  //"controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
 	  "format": " {status}",
 	  "format-disabled": "", // an empty format will hide the module
-	  "format-connected": " = {num_connections}",
+	  //"format-connected": " {device_alias}",
     "format-connected-battery": " {device_alias}",
     "tooltip-format-connected-battery": "{device_battery_percentage}%",
-	  "tooltip-format": "{controller_alias}\t{controller_address}",
-	  "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-	  "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "on-click": "$(echo -e 'true\nfalse' | dmenu -p 'toggle switch?') && bluetooth toggle"
+	  //"tooltip-format": "{controller_alias}\t{controller_address}",
+	  //"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	  //"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-double-click": "$(echo -e 'true\nfalse' | dmenu -p 'toggle switch?') && bluetooth toggle"
 
   }
 }
