@@ -1,0 +1,15 @@
+#!/bin/sh
+
+send_notification() {
+	TODAY=$(date '+%d')
+	HEAD=$(cal | head -n1)
+	BODY=$(cal | tail -n7 | sed -z "s|$TODAY|<u><b>$TODAY</b></u>|1")
+	dunstify "$HEAD" "$BODY" -a "multimedial" -r "122" -i "no"
+}
+
+case $BLOCK_BUTTON in
+  1) send_notification;;
+  6) st -e $EDITOR "$0";;
+esac
+
+date '+🕐 %H:%M'
