@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
     new_backlight = step_to_backlight(new_step, backlight_min, backlight_max, steps)
 
-    subprocess.call(["dunstify", "-a", "multimedial", "-r", "10000", "-h", "int:value:{}".format(new_backlight), "Brigthness: " ])
+    subprocess.call(["dunstify", "-a", "multimedial", "-r", "10000", "-h", "int:value:{}".format(new_backlight), "Brigthness: ", "-i", "mx-alerts" ])
 
     print("Current backlight: {0}\nChanging to: {1}".format(current_backlight, new_backlight))
     set_backlight(new_backlight)

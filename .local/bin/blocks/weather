@@ -1,0 +1,18 @@
+#!/bin/sh
+
+HIST=$HOME/.cache/weather
+
+CITY=$(tail -n 1 $HIST)
+
+case $BLOCK_BUTTON in
+  1)  pkill -RTMIN+11 dmblocks
+      dunstify -a 'multimedial' -r  "700" "Weather Reporter updating..."
+      ;;
+  2)  CITY=$(cat $HIST | dmenu -p "Delete city:") && sed -i "/\$CITY/d" $HIST;;
+  3)  CITY=$(cat $HIST | dmenu -p "Change city:") && sed -i "s/\$CITY//g" $HIST && sed -i -e "$a\$CITY" $HIST
+    ;;
+  6) st -e $EDITOR "$0"
+esac
+
+CMD=$(curl -s wttr.in/$CITY?format="%c%t")
+echo "$CMD "

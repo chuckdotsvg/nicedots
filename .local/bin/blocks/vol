@@ -1,0 +1,43 @@
+#!/bin/sh
+
+STEP=5
+vol="$(pamixer --get-volume)"
+STATUS=$(pamixer --get-mute)
+  
+
+block(){
+  YLW="#fabd2f"
+  BLC="#282828"
+  WHT="#ebdbb2"
+  
+  FG=$WHT
+  BG=$BLC
+  
+  case $BLOCK_BUTTON in
+  	1) setsid -f st -e pulsemixer ;;
+  	6) st -e "$EDITOR" "$0" ;;
+  esac
+  
+  [[ $vol -ge 0 ]] && icon="🔈"
+  [[ $vol -gt 33 ]] && icon="🔉"
+  [[ $vol -gt 64 ]] && icon="🔊" && BG=$YLW && FG=$BLC
+  $STATUS && icon="🔇"
+  
+  echo "^c$FG^^b$BG^ $icon$vol% ^d^"
+}
+
+upd(){
+  pkill -RTMIN+13 dwmblocks
+  mpv /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga &
+}
+
+case $1 in
+  --inc)  pamixer -i $STEP;;
+  --dec)  pamixer -d $STEP;;
+  --mute)  pactl set-sink-mute @DEFAULT_SINK@ toggle;;
+  *) false;;
+esac
+
+[[ $1 ]] && upd
+
+block

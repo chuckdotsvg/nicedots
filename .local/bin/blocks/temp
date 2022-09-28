@@ -1,0 +1,15 @@
+#!/bin/bash
+
+TMP=$(head -c2 /sys/class/hwmon/hwmon3/temp1_input)
+BLC="#282828"
+WHT="#ebdbb2"
+RED="#cc241d"
+
+FG=$WHT
+BG=$BLC
+
+[[ $BLOCK_BUTTON -eq 6 ]] && st -e $EDITOR "$0"
+
+[[ $TMP -ge 75 ]] && FG=$WHT && BG=$RED
+
+echo "^c$FG^^b$BG^ 🌡️$TMP°C ^d^"

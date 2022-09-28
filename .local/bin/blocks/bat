@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 PERC=$(cat /sys/class/power_supply/BAT0/capacity)
 STATUS=$(cat /sys/class/power_supply/AC/online)
@@ -17,16 +17,9 @@ BAT=" $PERC" && [ $PERC -gt 90 ] && [[ $STATUS -eq 1 ]] && dunstify "Battery 
 [ $PERC -lt 40 ] && BAT=" $PERC"
 [ $PERC -lt 15 ] && BAT=" $PERC" && [[ $STATUS -eq 0 ]] && BG=$RED && FG=$BLC && dunstify -u critical -t 10 "Battery low!"
 
-[[ $STATUS -eq 1 ]] && BAT="🔌 $BAT" && BG=$GRN && FG=$BLC
+[[ $STATUS -eq 1 ]] && BAT="$BAT" && BG=$GRN && FG=$BLC
 
-# if [[ $STATUS -eq 1 ]] ; then
-#   BAT=" $BAT"
-#   BG=$GRN
-#   FG=$BLC
-# else
-#   BG=$BLC
-#   FG=$WHT
-# fi
+[[ $BLOCK_BUTTON -eq 6 ]] && st -e $EDITOR "$0"
 
 
-echo "^c$FG^^b$BG^$BAT%^d^"
+echo "^c$FG^^b$BG^ $BAT% ^d^"

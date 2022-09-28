@@ -1,0 +1,12 @@
+#!/bin/sh
+
+YES=$(checkupdates | sed 's/ .*//')
+TITLE="Updates Available!"
+
+case $BLOCK_BUTTON in
+  1) [[ $YES ]] && dunstify "$TITLE" "$YES" -i system-software-update || \
+      dunstify "No $TITLE" "Your system is fresh as hell" ;;
+  6) st -e $EDITOR "$0"
+esac
+
+echo "^b#282828^^c#ebdbb2^ 📦 $(checkupdates | wc -l) ^d^"

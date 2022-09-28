@@ -33,7 +33,7 @@
     origin = top-right
 
     # Offset from the origin
-    offset = 10x25
+    offset = 10x35
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
 
@@ -196,8 +196,7 @@
     max_icon_size = 64
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Arc/status/64/
-
+    icon_path = /usr/share/icons/Papirus-Dark/64x64/categories/
     ### History ###
 
     # Should a notification popped up from history be sticky or timeout
@@ -303,7 +302,7 @@
     foreground = "#ebdbb2"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
-    default_icon = dialog-information
+    default_icon = preferences-desktop-notification-bell
 
 [urgency_critical]
     background = "#fb4934"
@@ -311,7 +310,7 @@
     frame_color = "#cc241d"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
-    default_icon = dialog-warning
+    default_icon = system-error
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
@@ -446,7 +445,6 @@
   history_ignore = yes
 	icon_position = left
 	timeout = 2
-  # offset = 810x900 # 810 is 1920 - (width/2)
 
 [error]
   appname = "error"
