@@ -1,0 +1,5 @@
+#!/bin/sh
+
+[[ $BLOCK_BUTTON -eq 6 ]] && st -e $EDITOR "$0"
+
+awk '{print " ["$1"]["$2"]"}' /proc/loadavg

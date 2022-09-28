@@ -21,7 +21,7 @@ alias pbin="curl -F 'f:1=<-' ix.io"
 alias rm="echo Not today :D && false"
 
 # GITHUB ALIASES
-alias config='git --git-dir=$HOME/nicedots --work-tree=$HOME'
+alias config='git --git-dir=$HOME/.nicedots --work-tree=$HOME'
 alias gps='git push origin main'
 alias gf='git fetch'
 #alias grbs='git rebase'

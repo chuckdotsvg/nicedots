@@ -36,8 +36,8 @@ char *colors[][2] = {
 	[SchemeSel]  = { "#ebdbb2", "#98971a" },
 	[SchemeOut]  = { "#ebdbb2", "#8ec07c" },
 	[SchemeBorder] = { "#ebdbb2", "#98971a" },
-	[SchemeSelHighlight]  = { "#fabd2f", "#98971a" },
-	[SchemeNormHighlight] = { "#fabd2f", "#282828" },
+	[SchemeSelHighlight]  = { "#cb000c", "#98971a" },
+	[SchemeNormHighlight] = { "#cb000c", "#282828" },
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 static unsigned int lines      = 0;
