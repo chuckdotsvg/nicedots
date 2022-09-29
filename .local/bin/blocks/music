@@ -15,7 +15,7 @@ BG=$BLC
 ICON="📻"
 
 #DATA=$(playerctl metadata --format '{{ trunc(default( title , "-" ), 14) }}' 2>/dev/null || printf "Nothing to play") 
-DATA=$(scrollepoch $(playerctl metadata --format "{{trunc(title,21)}}" 2>/dev/null || echo "Nothing to play"))
+DATA=$(scrollepoch $(playerctl metadata --format "{{title}} | {{artist}}" 2>/dev/null || echo "Nothing to play"))
 
 playerctl metadata 2>/dev/null | grep -iq spotify && FG=$BLC && BG=$GRN && ICON="" 
 
