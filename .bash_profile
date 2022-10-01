@@ -38,11 +38,12 @@ export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+# export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 export EDITOR=nvim
 export GTK_USE_PORTAL=0
 export PATH=$PATH:$HOME/.local/bin/
+export RANGER_LOAD_DEFAULT_RC=FALSE
 export XKB_DEFAULT_LAYOUT=it
 export XCURSOR_SIZE=24
 
@@ -61,5 +62,3 @@ export BEMENU_OPTS="--list 7 \
   --sf '#50fa7b'\
   --scb '#282a36'\
   --scf '#ff79c6'"
-
-# END: display manager (fu systemd)

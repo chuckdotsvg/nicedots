@@ -1,8 +1,12 @@
+pipewire &
+pipewire-pulse &
+wireplumber &
+
 dunst &
 udiskie &
 playerctld daemon &
 picom &
-feh --no-fehbg --bg-fill '/home/chuck/Pictures/forest-hut.png' &
+feh --no-fehbg --bg-scale '/home/chuck/Pictures/purplejungle.jpg' &
 sct 4000 &
 dwmblocks &
 
@@ -11,4 +15,4 @@ xset s noblank &
 xset s 300 &
 xss-lock slock &
 
-exec dwm
+exec dbus-run-session dwm

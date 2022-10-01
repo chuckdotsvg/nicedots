@@ -12,4 +12,4 @@ BG=$BLC
 
 [[ $TMP -ge 75 ]] && FG=$WHT && BG=$RED
 
-echo "^c$FG^^b$BG^  $TMP°C ^d^"
+echo "^c$FG^^b$BG^  $TMP°C ^d^"

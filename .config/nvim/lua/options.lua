@@ -1,6 +1,6 @@
 local options = {
 	backup = false,
-	mouse = "a",
+	mouse = "",
 	-- termguicolors = true,
 	expandtab = true,
 	shiftwidth = 2,

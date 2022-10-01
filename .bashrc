@@ -19,6 +19,7 @@ alias grep='grep --color=auto'
 alias ls='ls --color=auto --group-directories-first --classify --file-type'
 alias pbin="curl -F 'f:1=<-' ix.io"
 alias rm="echo Not today :D && false"
+alias rn='ranger'
 
 # GITHUB ALIASES
 alias config='git --git-dir=$HOME/.nicedots --work-tree=$HOME'

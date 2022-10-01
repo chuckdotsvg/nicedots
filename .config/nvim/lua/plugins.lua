@@ -42,19 +42,22 @@ require('packer').startup(function()
   use 'ms-jpq/coq.artifacts'
   use 'ms-jpq/coq.thirdparty'
 
+  use 'folke/tokyonight.nvim'
+
+  use 'lewis6991/gitsigns.nvim'
 	use 'jiangmiao/auto-pairs'
-	use 'morhetz/gruvbox'
   use 'vimwiki/vimwiki'
   use 'tpope/vim-surround'
   use 'farmergreg/vim-lastplace'
   use 'ap/vim-css-color'
   use 'glepnir/dashboard-nvim'
-  use 'tomasiser/vim-code-dark'
-	--use {
-		--'rrethy/vim-hexokinase', 
-		--run = 'cd ~/.local/share/nvim/site/pack/packer/start/vim-hexokinase	&& make hexokinase'
-	--}
+  use 'kyazdani42/nvim-web-devicons'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
 end)
 
-require 'pg/dashboard'
+-- require 'pg/dashboard'
 require 'pg/coq'
+require 'pg/lualine'

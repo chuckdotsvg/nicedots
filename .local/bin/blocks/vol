@@ -32,9 +32,14 @@ upd(){
 }
 
 case $1 in
-  --inc)  pamixer -i $STEP;;
-  --dec)  pamixer -d $STEP;;
-  --mute)  pactl set-sink-mute @DEFAULT_SINK@ toggle;;
+  --inc)  pamixer -i $STEP
+          pamixer -u
+          ;;
+
+  --dec)  pamixer -d $STEP
+          pamixer -u
+          ;;
+  --mute) pamixer -t;;
   *) false;;
 esac
 
