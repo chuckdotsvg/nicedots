@@ -6,9 +6,16 @@ set autoquit on
 
 # commands
 
-cmd trash %trash-put $fx
+cmd trash %trash-put "$fx"
 cmd mkdir %mkdir "$@"
-cmd dragon %dragon-drop -a -x $fx
+cmd dragon %dragon-drop -a -x "$fx"
+
+# cmd open ${{
+#     case $(file --mime-type -Lb $f) in
+#         text/*) $EDITOR $fx;;
+#         *)  $OPENER $f &;;
+#     esac
+# }}
 
 # keybinds
 

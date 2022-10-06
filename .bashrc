@@ -10,6 +10,11 @@
 # alias sway='XDG_CURRENT_DESKTOP=sway dbus-run-session sway'
 # alias Hyprland='dbus-run-session Hyprland'
 
+# RUNIT SERVICES
+sv_en(){ doas ln -s /etc/runit/sv/$1 /run/runit/service ; }
+sv_dis(){ doas touch /run/runit/service/$1/down ; }
+sv_rm(){ doas unlink /run/runit/service/$1 ; }
+
 # PACMAN
 alias upg='doas pacman -Syu'
 

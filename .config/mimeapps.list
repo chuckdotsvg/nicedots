@@ -10,8 +10,9 @@ image/png=feh.desktop
 image/gif=imv.desktop
 text/plain=nvim.desktop
 image/bmp=imv.desktop
-image/svg+xml=imv-folder.desktop
+image/svg+xml=feh-svg.desktop
 image/jpeg=feh.desktop
+image/svg+xml-compressed=feh-svg.desktop
 
 [Added Associations]
 text/x-chdr=libreoffice-writer.desktop;

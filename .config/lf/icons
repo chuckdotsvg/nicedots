@@ -1,5 +1,5 @@
 # default values from lf (with matching order)
-ln             # LINK
+ln             # LINK
 # or      l       # ORPHAN
 # tw      t       # STICKY_OTHER_WRITABLE
 ow             # OTHER_WRITABLE
@@ -114,22 +114,22 @@ fi             # FILE
 *.ogx   
 
 # audio formats (extensions from dircolors defaults)
-*.aac   
-*.au    
-*.flac  
-*.m4a   
-*.mid   
-*.midi  
-*.mka   
-*.mp3   
-*.mpc   
-*.ogg   
-*.ra    
-*.wav   
-*.oga   
-*.opus  
-*.spx   
-*.xspf  
+*.aac   
+*.au    
+*.flac  
+*.m4a   
+*.mid   
+*.midi  
+*.mka   
+*.mp3   
+*.mpc   
+*.ogg   
+*.ra    
+*.wav   
+*.oga   
+*.opus  
+*.spx   
+*.xspf  
 
 # documents formats
 *.pdf   

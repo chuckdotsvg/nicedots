@@ -3,6 +3,8 @@
 YES=$(checkupdates | sed 's/ .*//')
 TITLE="Updates Available!"
 NUM=$(checkupdates | wc -l)
+MAX=3
+[[ $NUM -gt $MAX ]] && head -n$MAX $YES
 
 notify_send(){
   [[ $YES ]] && dunstify "$TITLE" "$YES" -i system-software-update || \

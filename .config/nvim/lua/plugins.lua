@@ -44,7 +44,6 @@ require('packer').startup(function()
 
   use 'folke/tokyonight.nvim'
 
-  use 'lewis6991/gitsigns.nvim'
 	use 'jiangmiao/auto-pairs'
   use 'vimwiki/vimwiki'
   use 'tpope/vim-surround'
@@ -57,7 +56,3 @@ require('packer').startup(function()
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 end)
-
--- require 'pg/dashboard'
-require 'pg/coq'
-require 'pg/lualine'
