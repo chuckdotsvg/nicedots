@@ -28,7 +28,8 @@ def step_to_backlight(step, backlight_min, backlight_max, steps):
 
 if __name__ == "__main__":
 
-    backlight_min = 2
+    # keep this like that (log doesn't exist for x = 0)
+    backlight_min = 1
     backlight_max = 100
     new_step = 0
 

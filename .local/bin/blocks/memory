@@ -1,0 +1,12 @@
+#!/bin/sh
+
+. ~/.local/bin/blocks/color_themes/onedark
+
+FG=$black
+BG=$white
+
+read -r TOT USED <<< "$( free -h | awk '/^Mem/ { print $2" "$3}' | sed s/i//g)"
+
+#(( $(echo "${USED%?} > 5" |bc -l) )) && BG=$red && FG=$black
+
+echo "^b$BG^^c$FG^  ^c$BG^^b$FG^ $USED/$TOT"

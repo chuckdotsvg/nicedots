@@ -1,5 +1,15 @@
 #!/bin/sh
 
+. ~/.local/bin/blocks/color_themes/onedark
+
 [[ $BLOCK_BUTTON -eq 6 ]] && st -e $EDITOR "$0"
 
-awk '{print " ["$1"]["$2"]"}' /proc/loadavg
+IM=$( awk '{print $1}' /proc/loadavg )
+
+FG=$black
+BG=$white
+
+(( $(echo "$IM > 5" |bc -l) )) && BG=$red && FG=$black
+
+#awk '{print "  ["$1"]["$2"]"}' /proc/loadavg
+printf "^b$BG^^c$FG^  ^c$BG^^b$FG^ $IM"

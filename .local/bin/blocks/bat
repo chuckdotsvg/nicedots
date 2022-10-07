@@ -1,25 +1,23 @@
 #!/bin/sh
 
+# select color theme
+. ~/.local/bin/blocks/color_themes/onedark
+
 PERC=$(cat /sys/class/power_supply/BAT0/capacity)
 STATUS=$(cat /sys/class/power_supply/AC/online)
 
-BLC="#282828"
-GRN="#b8bb26"
-WHT="#ebdbb2"
-RED="#fb4934"
+BG=$black
+FG=$orange
 
-FG=$WHT
-BG=$BLC
+ICON="" && [ $PERC -gt 90 ] && [[ $STATUS -eq 1 ]] && dunstify "Battery charged!"
+[ $PERC -lt 90 ] && ICON=""
+[ $PERC -lt 60 ] && ICON=""
+[ $PERC -lt 40 ] && ICON=""
+[ $PERC -lt 15 ] && ICON="" && [[ $STATUS -eq 0 ]] && BG=$red && FG=$black && dunstify -u critical -t 10 "Battery low!"
 
-BAT=" $PERC" && [ $PERC -gt 90 ] && [[ $STATUS -eq 1 ]] && dunstify "Battery charged!"
-[ $PERC -lt 90 ] && BAT=" $PERC"
-[ $PERC -lt 60 ] && BAT=" $PERC"
-[ $PERC -lt 40 ] && BAT=" $PERC"
-[ $PERC -lt 15 ] && BAT=" $PERC" && [[ $STATUS -eq 0 ]] && BG=$RED && FG=$BLC && dunstify -u critical -t 10 "Battery low!"
-
-[[ $STATUS -eq 1 ]] && BAT="$BAT" && BG=$GRN && FG=$BLC
+[[ $STATUS -eq 1 ]] && ICON="$ICON" && BG=$green && FG=$black
 
 [[ $BLOCK_BUTTON -eq 6 ]] && st -e $EDITOR "$0"
 
 
-echo "^c$FG^^b$BG^ $BAT% ^d^"
+echo "^b$FG^^c$BG^ $ICON ^c$FG^^b$BG^ $PERC%"

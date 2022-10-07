@@ -1,41 +1,40 @@
 #!/bin/sh
 
+. ~/.local/bin/blocks/color_themes/onedark
+
 STEP=5
 vol="$(pamixer --get-volume)"
 STATUS=$(pamixer --get-mute)
+SOUND="/usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
   
 
 block(){
-  YLW="#fabd2f"
-  BLC="#282828"
-  WHT="#ebdbb2"
-  
-  FG=$WHT
-  BG=$BLC
+  FG=$black
+  BG=$teal
   
   case $BLOCK_BUTTON in
   	1) setsid -f st -e pulsemixer ;;
   	6) st -e "$EDITOR" "$0" ;;
   esac
   
-  [[ $vol -ge 0 ]] && icon="🔈"
-  [[ $vol -gt 33 ]] && icon="🔉"
-  [[ $vol -gt 64 ]] && icon="🔊" && BG=$YLW && FG=$BLC
-  $STATUS && icon="🔇"
+  [[ $vol -ge 0 ]] && icon=""
+  [[ $vol -gt 24 ]] && icon=""
+  [[ $vol -gt 49 ]] && icon="墳"
+  [[ $vol -gt 74 ]] && icon="" && BG=$red && FG=$black
+  $STATUS && icon="婢"
   
-  echo "^c$FG^^b$BG^ $icon$vol% ^d^"
+  echo "^c$FG^^b$BG^ $icon ^b$FG^^c$BG^ $vol%"
 }
 
 upd(){
   pkill -RTMIN+13 dwmblocks
-  mpv /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga &
+  mpv $SOUND &
 }
 
 case $1 in
   --inc)  pamixer -i $STEP
           pamixer -u
           ;;
-
   --dec)  pamixer -d $STEP
           pamixer -u
           ;;
