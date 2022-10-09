@@ -5,11 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# temporary wm commands
-# alias dwl='XDG_CURRENT_DESKTOP=dwl dbus-run-session dwl -s "startway.sh"'
-# alias sway='XDG_CURRENT_DESKTOP=sway dbus-run-session sway'
-# alias Hyprland='dbus-run-session Hyprland'
-
 # RUNIT SERVICES
 sv_en(){ doas ln -s /etc/runit/sv/$1 /run/runit/service ; }
 sv_dis(){ doas touch /run/runit/service/$1/down ; }
@@ -21,10 +16,10 @@ alias upg='doas pacman -Syu'
 # SYSTEM ALIASES
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
+alias icons='lf /usr/share/icons'
 alias ls='ls --color=auto --group-directories-first --classify --file-type'
 alias pbin="curl -F 'f:1=<-' ix.io"
 alias rm="echo Not today :D && false"
-alias rn='ranger'
 
 # GITHUB ALIASES
 alias config='git --git-dir=$HOME/.nicedots --work-tree=$HOME'

@@ -10,15 +10,35 @@ cmd trash %trash-put "$fx"
 cmd mkdir %mkdir "$@"
 cmd dragon %dragon-drop -a -x "$fx"
 
-# cmd open ${{
-#     case $(file --mime-type -Lb $f) in
-#         text/*) $EDITOR $fx;;
-#         *)  $OPENER $f &;;
-#     esac
-# }}
+cmd open ${{
+    case $(file --mime-type "$f" -bL) in
+        text/*|application/json) $EDITOR "$f";;
+        *) xdg-open "$f" ;;
+    esac
+}}
+
+cmd unarchive ${{
+  case "$f" in
+      *.zip) unzip "$f" ;;
+      *.tar.gz) tar -xzvf "$f" ;;
+      *.tar.bz2) tar -xjvf "$f" ;;
+      *.tar) tar -xvf "$f" ;;
+      *) echo "Unsupported format" ;;
+  esac
+}}
+
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  $EDITOR $ans
+}}
+
+# remove keybinds
+map m
 
 # keybinds
+map au unarchive
 
-map MD push :mkdir<space>
+map md push :mkdir<space>
 map DD :trash
 map DR :dragon

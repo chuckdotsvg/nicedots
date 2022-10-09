@@ -11,5 +11,4 @@ BG=$white
 
 (( $(echo "$IM > 5" |bc -l) )) && BG=$red && FG=$black
 
-#awk '{print "  ["$1"]["$2"]"}' /proc/loadavg
 printf "^b$BG^^c$FG^  ^c$BG^^b$FG^ $IM"

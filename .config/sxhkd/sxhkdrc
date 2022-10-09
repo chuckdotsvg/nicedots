@@ -1,0 +1,29 @@
+super + backslash
+  gtk-launch lf
+
+super + shift + Return
+  tabbed -c -r 2 st -w ""
+
+super + p
+  dmenu_run_i
+
+XF86MonBrightness{Up,Down}
+  python ~/.local/bin/brightness.py -{inc,dec}
+
+XF86Audio{Mute,RaiseVolume,LowerVolume}
+  ~/.local/bin/blocks/vol --{mute,inc,dec}
+
+XF86AudioMicMute
+  pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+XF86Calculator
+  mate-calc
+
+XF86Audio{Prev,Play,Next}
+  playerctl {previous,play-pause,next}
+
+super + Print
+  ~/.local/bin/xscreenshot.sh
+
+super + g
+  tabbed -c surf -e

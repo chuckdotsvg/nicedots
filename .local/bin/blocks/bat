@@ -4,18 +4,20 @@
 . ~/.local/bin/blocks/color_themes/onedark
 
 PERC=$(cat /sys/class/power_supply/BAT0/capacity)
-STATUS=$(cat /sys/class/power_supply/AC/online)
+PLUG=$(cat /sys/class/power_supply/AC/online)
+# STATUS=$(cat /sys/class/power_supply/BAT0/status)
+
 
 BG=$black
 FG=$orange
 
-ICON="" && [ $PERC -gt 90 ] && [[ $STATUS -eq 1 ]] && dunstify "Battery charged!"
+ICON="" && [ $PERC -gt 90 ] && [[ $PLUG -eq 1 ]] && dunstify "Battery charged!" "Disconnect AC"
 [ $PERC -lt 90 ] && ICON=""
 [ $PERC -lt 60 ] && ICON=""
 [ $PERC -lt 40 ] && ICON=""
-[ $PERC -lt 15 ] && ICON="" && [[ $STATUS -eq 0 ]] && BG=$red && FG=$black && dunstify -u critical -t 10 "Battery low!"
+[ $PERC -lt 15 ] && ICON="" && [[ $PLUG -eq 0 ]] && FG=$red && BG=$black && dunstify -u critical -r 123456 "Battery low!"
 
-[[ $STATUS -eq 1 ]] && ICON="$ICON" && BG=$green && FG=$black
+(($PLUG)) && ICON="$ICON" && FG=$green && BG=$black 
 
 [[ $BLOCK_BUTTON -eq 6 ]] && st -e $EDITOR "$0"
 

@@ -2,6 +2,8 @@
 
 . ~/.local/bin/blocks/color_themes/onedark
 
+[[ $BLOCK_BUTTON -eq 6 ]] && st -e $EDITOR "$0"
+
 FG=$black
 BG=$white
 
