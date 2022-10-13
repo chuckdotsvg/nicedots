@@ -1,4 +1,4 @@
-super + backslash
+super + shift + f
   gtk-launch lf
 
 super + shift + Return
