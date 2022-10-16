@@ -2,11 +2,8 @@
 
 . ~/.local/bin/blocks/color_themes/onedark
 
-STEP=5
 vol="$(pamixer --get-volume)"
 STATUS=$(pamixer --get-mute)
-SOUND="/usr/share/sounds/freedesktop/stereo/audio-volume-change.oga"
-  
 
 block(){
   FG=$black
@@ -25,23 +22,5 @@ block(){
   
   echo "^c$FG^^b$BG^ $icon ^b$FG^^c$BG^ $vol%"
 }
-
-upd(){
-  pkill -RTMIN+13 dwmblocks
-  mpv $SOUND &
-}
-
-case $1 in
-  --inc)  pamixer -i $STEP
-          pamixer -u
-          ;;
-  --dec)  pamixer -d $STEP
-          pamixer -u
-          ;;
-  --mute) pamixer -t;;
-  *) false;;
-esac
-
-[[ $1 ]] && upd
 
 block

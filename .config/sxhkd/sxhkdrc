@@ -11,7 +11,7 @@ XF86MonBrightness{Up,Down}
   python ~/.local/bin/brightness.py -{inc,dec}
 
 XF86Audio{Mute,RaiseVolume,LowerVolume}
-  ~/.local/bin/blocks/vol --{mute,inc,dec}
+  mpv --vid=no --really-quiet /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga & pamixer -{t,i,d} 5 && pkill -RTMIN+13 dwmblocks
 
 XF86AudioMicMute
   pactl set-source-mute @DEFAULT_SOURCE@ toggle

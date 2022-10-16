@@ -17,7 +17,7 @@ case $OPTIONS in
 	*) err ;;
 esac
 
-SAVE=$(echo -e "-Clipboard\n-Save" | $MENU)
+SAVE=$(echo -e "-Clipboard\n-Save" | $MENU)
 [ $SAVE ] && maim $TOKEN $SAVEPATH/$SAVENAME && mpv --no-video /usr/share/sounds/freedesktop/stereo/screen-capture.oga
 
 case $SAVE in
@@ -32,13 +32,19 @@ case $SAVE in
 			mv $SAVEPATH/$SAVENAME $SAVEPATH/$NEW && SAVENAME=$NEW
 		fi
 
-		dunstify "$SAVENAME saved in $SAVEPATH" -i $SAVEPATH/$SAVENAME
-		;;
-	"-Clipboard")
+    ACTION=$( dunstify "Capture Saved!" "$SAVENAME saved in $SAVEPATH" -i $SAVEPATH/$SAVENAME --action="show, image viewer" --action="list, file manager" )
+    case $ACTION in
+      show) st -e feh $SAVEPATH/$SAVENAME ;;
+      list) st -e lf $SAVEPATH ;;
+    esac
+    ;;
+
+	"-Clipboard")
     xclip -selection clipboard -t image/png $SAVEPATH/$SAVENAME
 		dunstify "Screenshot saved in the clipboard!" -i $SAVEPATH/$SAVENAME
     
     rm $SAVEPATH/$SAVENAME
 		;;
+
 	*) err;;
 esac

@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# source color theme
+. ~/.local/bin/blocks/color_themes/onedark
+
+case $BLOCK_BUTTON in
+  1) st -e nmtui ;;
+  6) st -e "$EDITOR" "$0" ;;
+esac
+
+# before ethernet
+ICON=""
+FG=$black
+BG=$red
+
+grep -xq 'up' /sys/class/net/e*/operstate && BG=$green
+
+# then wifi
+grep -xq 'up' /sys/class/net/w*/operstate && ICON="" && BG=$green
+
+SSID=$( nmcli | grep connected | tail -c+21 )
+
+printf "^b$BG^^c$FG^ $ICON ^c$BG^^b$FG^ $SSID"
