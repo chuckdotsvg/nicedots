@@ -2,6 +2,7 @@
 sv_en(){ doas ln -s /etc/runit/sv/$1 /run/runit/service ; }
 sv_dis(){ doas touch /run/runit/service/$1/down ; }
 sv_rm(){ doas unlink /run/runit/service/$1 ; }
+alias sv_ls='ls /run/runit/service/'
 
 # PACMAN
 alias upg='doas pacman -Syu'

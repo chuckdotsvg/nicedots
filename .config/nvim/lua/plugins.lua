@@ -43,6 +43,7 @@ require('packer').startup(function()
   use 'ms-jpq/coq.thirdparty'
 
   use 'folke/tokyonight.nvim'
+  use 'ellisonleao/gruvbox.nvim'
 
 	use 'jiangmiao/auto-pairs'
   use 'vimwiki/vimwiki'

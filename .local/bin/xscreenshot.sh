@@ -18,7 +18,8 @@ case $OPTIONS in
 esac
 
 SAVE=$(echo -e "-Clipboard\n-Save" | $MENU)
-[ $SAVE ] && maim $TOKEN $SAVEPATH/$SAVENAME && mpv --no-video /usr/share/sounds/freedesktop/stereo/screen-capture.oga
+[ $SAVE ] && maim $TOKEN $SAVEPATH/$SAVENAME \ 
+  # && mpv --no-video /usr/share/sounds/freedesktop/stereo/screen-capture.oga
 
 case $SAVE in
 	"-Save")
