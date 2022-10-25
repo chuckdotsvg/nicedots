@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # source color theme
-. ~/.local/bin/blocks/color_themes/onedark
+. ~/.local/bin/blocks/color_themes/gruvbox
 
 case $BLOCK_BUTTON in
   1) st -e nmtui ;;

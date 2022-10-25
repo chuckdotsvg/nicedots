@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ~/.local/bin/blocks/color_themes/onedark
+. ~/.local/bin/blocks/color_themes/gruvbox
 
 TMP=$(head -c2 /sys/class/hwmon/hwmon3/temp1_input)
 

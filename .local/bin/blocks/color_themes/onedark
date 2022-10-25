@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# colors
-
 black="#1e222a"
 green="#7eca9c"
 white="#abb2bf"

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ~/.local/bin/blocks/color_themes/onedark
+. ~/.local/bin/blocks/color_themes/gruvbox
 
 send_notification() {
 	TODAY=$(date '+%d')
