@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ~/.local/bin/blocks/color_themes/gruvbox
+. ~/.local/bin/blocks/color_themes/onedark
 
 vol="$(pamixer --get-volume)"
 STATUS=$(pamixer --get-mute)
@@ -17,8 +17,8 @@ block(){
   [[ $vol -ge 0 ]] && icon=""
   [[ $vol -gt 24 ]] && icon=""
   [[ $vol -gt 49 ]] && icon="墳"
-  [[ $vol -gt 74 ]] && icon="" && BG=$red && FG=$black
-  $STATUS && icon="婢"
+  [[ $vol -gt 74 ]] && icon="" && BG=$orange && FG=$black
+  $STATUS && icon="婢" && BG=$white && FG=$black
   
   echo "^c$FG^^b$BG^ $icon ^b$FG^^c$BG^ $vol%"
 }

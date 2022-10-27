@@ -1,9 +1,5 @@
-super + shift + f
-  gtk-launch lf
-
 super + shift + Return
-  tabbed -c -r 2 st -w ""
-
+  alacritty
 super + p
   dmenu_run_i
 
@@ -14,7 +10,7 @@ XF86Audio{Mute,RaiseVolume,LowerVolume}
   mpv --vid=no --really-quiet /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga & pamixer -{t,i,d} 5 && pkill -RTMIN+13 dwmblocks
 
 XF86AudioMicMute
-  pactl set-source-mute @DEFAULT_SOURCE@ toggle
+  mpv --vid=no --really-quiet /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga & pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 XF86Calculator
   mate-calc
