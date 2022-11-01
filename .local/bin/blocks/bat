@@ -19,7 +19,7 @@ ICON="" && [ $PERC -ge 90 ] && [[ $PLUG -eq 1 ]] && dunstify "Battery charged
 
 (($PLUG)) && ICON="$ICON" && FG=$green && BG=$black 
 
-[[ $BLOCK_BUTTON -eq 6 ]] && st -e $EDITOR "$0"
+[[ $BLOCK_BUTTON -eq 6 ]] && $TERMINAL -e $EDITOR "$0"
 
 
 echo "^b$FG^^c$BG^ $ICON ^c$FG^^b$BG^ $PERC%"

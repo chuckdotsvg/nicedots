@@ -44,12 +44,16 @@ require('packer').startup(function()
 
   use 'folke/tokyonight.nvim'
   use 'ellisonleao/gruvbox.nvim'
+  use 'Mofiqul/vscode.nvim'
 
 	use 'jiangmiao/auto-pairs'
   use 'vimwiki/vimwiki'
   use 'tpope/vim-surround'
   use 'farmergreg/vim-lastplace'
-  use 'ap/vim-css-color'
+  
+  -- use 'ap/vim-css-color'
+  use 'chrisbra/Colorizer'
+
   use 'glepnir/dashboard-nvim'
   use 'kyazdani42/nvim-web-devicons'
   use {

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #test '$XDG_CURRENT_DESKTOP = "{dwl,Hyprland}"' && MENU="wofi -d" || MENU="dmenu"
-MENU="dmenu"
+MENU="wofi --dmenu"
 SAVEPATH=~/Pictures/Screenshots
 SAVENAME=$(date "+%Y%m%d-%H%M%S").png
 

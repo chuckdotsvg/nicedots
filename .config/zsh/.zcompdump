@@ -1,4 +1,4 @@
-#files: 801	version: 5.9
+#files: 806	version: 5.9
 
 _comps=(
 '-' '_precommand'
@@ -108,7 +108,6 @@ _comps=(
 'add-zle-hook-widget' '_add-zle-hook-widget'
 'add-zsh-hook' '_add-zsh-hook'
 'admin' '_sccs'
-'alacritty' '_alacritty'
 'ali' '_mh'
 'alias' '_alias'
 'amaya' '_webbrowser'
@@ -713,6 +712,7 @@ _comps=(
 'killall' '_killall'
 'killall5' '_killall'
 'kioclient' '_kfmclient'
+'kitty' '_kitty'
 'knock' '_knock'
 'konqueror' '_webbrowser'
 'kpartx' '_kpartx'
@@ -1258,6 +1258,8 @@ _comps=(
 'svnliteadmin' '_subversion'
 'swaks' '_swaks'
 'swanctl' '_swanctl'
+'swayidle' '_swayidle'
+'swaylock' '_swaylock'
 'swift' '_swift'
 'swiftc' '_swift'
 'sync' '_nothing'
@@ -1403,6 +1405,7 @@ _comps=(
 'watcher' '_openstack'
 'wc' '_wc'
 'wget' '_wget'
+'wgetpaste' '_wgetpaste'
 'what' '_sccs'
 'whatis' '_man'
 'whence' '_which'
@@ -1415,6 +1418,8 @@ _comps=(
 'whom' '_mh'
 'wiggle' '_wiggle'
 'wipefs' '_wipefs'
+'wl-copy' '_wl-copy'
+'wl-paste' '_wl-paste'
 'wodim' '_cdrecord'
 'wpa_cli' '_wpa_cli'
 'write' '_users_on'
@@ -1649,13 +1654,14 @@ bindkey '^[,' _history-complete-newer
 bindkey '^[/' _history-complete-older
 bindkey '^[~' _bash_complete-word
 
-autoload -Uz _alacritty _bluetoothctl _bwrap _cargo _checkupdates \
-            _curl _email-notmuch _lf _libinput _loginctl \
+autoload -Uz _bluetoothctl _bwrap _cargo _checkupdates _curl \
+            _email-notmuch _kitty _lf _libinput _loginctl \
             _meson _mkinitcpio _mpv _ninja _notmuch \
             _paccache _pacdiff _paclist _paclog-pkglist _pacman \
             _pacscripts _pacsearch _pacsort _pactree _paru \
             _playerctl _pulseaudio _qpdf _rankmirrors _rustup \
-            _udiskie _udiskie-mount _udiskie-umount _updpkgsums _xss-lock \
+            _swayidle _swaylock _udiskie _udiskie-mount _udiskie-umount \
+            _updpkgsums _wgetpaste _wl-copy _wl-paste _xss-lock \
             _yt-dlp _zathura _cdr _all_labels _all_matches \
             _alternative _approximate _arg_compile _arguments _bash_completions \
             _cache_invalid _call_function _combination _comp_locale _complete \

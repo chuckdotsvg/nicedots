@@ -1,14 +1,9 @@
 {
 	"layer": "top",
   "position": "top",
-	"modules-left": ["tray", "network"],
-	"modules-center": ["wlr/workspaces"],
+	"modules-left": ["sway/workspaces", "sway/mode", "tray", "network"],
+	"modules-center": ["custom/media"],
 	"modules-right": [ "temperature", "cpu", "memory", "battery" , "clock"],
-
-  "wlr/workspaces": {
-    "format": "{icon}",
-    "on-click": "activate"
-  },
 	"mpd": {
 		"tooltip": false,
 		"format": "{stateIcon} {artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
@@ -50,7 +45,7 @@
   },
   "clock": {
     "interval": 1,
-    "format": " {:%H:%M}",
+    "format": " {:%r}",
     "format-alt": " {:%a %d %b}",
 
     "tooltip": true,

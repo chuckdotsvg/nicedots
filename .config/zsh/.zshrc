@@ -28,7 +28,7 @@ autoload -U colors && colors
 # bindkey '^[[5~' delete-char
 # bindkey '^[[5~' delete-char
 bindkey '^[[H' beginning-of-line
-bindkey '^[[4~' end-of-line
+bindkey '^[[F' end-of-line
 bindkey '^[[3~' delete-char
 
 

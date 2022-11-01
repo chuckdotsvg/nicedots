@@ -1,6 +1,12 @@
 #!/bin/bash
 
 #systemctl --user import-environment XDG_CURRENT_DESKTOP WAYLAND_DISPLAY
+if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+ for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+  [ -x "$f" ] && . "$f"
+ done
+ unset f
+fi
 
 # audio
 pipewire &
@@ -18,11 +24,9 @@ blueman-applet &
 nm-applet &
 
 # graphic stuff
-swaybg -i ~/Pictures/forest-hut.png &
+swaybg -i ~/Pictures/flowerboy.jpg &
 swayidle -w &
-gammastep &
-
-# dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+gammastep-indicator -m wayland &
 
 # killall swhks; swhks &
 # pkexec swhkd -c ~/.config/swhkd/swhkdrc

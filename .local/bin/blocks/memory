@@ -1,8 +1,11 @@
 #!/bin/sh
 
-. ~/.local/bin/blocks/color_themes/gruvbox
+. ~/.local/bin/blocks/color_themes/onedark
 
-[[ $BLOCK_BUTTON -eq 6 ]]  && st -e "$EDITOR" "$0"
+case $BLOCK_BUTTON in
+  1) $TERMINAL -e btop ;;
+  6) $TERMINAL -e "$EDITOR" "$0";;
+esac
 
 FG=$black
 BG=$white

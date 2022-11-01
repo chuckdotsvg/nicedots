@@ -29,14 +29,23 @@ export XINITRC="$XDG_CONFIG_HOME"/x11/xinitrc
 export ZDOTDIR="$HOME"/.config/zsh
 
 # programs settings
+export DIFFPROG="nvim -d"
 export EDITOR=nvim
 export GTK_USE_PORTAL=0
 export RANGER_LOAD_DEFAULT_RC=FALSE
-export XKB_DEFAULT_LAYOUT=it
+# export XKB_DEFAULT_LAYOUT=it
 export XCURSOR_SIZE=24
 export PF_INFO="ascii title os kernel shell uptime pkgs memory palette"
-export MOX_USE_XINPUT2=1
+export MOZ_USE_XINPUT2=1
 
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec ssh-agent startx "$XINITRC"
+export TERMINAL="kitty"
+
+export SVDIR=~/.service
+
+# fake display manager
+if [ -z "${DISPLAY}" ]; then
+  case "${XDG_VTNR}" in
+    1) exec dbus-launch --exit-with-session ssh-agent Hyprland ;;
+    2) exec ssh-agent startx "$XINITRC" ;;
+  esac
 fi

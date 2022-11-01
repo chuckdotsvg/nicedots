@@ -1,5 +1,6 @@
 super + shift + Return
-  alacritty
+  kitty
+
 super + p
   dmenu_run_i
 
@@ -7,7 +8,7 @@ XF86MonBrightness{Up,Down}
   python ~/.local/bin/brightness.py -{inc,dec}
 
 XF86Audio{Mute,RaiseVolume,LowerVolume}
-  mpv --vid=no --really-quiet /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga & pamixer -{t,i,d} 5 && pkill -RTMIN+13 dwmblocks
+  ~/.local/bin/changevolume.sh {muted,high,low}
 
 XF86AudioMicMute
   mpv --vid=no --really-quiet /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga & pactl set-source-mute @DEFAULT_SOURCE@ toggle
@@ -22,4 +23,7 @@ super + Print
   ~/.local/bin/xscreenshot.sh
 
 super + g
-  tabbed -c surf -e
+  firefox
+
+super + z
+  kitty -e lf

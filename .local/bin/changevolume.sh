@@ -1,32 +1,33 @@
 #!/bin/bash
 
-PERCENTAGE=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
+PERCENTAGE=$(pamixer --get-volume)
 STEP=5
 
 case $1 in
 	high)
 		# Set the volume on (if it was muted)
-		pactl set-sink-mute @DEFAULT_SINK@ 0
-		[ $PERCENTAGE -gt $(expr 100 + 1 - $STEP) ] && pactl set-sink-volume @DEFAULT_SINK@ 100% || pactl set-sink-volume @DEFAULT_SINK@ +$STEP%
+    pamixer -u
+    pamixer -i $STEP
 		;;
 	low)
 		# Set the volume on (if it was muted)
-		pactl set-sink-mute @DEFAULT_SINK@ 0
-	    pactl set-sink-volume @DEFAULT_SINK@ -$STEP%
+    pamixer -u
+    pamixer -d $STEP
 		;;
 	muted)
-		pactl set-sink-mute @DEFAULT_SINK@ toggle
-		;;
+	  pamixer -t ;;
+  *)
+    echo "Incorrect invocation, I need at least an argument";
+    exit 1
+    ;;
 esac
 
-PERCENTAGE=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
-STATUS=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
+PERCENTAGE=$(pamixer --get-volume)
 
-VOLUME="muted"
-[ $PERCENTAGE -gt 0  ] && VOLUME="low"
+[ $PERCENTAGE -ge 0  ] && VOLUME="low"
 [ $PERCENTAGE -gt 24 ] && VOLUME="medium"
 [ $PERCENTAGE -gt 49 ] && VOLUME="high"
 [ $PERCENTAGE -gt 74 ] && VOLUME="overamplified"
-[ $STATUS = "yes" ] && VOLUME="muted"
+$(pamixer --get-mute) && VOLUME="muted"
 
 dunstify -a "multimedial" -r "9993" -h int:value:"$PERCENTAGE" -i "~/Pictures/popcatpng/$VOLUME.png" "Volume $VOLUME:"

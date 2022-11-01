@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# test '$XDG_CURRENT_DESKTOP = "{dwl,Hyprland}"' && MENU="wofi -d" || MENU="dmenu"
-MENU="dmenu -R"
+test $XDG_SESSION_TYPE="wayland" && MENU="wofi --dmenu" || MENU="dmenu"
 
 OPT=$(echo -e 'poweroff\nreboot\nsuspend' | $MENU -p "Choose an option:")
 
 # loginctl $OPT || dunstify "But nothing happened!"
-systemctl $OPT || dunstify "But nothing happened!"
+loginctl $OPT || dunstify "But nothing happened!"

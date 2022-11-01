@@ -1,6 +1,9 @@
 #!/bin/sh
 
-. ~/.local/bin/blocks/color_themes/gruvbox
+. ~/.local/bin/blocks/color_themes/onedark
+
+FG=$black
+BG=$white
 
 YES=$(checkupdates | sed 's/ .*//')
 TITLE="Updates Available!"
@@ -14,8 +17,8 @@ notify_send(){
 
 case $BLOCK_BUTTON in
   1) notify_send;;
-  6) st -e $EDITOR "$0";;
+  6) $TERMINAL -e $EDITOR "$0";;
 esac
 
-[[ $NUM -ge 10 ]] && notify_send
-echo "^b$white^^c$black^  ^c$white^^b$black^ $NUM^d^"
+[[ $NUM -ge 10 ]] && notify_send && BG=$green && FG=$black
+echo "^b$BG^^c$FG^  ^c$BG^^b$FG^ $NUM^d^"

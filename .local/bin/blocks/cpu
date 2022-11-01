@@ -1,8 +1,8 @@
 #!/bin/sh
 
-. ~/.local/bin/blocks/color_themes/gruvbox
+. ~/.local/bin/blocks/color_themes/onedark
 
-[[ $BLOCK_BUTTON -eq 6 ]] && st -e $EDITOR "$0"
+[[ $BLOCK_BUTTON -eq 6 ]] && $TERMINAL -e $EDITOR "$0"
 
 IM=$( awk '{print $1}' /proc/loadavg )
 

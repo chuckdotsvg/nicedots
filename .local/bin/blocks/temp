@@ -7,7 +7,7 @@ TMP=$(head -c2 /sys/class/hwmon/hwmon3/temp1_input)
 FG=$black
 BG=$blue
 
-[[ $BLOCK_BUTTON -eq 6 ]] && st -e $EDITOR "$0"
+[[ $BLOCK_BUTTON -eq 6 ]] && $TERMINAL -e $EDITOR "$0"
 
 [[ $TMP -ge 75 ]] && FG=$white && BG=$red
 
