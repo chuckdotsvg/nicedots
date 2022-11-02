@@ -13,6 +13,7 @@ pipewire &
 pipewire-pulse &
 wireplumber &
 playerctld daemon &
+mpd &
 
 # notifications
 dunst &
@@ -21,7 +22,7 @@ dunst &
 waybar &
 udiskie &
 blueman-applet &
-nm-applet &
+nm-applet --indicator &
 
 # graphic stuff
 swaybg -i ~/Pictures/flowerboy.jpg &

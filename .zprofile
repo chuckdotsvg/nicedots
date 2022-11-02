@@ -40,7 +40,8 @@ export MOZ_USE_XINPUT2=1
 
 export TERMINAL="kitty"
 
-export SVDIR=~/.service
+# for runit user services
+# export SVDIR=~/.service
 
 # fake display manager
 if [ -z "${DISPLAY}" ]; then
