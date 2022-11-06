@@ -1,24 +1,15 @@
 #!/bin/sh
 
 . ~/.local/bin/blocks/color_themes/onedark
+. ~/.local/bin/updates-notify
 
 FG=$black
 BG=$white
 
-YES=$(checkupdates | sed 's/ .*//')
-TITLE="Updates Available!"
-NUM=$(checkupdates | wc -l)
-MAX=3
-
-notify_send(){
-  [[ $YES ]] && dunstify "$TITLE" "$YES" -i system-software-update || \
-  dunstify "No $TITLE" "Your system is fresh as hell" 
-}
-
 case $BLOCK_BUTTON in
-  1) notify_send;;
+  1) updates-notify;;
   6) $TERMINAL -e $EDITOR "$0";;
 esac
 
-[[ $NUM -ge 10 ]] && notify_send && BG=$green && FG=$black
+[[ $NUM -ge 10 ]] && BG=$green && FG=$black
 echo "^b$BG^^c$FG^  ^c$BG^^b$FG^ $NUM^d^"

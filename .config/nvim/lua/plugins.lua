@@ -45,6 +45,7 @@ require('packer').startup(function()
   use 'folke/tokyonight.nvim'
   use 'ellisonleao/gruvbox.nvim'
   use 'Mofiqul/vscode.nvim'
+  use 'sainnhe/gruvbox-material'
 
 	use 'jiangmiao/auto-pairs'
   use 'vimwiki/vimwiki'

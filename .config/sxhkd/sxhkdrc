@@ -1,8 +1,8 @@
 super + shift + Return
-  kitty
+  $TERMINAL
 
 super + p
-  dmenu_run_i
+  dmenu_run
 
 XF86MonBrightness{Up,Down}
   python ~/.local/bin/brightness.py -{inc,dec}

@@ -46,7 +46,7 @@ export TERMINAL="kitty"
 # fake display manager
 if [ -z "${DISPLAY}" ]; then
   case "${XDG_VTNR}" in
-    1) exec dbus-launch --exit-with-session ssh-agent Hyprland ;;
-    2) exec ssh-agent startx "$XINITRC" ;;
+    2) exec dbus-launch --exit-with-session ssh-agent Hyprland ;;
+    1) exec startx "$XINITRC" ;;
   esac
 fi

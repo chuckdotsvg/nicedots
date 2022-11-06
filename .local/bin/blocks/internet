@@ -4,8 +4,8 @@
 . ~/.local/bin/blocks/color_themes/gruvbox
 
 case $BLOCK_BUTTON in
-  1) st -e nmtui ;;
-  6) st -e "$EDITOR" "$0" ;;
+  1) networkmanager_dmenu ;;
+  6) $TERMINAL -e "$EDITOR" "$0" ;;
 esac
 
 # before ethernet
