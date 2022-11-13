@@ -26,4 +26,8 @@ super + g
   firefox
 
 super + z
-  kitty -e lf
+  $TERMINAL -e lf
+
+super + shift + P
+  powermenu.sh
+

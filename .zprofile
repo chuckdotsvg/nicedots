@@ -41,12 +41,12 @@ export MOZ_USE_XINPUT2=1
 export TERMINAL="kitty"
 
 # for runit user services
-# export SVDIR=~/.service
+export SVDIR=~/.service
 
 # fake display manager
 if [ -z "${DISPLAY}" ]; then
   case "${XDG_VTNR}" in
     2) exec dbus-launch --exit-with-session ssh-agent Hyprland ;;
-    1) exec startx "$XINITRC" ;;
+    1) exec ssh-agent startx "$XINITRC" ;;
   esac
 fi

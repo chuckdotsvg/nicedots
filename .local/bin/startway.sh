@@ -20,7 +20,6 @@ dunst &
 
 # status bar
 waybar &
-udiskie &
 blueman-applet &
 nm-applet --indicator &
 

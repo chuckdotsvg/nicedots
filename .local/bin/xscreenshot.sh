@@ -35,8 +35,8 @@ case $SAVE in
 
     ACTION=$( dunstify "Capture Saved!" "$SAVENAME saved in $SAVEPATH" -i $SAVEPATH/$SAVENAME --action="show, image viewer" --action="list, file manager" )
     case $ACTION in
-      show) st -e feh $SAVEPATH/$SAVENAME ;;
-      list) st -e lf $SAVEPATH ;;
+      show) $TERMINAL -e imv $SAVEPATH/$SAVENAME ;;
+      list) $TERMINAL -e lf $SAVEPATH ;;
     esac
     ;;
 

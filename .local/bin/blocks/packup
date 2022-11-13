@@ -7,7 +7,7 @@ FG=$black
 BG=$white
 
 case $BLOCK_BUTTON in
-  1) updates-notify;;
+#  1) updates-notify;; #already done by sourcing it
   6) $TERMINAL -e $EDITOR "$0";;
 esac
 

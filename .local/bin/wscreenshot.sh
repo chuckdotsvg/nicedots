@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#test '$XDG_CURRENT_DESKTOP = "{dwl,Hyprland}"' && MENU="wofi -d" || MENU="dmenu"
 MENU="wofi --dmenu"
 SAVEPATH=~/Pictures/Screenshots
 SAVENAME=$(date "+%Y%m%d-%H%M%S").png
@@ -36,7 +35,12 @@ case $SAVE in
 			mv $SAVEPATH/$SAVENAME $SAVEPATH/$NEW && SAVENAME=$NEW
 		fi
 
-		dunstify "$SAVENAME saved in $SAVEPATH" -i $SAVEPATH/$SAVENAME
+		# dunstify "$SAVENAME saved in $SAVEPATH" -i $SAVEPATH/$SAVENAME
+    ACTION=$( dunstify "Capture Saved!" "$SAVENAME saved in $SAVEPATH" -i $SAVEPATH/$SAVENAME --action="show, image viewer" --action="list, file manager" )
+    case $ACTION in
+      show) $TERMINAL -e imv $SAVEPATH/$SAVENAME ;;
+      list) $TERMINAL -e lf $SAVEPATH ;;
+    esac
 		;;
 	"-Clipboard")
     wl-copy < $SAVEPATH/$SAVENAME

@@ -13,7 +13,7 @@ cmd dragon %dragon-drop -a -x "$fx"
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
         text/*|application/json) $EDITOR "$f";;
-        *) xdg-open "$f" ;;
+        *) xdg-open "$f" &> /dev/null ;;
     esac
 }}
 
