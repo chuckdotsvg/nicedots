@@ -2,6 +2,7 @@ require 'plugins'
 require 'options'
 require 'colorscheme'
 
+require 'autocmds'
 -- PLUGINS CONFIG
 
 -- require 'pg/dashboard'

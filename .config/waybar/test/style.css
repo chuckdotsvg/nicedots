@@ -1,0 +1,170 @@
+/*
+ ********************************************
+ *░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░*
+ *░░█▀█░█░░░█░█░█▀▀░░░█░█░█░░░▀█▀░█▀▄░█▀█░░*
+ *░░█▀▀░█░░░█░█░▀▀█░░░█░█░█░░░░█░░█▀▄░█▀█░░*
+ *░░▀░░░▀▀▀░▀▀▀░▀▀▀░░░▀▀▀░▀▀▀░░▀░░▀░▀░▀░▀░░*
+ *░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░*
+ ********************************************
+ */
+
+* {
+	border: none;
+	border-radius: 0;
+	font-family: Nerd Font Hack;
+	font-size: 14px;
+	min-height: 12px;
+}
+
+window#waybar {
+	background: transparent;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+#window {
+    margin-top: 4px;
+    padding-left: 16px;
+    padding-right: 16px;
+	border-radius: 0px;
+	transition: none;
+	/*
+    color: #f8f8f2;
+	background: #282a36;
+    */
+    color: transparent;
+	background: transparent;
+}
+
+window#waybar.termite #window,
+window#waybar.Firefox #window,
+window#waybar.Navigator #window,
+window#waybar.PCSX2 #window {
+    color: #4d4d4d;
+	background: #e6e6e6;
+}
+
+#workspaces {
+	margin-top: 8px;
+	margin-left: 12px;
+	margin-right: 4px;
+	margin-bottom: 0;
+	background: #282a36;
+	transition: none;
+}
+
+#workspaces button {
+	transition: none;
+	color: #f8f8f2;
+	background: transparent;
+	font-size: 16px;
+}
+
+#workspaces button.focused {
+	color: #9aedfe;
+}
+
+#workspaces button:hover {
+	transition: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
+	color: #ff79c6;
+}
+
+#mpd,
+#bluetooth,
+#cpu,
+#clock,
+#battery,
+#memory,
+#disk,
+#temperature,
+#network,
+#custom-media,
+#tray {
+	margin-top: 8px;
+	margin-bottom: 0;
+	margin-left: 4px;
+	margin-right: 4px;
+	padding-left: 12px;
+	padding-right: 12px;
+	transition: none;
+
+	color: #282828;
+}
+
+
+#mpd {
+	background: #282a36;
+}
+
+#mpd.disconnected,
+#mpd.stopped {
+	color: #f8f8f2;
+	background: #282a36;
+}
+
+#network {
+	background: #bd93f9;
+}
+
+#pulseaudio {
+	background: #9aedfe;
+}
+
+#temperature {
+	background: #7aa6da;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#temperature.critical {
+    background-color: #cc241d;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cpu {
+	background: #f1fa8c;
+}
+
+#memory {
+	background: #ff6e67;
+}
+
+#clock {
+  margin-right: 12px;
+	color: #ebdbb2;
+	background: #282828;
+}
+
+#battery {
+	color: #ebdbb2;
+	background: #282828;
+}
+
+#battery.charging {
+  color: #282828;
+  background: #b8bb26;
+}
+
+#bluetooth {
+  color: #ffffff;
+  background: #0082fc;
+}
+
+#custom-media {
+	color: #000000;
+	background: #1ed660;
+}

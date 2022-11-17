@@ -6,7 +6,7 @@ set autoquit on
 
 # commands
 
-cmd trash %trash-put "$fx"
+cmd trash %gio trash "$fx"
 cmd mkdir %mkdir "$@"
 cmd dragon %dragon-drop -a -x "$fx"
 
@@ -40,5 +40,6 @@ map m
 map au unarchive
 
 map md push :mkdir<space>
+map mf :mkfile
 map DD :trash
 map DR :dragon

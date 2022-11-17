@@ -33,12 +33,15 @@ export DIFFPROG="nvim -d"
 export EDITOR=nvim
 export GTK_USE_PORTAL=0
 export RANGER_LOAD_DEFAULT_RC=FALSE
-# export XKB_DEFAULT_LAYOUT=it
 export XCURSOR_SIZE=24
 export PF_INFO="ascii title os kernel shell uptime pkgs memory palette"
+
+# firefox
+test "$XDG_SESSION_TYPE" = "wayland" && export MOZ_ENABLE_WAYLAND=1
 export MOZ_USE_XINPUT2=1
 
 export TERMINAL="kitty"
+export XDG_CURRENT_DESKTOP=Sway
 
 # for runit user services
 export SVDIR=~/.service
@@ -46,7 +49,7 @@ export SVDIR=~/.service
 # fake display manager
 if [ -z "${DISPLAY}" ]; then
   case "${XDG_VTNR}" in
-    2) exec dbus-launch --exit-with-session ssh-agent Hyprland ;;
-    1) exec ssh-agent startx "$XINITRC" ;;
+    1) exec dbus-launch --exit-with-session ssh-agent Hyprland ;;
+    2) exec ssh-agent startx "$XINITRC" ;;
   esac
 fi
