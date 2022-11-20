@@ -6,9 +6,9 @@ set autoquit on
 
 # commands
 
-cmd trash %gio trash "$fx"
+cmd trash %gio trash "$f"
 cmd mkdir %mkdir "$@"
-cmd dragon %dragon-drop -a -x "$fx"
+cmd dragon %dragon-drop -a -x "$f"
 
 cmd open ${{
     case $(file --mime-type "$f" -bL) in

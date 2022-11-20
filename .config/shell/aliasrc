@@ -18,6 +18,8 @@ alias mkdir="mkdir -pv"
 alias mv="mv -iv"
 alias rm="echo Not today :D && false"
 
+alias trash='gio trash'
+
 alias pbin="curl -F 'f:1=<-' ix.io"
 
 # GITHUB ALIASES

@@ -5,7 +5,7 @@ pipewire &
 pipewire-pulse &
 wireplumber &
 playerctld daemon &
-mpd &
+mpd --no-daemon &
 mpDris2 &
 
 # notifications
@@ -20,6 +20,12 @@ nm-applet --indicator &
 swaybg -i ~/Pictures/flowerboy.jpg &
 swayidle -w &
 gammastep-indicator -m wayland &
+
+# polkit agent
+
+
+# polkit agent
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # killall swhks; swhks &
 # pkexec swhkd -c ~/.config/swhkd/swhkdrc
