@@ -3,9 +3,7 @@ width=25%
 allow_images=true
 image_size=24
 
-show=run
-
-gtk_dark=true
+show=drun
 
 insensitive
 exec_search=true

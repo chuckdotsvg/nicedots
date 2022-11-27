@@ -15,6 +15,7 @@ precmd() { vcs_info }
 # colors as prompt don't work
 zstyle ':vcs_info:git:*' formats 'on %F{09} %b%f' # 09 stands fo red and so on
 
+
 # add time taken for a command at right
 # function preexec() {
 #     timer=${timer:-$SECONDS}
@@ -44,6 +45,7 @@ _comp_options+=(globdots)		# Include hidden files.
 # End of lines added by compinstall
 
 setopt autocd # cd just typing dir name
+setopt correct_all # enable correction like arch iso
 
 # keybindings
 # bindkey '^[[5~' delete-char

@@ -32,16 +32,15 @@ export ZDOTDIR="$HOME"/.config/zsh
 export DIFFPROG="nvim -d"
 export EDITOR=nvim
 export GTK_USE_PORTAL=0
-export RANGER_LOAD_DEFAULT_RC=FALSE
 export XCURSOR_SIZE=24
-export PF_INFO="ascii title os kernel shell uptime pkgs memory palette"
+export QT_QPA_PLATFORMTHEME=gtk3
 
 # firefox
 test "$XDG_SESSION_TYPE" = "wayland" && export MOZ_ENABLE_WAYLAND=1
 export MOZ_USE_XINPUT2=1
 
 export TERMINAL="kitty"
-export XDG_CURRENT_DESKTOP=Sway
+export MENU="wofi"
 
 # for runit user services
 export SVDIR=~/.service

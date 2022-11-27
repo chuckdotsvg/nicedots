@@ -6,6 +6,7 @@ local options = {
 	shiftwidth = 4,
 	tabstop = 4,
 	cursorline = true,
+    cursorcolumn = true,
 	number = true,
     relativenumber = true,
     syntax = enable,

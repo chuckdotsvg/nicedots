@@ -13,16 +13,11 @@ dunst &
 
 # status bar
 waybar &
-blueman-applet &
-nm-applet --indicator &
 
 # graphic stuff
 swaybg -i ~/Pictures/flowerboy.jpg &
 swayidle -w &
-gammastep-indicator -m wayland &
-
-# polkit agent
-
+gammastep -m wayland &
 
 # polkit agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
