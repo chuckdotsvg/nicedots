@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MENU="${MENU} -d"
+MENU="tofi"
 SAVEPATH=~/Pictures/Screenshots
 SAVENAME=$(date "+%Y%m%d-%H%M%S").png
 

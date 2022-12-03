@@ -35,12 +35,7 @@ export GTK_USE_PORTAL=0
 export XCURSOR_SIZE=24
 export QT_QPA_PLATFORMTHEME=gtk3
 
-# firefox
-test "$XDG_SESSION_TYPE" = "wayland" && export MOZ_ENABLE_WAYLAND=1
-export MOZ_USE_XINPUT2=1
-
 export TERMINAL="kitty"
-export MENU="wofi"
 
 # for runit user services
 export SVDIR=~/.service
@@ -49,6 +44,5 @@ export SVDIR=~/.service
 if [ -z "${DISPLAY}" ]; then
   case "${XDG_VTNR}" in
     1) exec dbus-launch --exit-with-session ssh-agent Hyprland ;;
-    2) exec ssh-agent startx "$XINITRC" ;;
   esac
 fi

@@ -1,4 +1,5 @@
 timeout 300 'pidof swaylock || swaylock'
-timeout 400 'pidof swaylock && test $(cat /sys/class/power_supply/AC/online) -eq 0 && hyprctl dispatch dpms off'
+timeout 400 'test $(cat /sys/class/power_supply/AC/online) -eq 0 && hyprctl dispatch dpms off'
 timeout 600 'test $(cat /sys/class/power_supply/AC/online) -eq 0 && loginctl suspend'
-before-sleep '! pidof swaylock && swaylock --grace 0 && hyprcrl dispatch dpms on'
+before-sleep 'pidof swaylock || swaylock --grace 0'
+after-resume 'hyprctl dispatch dpms on'

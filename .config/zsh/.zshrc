@@ -31,7 +31,8 @@ zstyle ':vcs_info:git:*' formats 'on %F{09} %b%f' # 09 stands fo red and so o
 # }
 
 # $ at the beginning to accept backslash characters
-PROMPT=$'\n%{$fg[cyan]%}${PWD/#$HOME/~}%f %{$reset_color%}${vcs_info_msg_0_}\n%{$fg[green]%}%% %{$reset_color%}'
+PROMPT=$'%B%{$fg[magenta]%}%n%{$reset_color%}%b in %B%{$fg[cyan]%}${PWD/#$HOME/~}%f%b %{$reset_color%}${vcs_info_msg_0_}\n%% '
+RPROMPT='%D{%X}'
 
 # The following lines were added by compinstall
 

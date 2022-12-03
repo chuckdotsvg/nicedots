@@ -6,4 +6,5 @@ image_size=24
 show=drun
 
 insensitive
+matching=contain
 exec_search=true
