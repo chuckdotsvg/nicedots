@@ -209,7 +209,7 @@
     ### Misc/Advanced ###
 
     # dmenu path.
-    dmenu = fuzzel --dmenu -p "dunst:"
+    dmenu = wofi --prompt "dunst:"
 
     # Browser for opening urls in context menu.
     browser = /usr/bin/xdg-open

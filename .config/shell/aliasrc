@@ -19,6 +19,7 @@ alias mv="mv -iv"
 alias rm="echo Not today :D && false"
 
 alias trash='gio trash'
+alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 
 alias pbin="curl -F 'f:1=<-' ix.io"
 

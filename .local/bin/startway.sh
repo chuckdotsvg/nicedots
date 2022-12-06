@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # audio
-pipewire &
-pipewire-pulse &
-wireplumber &
-playerctld daemon &
-mpd --no-daemon &
-mpDris2 &
+#pipewire &
+#pipewire-pulse &
+#wireplumber &
+#playerctld daemon &
+#mpd --no-daemon &
+mpd-mpris &
 
 # notifications
 dunst &
@@ -17,7 +17,7 @@ waybar &
 # graphic stuff
 swaybg -i ~/Pictures/flowerboy.jpg &
 swayidle -w &
-gammastep -m wayland &
+gammastep &
 
 # polkit agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

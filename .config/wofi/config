@@ -8,3 +8,4 @@ show=drun
 insensitive
 matching=contain
 exec_search=true
+hide_scroll=true

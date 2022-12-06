@@ -20,6 +20,9 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export INPUTRC="$XDG_CONFIG_HOME"/shell/inputrc
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export GOPATH="$XDG_DATA_HOME"/go
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export LESSHISTFILE="$XDG_CACHE_HOME"/less/history
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}/python/pythonrc"
 export HISTFILE="${XDG_STATE_HOME}"/bash/history
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
@@ -32,13 +35,9 @@ export ZDOTDIR="$HOME"/.config/zsh
 export DIFFPROG="nvim -d"
 export EDITOR=nvim
 export GTK_USE_PORTAL=0
-export XCURSOR_SIZE=24
 export QT_QPA_PLATFORMTHEME=gtk3
 
-export TERMINAL="kitty"
-
-# for runit user services
-export SVDIR=~/.service
+export TERMINAL="alacritty"
 
 # fake display manager
 if [ -z "${DISPLAY}" ]; then
