@@ -34,10 +34,10 @@ export ZDOTDIR="$HOME"/.config/zsh
 # programs settings
 export DIFFPROG="nvim -d"
 export EDITOR=nvim
-export GTK_USE_PORTAL=0
+# export GTK_USE_PORTAL=1
 export QT_QPA_PLATFORMTHEME=gtk3
 
-export TERMINAL="alacritty"
+export TERMINAL="foot"
 
 # fake display manager
 if [ -z "${DISPLAY}" ]; then

@@ -14,7 +14,7 @@ test $XDG_SESSION_TYPE = "wayland" # 0 if it's true
 WL=$?
 
 if ! ( $WL ); then
-    MENU="wofi"
+    MENU="wofi -d"
     CMD="grim"
     AREA="slurp"
 else

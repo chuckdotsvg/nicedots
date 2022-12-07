@@ -36,6 +36,7 @@ cmd open ${{
 }}
 
 cmd unarchive ${{
+    mkdir "extracted-$f"
   case "$f" in
       *.zip) unzip "$f" ;;
       *.tar.gz) tar -xzvf "$f" ;;

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MENU="wofi"
+MENU="fuzzel -d"
 SAVEPATH=~/Pictures/Screenshots
 SAVENAME=$(date "+%Y%m%d-%H%M%S").png
 
