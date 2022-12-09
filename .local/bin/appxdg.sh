@@ -5,7 +5,7 @@ error(){
   exit 1
 }
 
-test "$XDG_SESSION_TYPE" = "wayland" && MENU="fuzzel -d" || MENU="dmenu -c -F -l 10 -bw 3"
+test "$XDG_SESSION_TYPE" = "wayland" && MENU="wofi -d" || MENU="dmenu -c -F -l 10 -bw 3"
 
 APPS="ls /usr/share/applications/"
 OPEN="/usr/share/mime/types"
