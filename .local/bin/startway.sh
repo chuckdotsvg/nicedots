@@ -4,9 +4,8 @@
 #pipewire &
 #pipewire-pulse &
 #wireplumber &
-#playerctld daemon &
+playerctld daemon &
 #mpd --no-daemon &
-mpd-mpris &
 
 # notifications
 dunst &
@@ -20,7 +19,7 @@ swayidle -w &
 gammastep &
 
 # polkit agent
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
 # killall swhks; swhks &
 # pkexec swhkd -c ~/.config/swhkd/swhkdrc

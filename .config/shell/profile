@@ -4,10 +4,10 @@
 
 # [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-# export PATH=$PATH:$HOME/.local/bin/
-typeset -U path PATH
-path=(~/.local/bin $path)
-export PATH
+export PATH=$PATH:$HOME/.local/bin/
+# typeset -U path PATH
+# path=(~/.local/bin $path)
+# export PATH
 
 # XDG Variables
 export XDG_DATA_HOME=$HOME/.local/share
@@ -41,8 +41,8 @@ export QT_QPA_PLATFORMTHEME=gtk3
 export TERMINAL="alacritty"
 
 # fake display manager
-if [ -z "${DISPLAY}" ]; then
-  case "${XDG_VTNR}" in
-    1) exec dbus-launch --exit-with-session ssh-agent Hyprland ;;
-  esac
-fi
+# if [ -z "${DISPLAY}" ]; then
+#   case "${XDG_VTNR}" in
+#     1) exec dbus-launch --exit-with-session ssh-agent Hyprland ;;
+#   esac
+# fi

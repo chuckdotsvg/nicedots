@@ -196,7 +196,7 @@
     max_icon_size = 64
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Papirus-Dark/64x64/categories/
+    icon_path = /usr/share/icons/Papirus/64x64/categories/:/usr/share/icons/Papirus/48x48/status/
     ### History ###
 
     # Should a notification popped up from history be sticky or timeout

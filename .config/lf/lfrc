@@ -36,14 +36,17 @@ cmd open ${{
 }}
 
 cmd unarchive ${{
-    mkdir "extracted-$f"
-  case "$f" in
-      *.zip) unzip "$f" ;;
-      *.tar.gz) tar -xzvf "$f" ;;
-      *.tar.bz2) tar -xjvf "$f" ;;
-      *.tar) tar -xvf "$f" ;;
-      *) echo "Unsupported format" ;;
-  esac
+    case "$f" in
+        *.zip)
+            dir="${f%.zip}"
+            mkdir $dir
+            unzip "$f" -d $dir
+            ;;
+        *.tar.gz) tar -xzvf "$f" ;;
+        *.tar.bz2) tar -xjvf "$f" ;;
+        *.tar) tar -xvf "$f" ;;
+        *) echo "Unsupported format" ;;
+    esac
 }}
 
 cmd mkfile ${{
@@ -63,6 +66,6 @@ map mb mark-save
 map md push :mkdir<space>
 map mf :mkfile
 
-map dT :trash
+map dt :trash
 map dd :cut
 map dR :dragon

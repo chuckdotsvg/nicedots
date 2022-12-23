@@ -50,7 +50,6 @@ require('packer').startup(function()
 	use 'jiangmiao/auto-pairs'
   use 'vimwiki/vimwiki'
   use 'tpope/vim-surround'
-  use 'farmergreg/vim-lastplace'
   
   -- use 'ap/vim-css-color'
   use 'chrisbra/Colorizer'

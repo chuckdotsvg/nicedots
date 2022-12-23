@@ -6,7 +6,7 @@
 
 window#waybar {
     background-color: rgba(26, 27, 38, 1);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -103,7 +103,7 @@ button:hover {
     color: #000000;
 }
 
-#battery.charging, #battery.plugged {
+#battery.charging {
     color: #ffffff;
     background-color: #26A65B;
 }
@@ -251,4 +251,8 @@ label:focus {
 
 #scratchpad.empty {
 	background-color: transparent;
+}
+
+bluetooth.on {
+
 }
