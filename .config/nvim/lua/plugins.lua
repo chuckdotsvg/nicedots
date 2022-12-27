@@ -48,7 +48,7 @@ require('packer').startup(function()
   use 'sainnhe/gruvbox-material'
 
 	use 'jiangmiao/auto-pairs'
-  use 'vimwiki/vimwiki'
+  -- use 'vimwiki/vimwiki'
   use 'tpope/vim-surround'
   
   -- use 'ap/vim-css-color'

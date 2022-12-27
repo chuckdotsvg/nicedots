@@ -441,7 +441,7 @@
 #
 
 [multimedial]
-  appname = "multimedial"
+    category = "multimedial"
   history_ignore = yes
 	icon_position = left
 	timeout = 2

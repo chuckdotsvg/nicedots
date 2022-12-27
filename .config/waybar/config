@@ -5,9 +5,9 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces", "mpd"],
+    "modules-left": ["wlr/workspaces", "hyprland/submap", "mpd"],
     "modules-center": ["clock"],
-    "modules-right": ["bluetooth","network", "temperature", "battery", "tray"],
+    "modules-right": ["idle_inhibitor", "bluetooth","network", "temperature", "battery", "tray"],
 
 
     // Modules configuration
@@ -19,6 +19,11 @@
     },
     "hyprland/window": {
       "separate-outputs": true
+    },
+    "hyprland/submap": {
+    "format": "✌️ {}",
+    "max-length": 8,
+    "tooltip": false,
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
@@ -43,8 +48,12 @@
             "paused": "",
             "playing": ""
         },
-        "tooltip-format": "{artist} - {album} ({songPosition} of {queueLength})",
-        "tooltip-format-disconnected": "MPD (disconnected)"
+        "tooltip-format": "{artist} - {album} ({songPosition} of {queueLength}) |  {volume}%",
+        "tooltip-format-disconnected": "MPD (disconnected)",
+
+        "on-click-right" : "mpc toggle",
+        "on-scroll-up": "mpc volume +2",
+        "on-scroll-down": "mpc volume -2",
     },
     "tray": {
         // "icon-size": 21,
@@ -89,6 +98,7 @@
         "format-icons": ["", "", "", "", ""],
         "format-alt": "{power} W",
         //"interval": 180,
+        "on-update": "batlvl",
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -140,5 +150,19 @@
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
     "on-click-right": "bluetooth toggle",
     "on-click": "dmenu-bluetooth",
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated" : "",
+            "deactivated" : "",
+        },
+    },
+    "custom/pacman": {
+    "format": "{}  ",
+    "interval": "once",
+    "exec": "pacman_packages",
+    "on-click": "update-system",
+    "signal": 8
     },
 }

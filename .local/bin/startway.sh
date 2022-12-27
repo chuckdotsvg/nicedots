@@ -17,6 +17,7 @@ waybar &
 swaybg -i ~/Pictures/flowerboy.jpg &
 swayidle -w &
 gammastep &
+gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty &
 
 # polkit agent
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &

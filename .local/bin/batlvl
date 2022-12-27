@@ -1,0 +1,20 @@
+#!/bin/sh
+
+CURLVL=$( cat /sys/class/power_supply/BAT0/capacity )
+CRIT=20
+CAP=$( cat /sys/class/power_supply/BAT0/charge_start_threshold )
+STATUS=$( cat /sys/class/power_supply/BAT0/status | tr '[:upper:]' '[:lower:]') # posix compliant
+# MSG="$STATUS: ${CURLVL}%"
+# URGENCY=normal
+# ICON="battery-good-${STATUS}"
+
+if [ $STATUS = "discharging" ] && [ $CURLVL -le $CRIT ]; then
+    ICON="battery-empty"
+    URGENCY="critical"
+    MSG="Connect AC!"
+elif [ $CURLVL -ge $CAP ]; then
+    ICON="battery-full-charged"
+    MSG="Disconnect AC!"
+fi
+
+notify-send "Battery ${ICON##*-}" "${MSG}" -u $URGENCY -i $ICON 2>/dev/null

@@ -1,5 +1,5 @@
-timeout 300 'pidof swaylock || swaylock'
+timeout 300 'pidof gtklock || gtklock -d'
 timeout 400 'test $(cat /sys/class/power_supply/AC/online) -eq 0 && hyprctl dispatch dpms off'
 timeout 600 'test $(cat /sys/class/power_supply/AC/online) -eq 0 && systemctl suspend'
-before-sleep 'pidof swaylock || swaylock --grace 0'
+before-sleep 'pidof gtklock || gtklock -d'
 after-resume 'hyprctl dispatch dpms on'
