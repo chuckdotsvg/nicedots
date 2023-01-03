@@ -8,13 +8,14 @@ STATUS=$( cat /sys/class/power_supply/BAT0/status | tr '[:upper:]' '[:lower:]') 
 # URGENCY=normal
 # ICON="battery-good-${STATUS}"
 
-if [ $STATUS = "discharging" ] && [ $CURLVL -le $CRIT ]; then
+if [ "$STATUS" = "discharging" ] && [ "$CURLVL" -le "$CRIT" ]; then
     ICON="battery-empty"
     URGENCY="critical"
     MSG="Connect AC!"
-elif [ $CURLVL -ge $CAP ]; then
+elif [ "$STATUS" = "not charging" ] && [ $CURLVL -ge $CAP ]; then
     ICON="battery-full-charged"
+    URGENCY="normal"
     MSG="Disconnect AC!"
 fi
 
-notify-send "Battery ${ICON##*-}" "${MSG}" -u $URGENCY -i $ICON 2>/dev/null
+notify-send "Battery ${ICON##*-}" "${MSG}" -u $URGENCY -i $ICON

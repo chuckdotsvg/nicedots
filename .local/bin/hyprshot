@@ -12,7 +12,6 @@ action+=(
 declare -a zone
 zone+=(
     area
-    window
     active
     output
     screen
@@ -31,19 +30,19 @@ choice+=(
 )
 
 createmenu(){
-    list=("$1")
+    read -ra list <<< "$1"
     printf "%s\n" "${list[@]}" | $MENU "$2"
 }
 
 paint(){
-    CHOICE=$( createmenu "${choice[*]}" "Replace original? " )
-    die "$CHOICE"
-
-    [ "$CHOICE" = "yes" ] && FLAGS="--output-file '${FN}'"
-    
     if [ "$ACTION" = "copy" ]; then
-        wl-paste | swappy -f - "$FLAGS"
+        wl-paste | swappy -f -
     else
+        CHOICE=$( createmenu "${choice[*]}" "Replace original? " )
+        die "$CHOICE"
+
+        [ "$CHOICE" = "yes" ] && FLAGS="--output-file=${FN}"
+    
         swappy -f "$FN" "$FLAGS"
     fi
 

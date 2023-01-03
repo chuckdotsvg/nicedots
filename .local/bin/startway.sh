@@ -8,10 +8,14 @@ playerctld daemon &
 #mpd --no-daemon &
 
 # notifications
-dunst &
+fnott &
 
 # status bar
 waybar &
+
+# tray
+nm-applet --indicator &
+blueman-applet &
 
 # graphic stuff
 swaybg -i ~/Pictures/flowerboy.jpg &

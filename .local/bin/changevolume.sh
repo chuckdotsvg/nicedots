@@ -30,4 +30,4 @@ PERCENTAGE=$(pamixer --get-volume)
 [ $PERCENTAGE -gt 74 ] && VOLUME="overamplified"
 $(pamixer --get-mute) && VOLUME="muted"
 
-notify-send "Volume $VOLUME: ${PERCENTAGE}%" -c "multimedial" -r "9993" -h int:value:"$PERCENTAGE" -i ~/Pictures/popcatpng/${VOLUME}.png
+notify-send "Volume $VOLUME: " -c "multimedial" -r "9993" -h int:value:"$PERCENTAGE" -i ~/Pictures/popcatpng/${VOLUME}.png

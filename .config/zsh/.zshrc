@@ -32,7 +32,6 @@ zstyle ':vcs_info:git:*' formats 'on %F{09} %b%f' # 09 stands fo red and so o
 
 # $ at the beginning to accept backslash characters
 PROMPT=$'%B%{$fg[magenta]%}%n%{$reset_color%}%b in %B%{$fg[cyan]%}${PWD/#$HOME/~}%f%b %{$reset_color%}${vcs_info_msg_0_}\n%% '
-RPROMPT='%D{%X}'
 
 # The following lines were added by compinstall
 
@@ -45,7 +44,6 @@ _comp_options+=(globdots)		# Include hidden files.
 
 # End of lines added by compinstall
 
-setopt autocd # cd just typing dir name
 setopt correct_all # enable correction like arch iso
 
 # keybindings

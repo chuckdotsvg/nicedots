@@ -1,13 +1,4 @@
-#
-# ~/.bash_profile
-#
-
-# [[ -f ~/.bashrc ]] && . ~/.bashrc
-
 export PATH=$PATH:$HOME/.local/bin/
-# typeset -U path PATH
-# path=(~/.local/bin $path)
-# export PATH
 
 # XDG Variables
 export XDG_DATA_HOME=$HOME/.local/share
@@ -37,11 +28,11 @@ export DIFFPROG="nvim -d"
 export EDITOR=nvim
 # export GTK_USE_PORTAL=1
 export QT_QPA_PLATFORMTHEME=qt5ct
-export TERMINAL="alacritty"
+export TERMINAL="kitty"
 
 # fake display manager
-# if [ -z "${DISPLAY}" ]; then
-#   case "${XDG_VTNR}" in
-#     1) exec dbus-launch --exit-with-session ssh-agent Hyprland ;;
-#   esac
-# fi
+if [ -z "${DISPLAY}" ]; then
+  case "${XDG_VTNR}" in
+    1) exec Hyprland ;;
+  esac
+fi

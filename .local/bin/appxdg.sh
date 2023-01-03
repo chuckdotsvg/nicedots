@@ -1,20 +1,25 @@
 #!/bin/bash
 
+#test "$XDG_SESSION_TYPE" = "wayland" && MENU="fuzzel -d" || MENU="dmenu -c -F -l 10 -bw 3"
+MENU="fuzzel -d --prompt"
+
+appsdir="/usr/share/applications"
+typesfile="/usr/share/mime/types"
+
 error(){
-  dunstify "But nothing happened!"
+  notify-send "But nothing happened!"
   exit 1
 }
 
-test "$XDG_SESSION_TYPE" = "wayland" && MENU="fuzzel -d" || MENU="dmenu -c -F -l 10 -bw 3"
+NEW=$( $MENU "Insert a file extension: " < "$typesfile" )
 
-APPS="ls /usr/share/applications/"
-OPEN="/usr/share/mime/types"
+[ "$NEW" ] && grep "$NEW" "$typesfile" || error
 
-TYPE=$(cat $OPEN | $MENU --prompt 'Insert a file extension:')
+DEF=$( "$appsdir" -printf '%P\n' | $MENU "Select default app: " )
 
-test $TYPE && grep $TYPE $OPEN || error
-
-DEF=$($APPS | $MENU --prompt 'Select default app:')
-
-$APPS | grep $DEF && xdg-mime default $DEF $TYPE &&\
-  dunstify "Success!" "${DEF} now opens ${TYPE} files" || error
+if [ -e "${appsdir}/${DEF}" ]; then
+    xdg-mime default "$DEF" "$NEW"
+    notify-send "Success!" "${DEF} now opens ${NEW} files"
+else
+    error
+fi
