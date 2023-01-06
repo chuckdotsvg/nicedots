@@ -18,6 +18,5 @@ vim.api.nvim_create_autocmd(
 )
 
 require("lazy").setup("plugins")
-
 require 'keybinds'
 require 'options'

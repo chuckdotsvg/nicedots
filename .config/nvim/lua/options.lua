@@ -10,13 +10,14 @@ local options = {
     relativenumber = true,
     syntax = "enable",
     list = true,
+    signcolumn = "yes",
 }
-
--- vim.opt.shortness:append "c"
 
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
--- vim.opt.listchars:append "space:⋅"
-vim.opt.listchars:append "eol:↴"
+vim.opt.listchars:append({
+    eol = "↴",
+    -- space = "⋅",
+})

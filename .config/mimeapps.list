@@ -24,6 +24,7 @@ x-scheme-handler/tg=userapp-Telegram Desktop-BXV6V1.desktop
 inode/directory=caja.desktop
 application/octet-stream=nvim.desktop
 application/x-shellscript=nvim.desktop
+text/markdown=nvim.desktop
 
 [Added Associations]
 text/x-chdr=libreoffice-writer.desktop;
@@ -33,3 +34,4 @@ text/html=firefox.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-XELFV1.desktop;userapp-Telegram Desktop-BXV6V1.desktop;
 application/pdf=firefox.desktop;
 application/octet-stream=nvim.desktop;
+text/markdown=nvim.desktop;Alacritty.desktop;org.pwmt.zathura.desktop;

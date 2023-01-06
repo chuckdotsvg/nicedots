@@ -1,10 +1,10 @@
 local M = {
     "nvim-lualine/lualine.nvim",
     dependencies = "kyazdani42/nvim-web-devicons",
+    event = "VeryLazy",
 }
 
 function M.config()
-
     require('lualine').setup ({
         options = {
             icons_enabled = true,

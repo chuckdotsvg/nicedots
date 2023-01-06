@@ -1,6 +1,4 @@
 return {
-    "folke/twilight.nvim",
-
     {
         "folke/tokyonight.nvim",
         lazy = false,
@@ -11,82 +9,42 @@ return {
     },
 
     {
-        "jiangmiao/auto-pairs",
-        -- lazy = true,
-        -- event = ,
-    },
-
-    {
-        "tpope/vim-surround",
-        -- lazy = true,
-        -- event = ,
-    },
-
-
-    {
-        "williamboman/mason.nvim",
-        config = function ()
-            require("mason").setup()
-        end,
-        dependencies = {
-            {
-                "williamboman/mason-lspconfig.nvim",
-                config = function ()
-                    require("mason-lspconfig").setup()
-                    require("mason-lspconfig").setup_handlers {
-                        -- The first entry (without a key) will be the default handler
-                        -- and will be called for each installed server that doesn't have
-                        -- a dedicated handler.
-                        function (server_name) -- default handler (optional)
-                            require("lspconfig")[server_name].setup {}
-                        end,
-                        -- Next, you can provide a dedicated handler for specific servers.
-                        -- For example, a handler override for the rust_analyzer:
-                        ["rust_analyzer"] = function ()
-                            require("rust-tools").setup {}
-                        end
-                    }
-                end,
-            },
-
-            {
-                "neovim/nvim-lspconfig",
-                config = function()
-                    local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-                    for type, icon in pairs(signs) do
-                        local hl = "DiagnosticSign" .. type
-                        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-                    end
-                end,
-            },
-
-        },
-    },
-
-    {
-        "ms-jpq/coq_nvim",
+        "windwp/nvim-autopairs",
         event = "InsertEnter",
-        lazy = true,
-        build = ":COQdeps",
-        dependencies = {
-            'ms-jpq/coq.artifacts',
-            'ms-jpq/coq.thirdparty',
-        },
         config = function()
-            vim.cmd('COQnow -s')
-        end,
+            require("nvim-autopairs").setup{
+                enable_check_bracket_line = false,
+            }
+        end
+    },
+
+    {
+        "kylechui/nvim-surround",
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
     },
 
     {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.0",
         dependencies = "nvim-lua/plenary.nvim",
+        cmd = "Telescope",
     },
 
-    -- {
-    --    'nvim-treesitter/nvim-treesitter',
-    --    build = function()
-    --        require('nvim-treesitter.install').update({ with_sync = true })
+    {
+        "folke/which-key.nvim",
+        event = "BufWinEnter", -- Actually lazy-loading inside indent_blankline
+    },
+
+    --{
+    --    "rcarriga/nvim-notify",
+    --    config = function()
+    --        require("notify").setup()
+    --        vim.notify = require("notify")
+    --        vim.notify("This is an error message", "error")
     --    end,
-    -- }
+    --}
 }
