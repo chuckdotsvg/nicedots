@@ -5,7 +5,7 @@ err() {
   exit 1
 }
 
-MENU="dmenu"
+MENU="rofi -dmenu"
 SAVEPATH=~/Pictures/Screenshots
 SAVENAME=$(date "+%Y%m%d-%H%M%S").png
 

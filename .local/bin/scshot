@@ -1,0 +1,94 @@
+#!/bin/bash
+
+SAVEPATH="$HOME/Pictures/Screenshots"
+SAVENAME="$(date "+%Y%m%d-%H%M%S").png"
+
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+    MENU="fuzzel -d"
+else
+    MENU="rofi -dmenu -p"
+    AREA="hacksaw"
+    CAPTURE="shotgun"
+    PASTE="xclip -selection clipboard -o"
+    COPY="xclip -selection clipboard -i"
+fi
+
+action+=(
+"copy"
+"save"
+)
+zone+=(
+"area"
+"current screen"
+"all"
+)
+
+option+=(
+edit
+img2txt
+)
+
+choice+=(
+    yes
+    no
+)
+
+createmenu(){
+    read -ra list <<< "$1"
+    printf "%s\n" "${list[@]}" | $MENU "$2"
+}
+
+die(){
+    test -z "$1" && notify-send "But nothing happened!" && exit 1
+}
+
+grabtext(){
+    if [ "$ACTION" = "copy" ]; then
+        $PASTE | tesseract stdin stdout | $COPY
+    else
+        tesseract "${SAVEPATH}/${SAVENAME}" stdout | $COPY
+    fi
+
+    notify-send "Converted!" "Text saved in clipboard"
+}
+
+#############################################################################
+# BEGINNING OF THE PROGRAM ##################################################
+#############################################################################
+
+ACTION=$( createmenu "${action[*]}" "Screenshot: " )
+die "$ACTION"
+
+[ "$ACTION" != "copy" ] && option+=( "path" )
+
+ZONE=$( createmenu "${zone[*]}" "What to grab: " )
+die "$ZONE"
+
+# [ "$ZONE" = active ] || [ "$ZONE" = output ] || [ "$ZONE" = screen ] && sleep 1
+
+if [ "$ZONE" = "area" ]; then
+    "$CAPTURE" -g "$($AREA)" $SAVEPATH/$SAVENAME
+else
+    [ "$ZONE" = "current screen" ] && SEL="--single-screen"
+    "$CAPTURE" "$SEL" $SAVENAME/$SAVEPATH
+fi
+
+[ -e $SAVEPATH/$SAVENAME ] || die
+
+if [ "$ACTION" = "copy" ]; then
+    xclip -selection clipboard -t image/png -i $SAVEPATH/$SAVENAME
+    notify-send "Success!" "Capture saved in clipboard"
+    rm $SAVEPATH/$SAVENAME
+else
+    notify-send "Success!" "Capture saved in ${SAVEPATH}"
+fi
+
+OPT=$( createmenu "${option[*]}" "Do you want to do everything else? " )
+
+case $OPT in
+    edit) paint ;;
+    img2txt) grabtext ;;
+    path) echo "${SAVEPATH}/${SAVENAME}" | $COPY && notify-send "Success!" "Path file saved in clipboard" || die ;;
+    "") exit ;;
+    *) die;;
+esac

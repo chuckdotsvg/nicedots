@@ -15,22 +15,6 @@ precmd() { vcs_info }
 # colors as prompt don't work
 zstyle ':vcs_info:git:*' formats 'on %F{09} %b%f' # 09 stands fo red and so on
 
-
-# add time taken for a command at right
-# function preexec() {
-#     timer=${timer:-$SECONDS}
-# }
-# 
-# function precmd() {
-#     if [ $timer ]; then
-#         timer_show=$(($SECONDS - $timer))
-#         timer_show=$(printf '%.*f\n' 0 $timer_show)
-#         export RPROMPT="[${timer_show}s]"
-#         unset timer
-#     fi
-# }
-
-# $ at the beginning to accept backslash characters
 PROMPT=$'%B%{$fg[magenta]%}%n%{$reset_color%}%b in %B%{$fg[cyan]%}${PWD/#$HOME/~}%f%b %{$reset_color%}${vcs_info_msg_0_}\n%% '
 
 # The following lines were added by compinstall
@@ -52,7 +36,6 @@ setopt correct_all # enable correction like arch iso
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 bindkey '^[[3~' delete-char
-
 
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-"$ZSH_VERSION"
 

@@ -18,6 +18,9 @@ alias mkdir="mkdir -pv"
 alias mv="mv -iv"
 alias rm="echo Not today :D && false"
 
+# directories alias
+alias uni='cd ~/Documents/uni/'
+
 alias trash='gio trash'
 alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
 
@@ -31,4 +34,3 @@ alias gf='git fetch'
 
 # Use $XINITRC variable if file exists.
 [ -f "$XINITRC" ] && alias startx="ssh-agent startx $XINITRC"
-

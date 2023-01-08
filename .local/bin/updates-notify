@@ -1,16 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 
 IFS=$'' # sets field separator as newline
 
 LIST=$( checkupdates | sed 's/ .*//')
-NUM=$( printf "$LIST" | wc -l )
+NUM=$( printf '%s' "$LIST" | wc -l )
 MAX=7
 
 TITLE="Updates Available"
-APPEND=$(test $NUM -gt $MAX && echo 'and' $(($NUM - $MAX)) 'other')
+APPEND=$(test "$NUM" -gt $MAX && echo 'and' $((NUM - MAX)) 'other')
 
-if (($NUM)); then
-  dunstify "$TITLE" "$( echo $LIST | head -n$MAX )\n\n$APPEND" -i system-software-update -r "9999"
+if ((NUM)); then
+    dunstify "$TITLE" "$( echo "$LIST" | head -n$MAX )\n\n$APPEND" -i system-software-update -r "9999"
 else
   dunstify "No $TITLE" "Your system is fresh as hell" -r "9999"
 fi

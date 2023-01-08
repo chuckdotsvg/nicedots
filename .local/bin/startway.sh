@@ -7,9 +7,6 @@
 playerctld daemon &
 #mpd --no-daemon &
 
-# notifications
-fnott &
-
 # status bar
 waybar &
 

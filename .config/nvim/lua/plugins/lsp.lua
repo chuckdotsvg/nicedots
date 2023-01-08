@@ -56,7 +56,7 @@ local M = {
                                 -- Move to the previous diagnostic
                                 remap('n', '<leader>dk', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
                                 -- Move to the next diagnostic
-                                remap('n', '<leader>dj', '<cmd>lua vim.diagnostic.next()<cr>')
+                                remap('n', '<leader>dj', '<cmd>lua vim.diagnostic.goto_next()<cr>')
 
                                 -- use telescope for list errors in files
                                 remap('n', '<leader>dl', '<cmd>Telescope diagnostics<CR>')

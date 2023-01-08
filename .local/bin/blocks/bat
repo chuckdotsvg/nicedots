@@ -3,23 +3,23 @@
 # select color theme
 . ~/.local/bin/blocks/color_themes/gruvbox
 
-PERC=$(cat /sys/class/power_supply/BAT0/capacity)
-PLUG=$(cat /sys/class/power_supply/AC/online)
-# STATUS=$(cat /sys/class/power_supply/BAT0/status)
+CURLVL=$(cat /sys/class/power_supply/BAT0/capacity)
+STATUS=$(cat /sys/class/power_supply/BAT0/status)
 
 
 BG=$black
 FG=$orange
 
-ICON="" && [ $PERC -ge 90 ] && [[ $PLUG -eq 1 ]] && dunstify "Battery charged!" "Disconnect AC"
-[ $PERC -lt 90 ] && ICON=""
-[ $PERC -lt 60 ] && ICON=""
-[ $PERC -lt 40 ] && ICON=""
-[ $PERC -lt 15 ] && ICON="" && [[ $PLUG -eq 0 ]] && FG=$red && BG=$black && dunstify -u critical -r 123456 "Battery low!"
+ICON="" && [ "$CURLVL" -ge 80 ]
+[ "$CURLVL" -lt 90 ] && ICON=""
+[ "$CURLVL" -lt 60 ] && ICON=""
+[ "$CURLVL" -lt 40 ] && ICON=""
+[ "$CURLVL" -le 20 ] && ICON="" 
 
-(($PLUG)) && ICON="$ICON" && FG=$green && BG=$black 
+[ "$STATUS" = "charging" ] && ICON="$ICON" && FG=$green && BG=$black 
 
-[[ $BLOCK_BUTTON -eq 6 ]] && $TERMINAL -e $EDITOR "$0"
+[[ $BLOCK_BUTTON -eq 6 ]] && $TERMINAL -e "$EDITOR" "$0"
 
+echo "^b$FG^^c$BG^ $ICON ^c$FG^^b$BG^ $CURLVL%"
 
-echo "^b$FG^^c$BG^ $ICON ^c$FG^^b$BG^ $PERC%"
+. ~/.local/bin/batlvl

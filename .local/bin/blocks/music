@@ -1,10 +1,9 @@
 #!/bin/sh
 
-# case $BLOCK_BUTTON in
-#   6) st -e $EDITOR "$0"
-# esac
-
-[[ $BLOCK_BUTTON -eq 6 ]] && st -e $EDITOR "$0"
+case $BLOCK_BUTTON in
+    3) playerctl play-pause ;;
+    6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
 
 WHT="#ebdbb2"
 BLC="#282828"
@@ -12,10 +11,10 @@ GRN="#1ed760"
 
 FG=$WHT
 BG=$BLC
-ICON="📻"
+ICON=""
 
 #DATA=$(playerctl metadata --format '{{ trunc(default( title , "-" ), 14) }}' 2>/dev/null || printf "Nothing to play") 
-DATA=$(scrollepoch $(playerctl metadata --format "{{title}} | {{artist}}" 2>/dev/null || echo "Nothing to play"))
+DATA=$(playerctl metadata --format "{{emoji(status)}} {{title}}" 2>/dev/null || echo "Nothing to play")
 
 playerctl metadata 2>/dev/null | grep -iq spotify && FG=$BLC && BG=$GRN && ICON="" 
 

@@ -2,14 +2,12 @@
 
 MENU="fuzzel -d --prompt"
 
-declare -a action
 action+=(
     copy
     save
     copysave
 )
 
-declare -a zone
 zone+=(
     area
     active
@@ -17,13 +15,11 @@ zone+=(
     screen
 )
 
-declare -a option
 option+=(
     edit
     img2txt
 )
 
-declare -a choice
 choice+=(
     yes
     no

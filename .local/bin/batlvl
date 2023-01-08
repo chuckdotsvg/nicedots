@@ -3,7 +3,7 @@
 CURLVL=$( cat /sys/class/power_supply/BAT0/capacity )
 CRIT=20
 CAP=$( cat /sys/class/power_supply/BAT0/charge_start_threshold )
-STATUS=$( cat /sys/class/power_supply/BAT0/status | tr '[:upper:]' '[:lower:]') # posix compliant
+STATUS=$( tr '[:upper:]' '[:lower:]' < /sys/class/power_supply/BAT0/status ) # posix compliant
 # MSG="$STATUS: ${CURLVL}%"
 # URGENCY=normal
 # ICON="battery-good-${STATUS}"

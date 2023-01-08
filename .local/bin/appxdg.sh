@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#test "$XDG_SESSION_TYPE" = "wayland" && MENU="fuzzel -d" || MENU="dmenu -c -F -l 10 -bw 3"
-MENU="fuzzel -d --prompt"
+test "$XDG_SESSION_TYPE" = "wayland" && MENU="fuzzel -d" || MENU="rofi -dmenu"
+# MENU="fuzzel -d --prompt"
 
 appsdir="/usr/share/applications"
 typesfile="/usr/share/mime/types"
@@ -15,7 +15,9 @@ NEW=$( $MENU "Insert a file extension: " < "$typesfile" )
 
 [ "$NEW" ] && grep "$NEW" "$typesfile" || error
 
-DEF=$( "$appsdir" -printf '%P\n' | $MENU "Select default app: " )
+DEF=$( find "$appsdir" -printf '%P\n' | $MENU "Select default app: " )
+
+test "$DEF" || error
 
 if [ -e "${appsdir}/${DEF}" ]; then
     xdg-mime default "$DEF" "$NEW"

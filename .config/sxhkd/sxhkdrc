@@ -2,7 +2,7 @@ super + shift + Return
   $TERMINAL
 
 super + p
-  dmenu_run
+    rofi -show drun
 
 XF86MonBrightness{Up,Down}
   python ~/.local/bin/brightness.py -{inc,dec}

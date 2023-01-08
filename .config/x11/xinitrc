@@ -1,0 +1,34 @@
+# statusbar
+dwmblocks &
+
+# bluelight filter
+gammastep -m randr &
+
+# tray applets
+nm-applet --indicator &
+blueman-applet &
+
+# keyboard daemon
+sxhkd &
+
+# notification daemon
+dunst &
+
+# music daemon
+playerctld daemon &
+
+# wallpaper
+xwallpaper --stretch ~/Pictures/flowerboy.jpg &
+
+# xorg lockscreen
+xset s on &
+xset s 300 &
+xss-lock i3lock &
+
+# xorg keyboard
+xset r rate 350 30 &
+
+# polkit agent
+/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+
+exec dwm
