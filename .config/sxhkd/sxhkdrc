@@ -1,33 +1,33 @@
-super + shift + Return
-  $TERMINAL
+super + shift + return
+    $TERMINAL
 
 super + p
-    rofi -show drun
+   j4-dmenu-desktop --dmenu dmenu --term=$TERMINAL
 
-XF86MonBrightness{Up,Down}
-  python ~/.local/bin/brightness.py -{inc,dec}
+#XF86MonBrightness{Up,Down}
+#    backlight -{A,U}
 
 XF86Audio{Mute,RaiseVolume,LowerVolume}
-  ~/.local/bin/changevolume.sh {muted,high,low}
+    changevolume.sh {muted,high,low}
 
 XF86AudioMicMute
-  mpv --vid=no --really-quiet /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga & pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-XF86Calculator
-  mate-calc
+#XF86Calculator
+#  qalculate-gtk
 
-XF86Audio{Prev,Play,Next}
-  playerctl {previous,play-pause,next}
+XF86Audio{Stop,Prev,Play,Next}
+  playerctl {stop,previous,play-pause,next}
 
 super + Print
-  ~/.local/bin/xscreenshot.sh
+  scshot
 
 super + g
-  firefox
+  brave
 
 super + z
-  $TERMINAL -e lf
+    pcmanfm
 
 super + shift + P
-  powermenu.sh
+    powermenu.sh
 

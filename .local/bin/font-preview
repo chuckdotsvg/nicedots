@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -x
+
+MENU="dmenu"
+#LIST=$( fc-list -f '%{file}\n' 2>&1)
+#
+#read -ra tmp <<< "${LIST[@]}"
+#printf "%s\n" "${tmp[@]}" | $MENU -p "List: "
+
+#fc-list -f '%{file}\n' | xargs display
+FONT=$( fc-list -f '%{file}\n' | $MENU -p "View a font: " )
+
+test "$FONT" && display "$FONT" || notify-send "But nothing happened!"

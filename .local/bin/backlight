@@ -1,0 +1,18 @@
+#!/bin/bash
+
+step=5
+
+if [ "${1:1}" != "A" ] && [ "${1:1}" != "U" ]; then
+    notify-send "But nothing happened!"
+    exit 1
+fi
+
+brillo -q "$1" $step
+LVL=$( brillo )
+
+notify-send \
+    -c "multimedial" \
+    -r "10000" \
+    -h "int:value:${LVL}" \
+    -i "mx-alerts" \
+    "backlight: "

@@ -19,8 +19,8 @@ swaybg -i ~/Pictures/flowerboy.jpg &
 swayidle -w &
 gammastep &
 
+~/.config/systemd/user/hotkeys.sh &
+
 # polkit agent
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
 
-# killall swhks; swhks &
-# pkexec swhkd -c ~/.config/swhkd/swhkdrc

@@ -1,7 +1,6 @@
 #!/bin/bash
 
-test "$XDG_SESSION_TYPE" = "wayland" && MENU="fuzzel -d" || MENU="rofi -dmenu"
-# MENU="fuzzel -d --prompt"
+test "$XDG_SESSION_TYPE" = "wayland" && MENU="fuzzel -d" || MENU="dmenu"
 
 appsdir="/usr/share/applications"
 typesfile="/usr/share/mime/types"

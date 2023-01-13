@@ -46,5 +46,16 @@ return {
     --        vim.notify = require("notify")
     --        vim.notify("This is an error message", "error")
     --    end,
-    --}
+    --},
+
+    {
+        "norcalli/nvim-colorizer.lua",
+        config = function ()
+            require("colorizer").setup()
+        end
+    },
+
+    {
+        "mbbill/undotree",
+    },
 }

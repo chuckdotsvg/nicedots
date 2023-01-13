@@ -16,10 +16,10 @@ ICON="" && [ "$CURLVL" -ge 80 ]
 [ "$CURLVL" -lt 40 ] && ICON=""
 [ "$CURLVL" -le 20 ] && ICON="" 
 
-[ "$STATUS" = "charging" ] && ICON="$ICON" && FG=$green && BG=$black 
+[ "$STATUS" = "Charging" ] && ICON="$ICON" && FG=$green && BG=$black 
 
 [[ $BLOCK_BUTTON -eq 6 ]] && $TERMINAL -e "$EDITOR" "$0"
 
 echo "^b$FG^^c$BG^ $ICON ^c$FG^^b$BG^ $CURLVL%"
 
-. ~/.local/bin/batlvl
+#. ~/.local/bin/batlvl

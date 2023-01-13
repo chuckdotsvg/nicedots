@@ -34,9 +34,9 @@ export EDITOR=nvim
 export TERMINAL="alacritty"
 
 # fake display manager
-if [ -z "${DISPLAY}" ]; then
-  case "${XDG_VTNR}" in
-      1) exec startx ;;
-    2) exec Hyprland ;;
-  esac
-fi
+# if [ -z "${DISPLAY}" ]; then
+#   case "${XDG_VTNR}" in
+#       1) exec startx ;;
+#     2) exec Hyprland ;;
+#   esac
+# fi

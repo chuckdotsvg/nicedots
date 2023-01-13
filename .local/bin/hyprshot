@@ -79,5 +79,6 @@ case $OPT in
     edit) paint ;;
     img2txt) grabtext ;;
     path) wl-copy "$FN" && notify-send "Success!" "path file saved in clipboard" ;;
+    "");;
     *) die;;
 esac

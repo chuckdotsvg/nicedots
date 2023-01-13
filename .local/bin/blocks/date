@@ -2,17 +2,24 @@
 
 . ~/.local/bin/blocks/color_themes/gruvbox
 
+TIME=$( date '+%H:%M' )
+
 send_notification() {
-	TODAY=$(date '+%d')
+	TODAY=$(date '+%-d')
 	HEAD=$(cal -m | head -n1)
 	BODY=$(cal -m | tail -n7 | sed -z "s|$TODAY|<u><b>$TODAY</b></u>|1")
-	dunstify "$HEAD" "$BODY" -r "122" -i "no"
+	FOOT="\n~~~~~~~~"
+	notify-send \
+        -h string:x-canonical-private-synchronous:calendar\
+        -i "none" \
+		"$HEAD" "$BODY$FOOT" -u NORMAL
 }
 
 case $BLOCK_BUTTON in
   1) send_notification;;
-  6) $TERMINAL -e $EDITOR "$0";;
+  6) $TERMINAL -e "$EDITOR" "$0";;
 esac
 
 # date '+🕐 %H:%M'
-printf "^b$purple^^c$black^  ^c$purple^^b$black^ $( date '+%H:%M' )"
+#printf "^b$purple^^c$black^  ^c$purple^^b$black^ $( date '+%H:%M' )"
+printf "^b%s^^c%s^  ^c%s^^b%s^ %s " "$purple" "$black" "$purple" "$black" "$TIME"

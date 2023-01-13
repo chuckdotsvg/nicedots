@@ -1,3 +1,8 @@
+# xorg lockscreen
+xset s on &
+xset s 300 &
+xss-lock i3lock &
+
 # statusbar
 dwmblocks &
 
@@ -9,7 +14,7 @@ nm-applet --indicator &
 blueman-applet &
 
 # keyboard daemon
-sxhkd &
+~/.config/systemd/user/hotkeys.sh &
 
 # notification daemon
 dunst &
@@ -19,14 +24,6 @@ playerctld daemon &
 
 # wallpaper
 xwallpaper --stretch ~/Pictures/flowerboy.jpg &
-
-# xorg lockscreen
-xset s on &
-xset s 300 &
-xss-lock i3lock &
-
-# xorg keyboard
-xset r rate 350 30 &
 
 # polkit agent
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
