@@ -64,12 +64,20 @@ local M = {
                                 -- find and replace "intelligent way"
                                 remap("n", "<leader>r", vim.lsp.buf.rename)
 
+                                -- open code actions
+                                remap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
                             end
+
+                            local handlers = {
+                                ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = "rounded"}),
+                                ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = "rounded"}),
+                            }
 
                             for _, server_name in ipairs(get_servers()) do
                                 lspconfig[server_name].setup {
                                     on_attach = on_attach,
                                     capabilities = lsp_capabilities,
+                                    handlers = handlers,
                                 }
                             end
                         end
@@ -89,6 +97,10 @@ local M = {
                             for type, icon in pairs(signs) do
                                 local hl = "DiagnosticSign" .. type
                                 vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+
+                                vim.diagnostic.config({
+                                    float = { border = "rounded" }
+                                })
                             end
                         end
                     },

@@ -1,8 +1,6 @@
 #!/bin/bash
 
-set -x
-
-MENU="dmenu"
+MENU="rofi -dmenu"
 #LIST=$( fc-list -f '%{file}\n' 2>&1)
 #
 #read -ra tmp <<< "${LIST[@]}"

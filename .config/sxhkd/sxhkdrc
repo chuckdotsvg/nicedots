@@ -2,7 +2,7 @@ super + shift + return
     $TERMINAL
 
 super + p
-   j4-dmenu-desktop --dmenu dmenu --term=$TERMINAL
+   rofi -show drun
 
 #XF86MonBrightness{Up,Down}
 #    backlight -{A,U}
@@ -10,8 +10,8 @@ super + p
 XF86Audio{Mute,RaiseVolume,LowerVolume}
     changevolume.sh {muted,high,low}
 
-XF86AudioMicMute
-    pactl set-source-mute @DEFAULT_SOURCE@ toggle
+#XF86AudioMicMute
+#    pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 #XF86Calculator
 #  qalculate-gtk

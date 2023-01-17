@@ -1,6 +1,6 @@
 #!/bin/bash
 
-test "$XDG_SESSION_TYPE" = "wayland" && MENU="fuzzel -d" || MENU="dmenu"
+MENU="rofi -dmenu"
 
 OPT=$(echo -e 'poweroff\nreboot\nsuspend' | $MENU -p "Choose an option:")
 

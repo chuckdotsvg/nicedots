@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MENU="fuzzel -d --prompt"
+MENU="rofi -dmenu"
 
 action+=(
     copy
@@ -73,12 +73,11 @@ die "$ZONE"
 FN=$( grimblast --notify "$ACTION" "$ZONE" ) || die
 
 OPT=$( createmenu "${option[*]}" "Do you want to do everything else? " )
-die "$OPT"
 
 case $OPT in
     edit) paint ;;
     img2txt) grabtext ;;
     path) wl-copy "$FN" && notify-send "Success!" "path file saved in clipboard" ;;
-    "");;
+    "") exit;;
     *) die;;
 esac
