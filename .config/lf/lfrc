@@ -27,6 +27,7 @@ cmd trash ${{
 
 cmd mkdir %mkdir "$@"
 cmd dragon %dragon-drop -a -x "$f"
+cmd mkfile %touch "$@"
 
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
@@ -49,12 +50,6 @@ cmd unarchive ${{
     esac
 }}
 
-cmd mkfile ${{
-  printf "File Name: "
-  read ans
-  $EDITOR $ans
-}}
-
 # remove keybinds
 map m
 map d
@@ -64,7 +59,7 @@ map au unarchive
 
 map mb mark-save
 map md push :mkdir<space>
-map mf :mkfile
+map mf push :mkfile<space>
 
 map dt :trash
 map dd :cut

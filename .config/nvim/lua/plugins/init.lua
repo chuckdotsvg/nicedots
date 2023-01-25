@@ -1,61 +1,41 @@
 return {
     {
         "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
+        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
+            -- load the colorscheme here
             vim.cmd([[colorscheme tokyonight-night]])
-        end
+        end,
     },
-
+    { "williamboman/mason.nvim" },
+    { "williamboman/mason-lspconfig.nvim" },
+    {
+        "kylechui/nvim-surround",
+        config = function() require("nvim-surround").setup() end
+    },
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
-        config = function()
-            require("nvim-autopairs").setup{
-                enable_check_bracket_line = false,
-            }
-        end
+        config = function() require("nvim-autopairs").setup {} end
     },
-
+    --[[ {
+        'ms-jpq/coq_nvim',
+        event = "InsertEnter",
+        commit = "5eddd31bf8a98d1b893b0101047d0bb31ed20c49",
+        config = function() coq.Now("--shut-up") end,
+        dependencies = {
+            'ms-jpq/coq.artifacts',
+            'ms-jpq/coq.thirdparty',
+        }
+    }, ]]
     {
-        "kylechui/nvim-surround",
-        config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
-        end
+        'numToStr/Comment.nvim',
+        config = function() require('Comment').setup() end,
     },
-
     {
-        "nvim-telescope/telescope.nvim",
-        tag = "0.1.0",
-        dependencies = "nvim-lua/plenary.nvim",
-        cmd = "Telescope",
+        "lukas-reineke/indent-blankline.nvim",
+        event = "BufWinEnter"
     },
-
-    {
-        "folke/which-key.nvim",
-        event = "BufWinEnter", -- Actually lazy-loading inside indent_blankline
-    },
-
-    --{
-    --    "rcarriga/nvim-notify",
-    --    config = function()
-    --        require("notify").setup()
-    --        vim.notify = require("notify")
-    --        vim.notify("This is an error message", "error")
-    --    end,
-    --},
-
-    {
-        "norcalli/nvim-colorizer.lua",
-        config = function ()
-            require("colorizer").setup()
-        end
-    },
-
-    {
-        "mbbill/undotree",
-    },
+    { "mbbill/undotree", cmd = "UndotreeToggle" }
 }
