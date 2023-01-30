@@ -15,7 +15,7 @@ nm-applet --indicator &
 blueman-applet &
 
 # graphic stuff
-swaybg -i ~/Pictures/flowerboy.jpg &
+swaybg -i ~/Pictures/space.jpg &
 swayidle -w &
 gammastep &
 
@@ -23,4 +23,3 @@ gammastep &
 
 # polkit agent
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
-

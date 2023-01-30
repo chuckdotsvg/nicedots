@@ -11,7 +11,7 @@ image/gif=imv.desktop
 text/plain=nvim.desktop
 image/bmp=imv.desktop
 image/svg+xml=imv-folder.desktop
-image/jpeg=imv-folder.desktop
+image/jpeg=imv-dir.desktop
 image/svg+xml-compressed=feh-svg.desktop
 x-scheme-handler/chrome=firefox.desktop
 application/x-extension-htm=firefox.desktop
@@ -25,6 +25,7 @@ inode/directory=caja.desktop
 application/octet-stream=nvim.desktop
 application/x-shellscript=nvim.desktop
 text/markdown=nvim.desktop
+x-scheme-handler/msteams=teams.desktop
 
 [Added Associations]
 text/x-chdr=libreoffice-writer.desktop;

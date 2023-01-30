@@ -5,13 +5,11 @@ local M = {
 function M.config()
     -- Mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-    local remap = vim.keymap.set
-    local lspopt = vim.lsp
     local opts = { noremap = true, silent = true }
-    remap('n', '<leader>e', vim.diagnostic.open_float, opts)
-    remap('n', '<leader>dk', vim.diagnostic.goto_prev, opts)
-    remap('n', '<leader>dj', vim.diagnostic.goto_next, opts)
-    remap('n', '<leader>q', vim.diagnostic.setloclist, opts)
+    vim.keymap.set('n', '<leader>do', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '<leader>dk', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', '<leader>dj', vim.diagnostic.goto_next, opts)
+    vim.keymap.set('n', '<leader>dq', vim.diagnostic.setloclist, opts)
 
     -- Use an on_attach function to only map the following keys
     -- after the language server attaches to the current buffer
@@ -20,28 +18,26 @@ function M.config()
         vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
         -- Mappings.
-        -- See `:help lspopt.*` for documentation on any of the below functions
+        -- See `:help vim.lsp.*` for documentation on any of the below functions
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
-        remap('n', 'gD', lspopt.buf.declaration, bufopts)
-        remap('n', 'gd', lspopt.buf.definition, bufopts)
-        remap('n', 'K', lspopt.buf.hover, bufopts)
-        remap('n', '<leader>gi', lspopt.buf.implementation, bufopts)
-        remap('n', '<C-k>', lspopt.buf.signature_help, bufopts)
-        remap('n', '<leader>wa', lspopt.buf.add_workspace_folder, bufopts)
-        remap('n', '<leader>wr', lspopt.buf.remove_workspace_folder, bufopts)
-        remap('n', '<leader>wl', function()
-            print(vim.inspect(lspopt.buf.list_workspace_folders()))
-        end, bufopts)
-        remap('n', '<leader>D', lspopt.buf.type_definition, bufopts)
-        remap('n', '<leader>rn', lspopt.buf.rename, bufopts)
-        remap('n', '<leader>ca', lspopt.buf.code_action, bufopts)
-        remap('n', 'gr', lspopt.buf.references, bufopts)
-        remap('n', '<leader>f', function() lspopt.buf.format { async = true } end, bufopts)
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+        vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts)
+        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+        vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+        vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+        vim.keymap.set('n', '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
+        vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
+        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+        vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
     end
 
     local handlers = {
-        ["textDocument/hover"] = lspopt.with(lspopt.handlers.hover, { border = "single" }),
-        ["textDocument/signatureHelp"] = lspopt.with(lspopt.handlers.signature_help, { border = "single" }),
+        ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" }),
+        ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" }),
     }
 
     vim.diagnostic.config {

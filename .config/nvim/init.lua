@@ -20,4 +20,3 @@ vim.g.mapleader = ' '
 
 require("lazy").setup("plugins")
 require("options")
-require'lspconfig'.pyright.setup{}

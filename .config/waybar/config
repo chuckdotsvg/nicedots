@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["wlr/workspaces", "gamemode", "idle_inhibitor"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/media", "temperature", "battery", "tray"],
+    "modules-right": ["mpris", "temperature", "battery", "tray"],
 
 
     // Modules configuration
@@ -60,6 +60,20 @@
         // "timezone": "America/New_York",
         "format": "{:%a %d %b %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "on-click-right": "mode",
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    }
     },
     "cpu": {
         "format": " {usage}%",
@@ -86,6 +100,8 @@
             "warning": 30,
             "critical": 20
         },
+        /* "full-at": "$(cat /sys/class/power_supply/BAT0/energy_full)", */
+        "full-at": 80,
         "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
@@ -167,4 +183,16 @@
         "tooltip": true,
         "tooltip-format": "Games running: {count}"
     },
+    "mpris": {
+        "format": "{player_icon} {title}",
+        "format-paused": "{status_icon} <i>{title}</i>",
+        "player-icons": {
+            "default": "▶",
+            "mpd": "󰎆"
+        },
+        "status-icons": {
+            "paused": "⏸"
+        },
+        // "ignored-players": ["firefox"]
+    }
 }

@@ -78,6 +78,7 @@ button:hover {
 #mode,
 #idle_inhibitor,
 #scratchpad,
+#mpris,
 #mpd {
     padding: 0 10px;
     color: #ffffff;
@@ -253,6 +254,11 @@ label:focus {
 	background-color: transparent;
 }
 
-bluetooth.on {
+#mpris.mpd {
+    background-color: #003D88;
+}
 
+#mpris.spotify {
+    background-color: #1ED760;
+    color: #000000;
 }
