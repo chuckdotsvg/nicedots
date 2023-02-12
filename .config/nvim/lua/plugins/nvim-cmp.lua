@@ -68,8 +68,8 @@ function M.config()
             end,
         },
         mapping = cmp.mapping.preset.insert({
-            ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
-            ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
+            ['<C-u>'] = cmp.mapping.scroll_docs(-1), -- Up
+            ['<C-d>'] = cmp.mapping.scroll_docs(1), -- Down
             -- C-b (back) C-f (forward) for snippet placeholder navigation.
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<CR>'] = cmp.mapping.confirm {
@@ -134,6 +134,19 @@ function M.config()
                 border = "single"
             },
         },
+        sorting = {
+            comparators = {
+                cmp.config.compare.offset,
+                cmp.config.compare.exact,
+                cmp.config.compare.score,
+                cmp.config.compare.recently_used,
+                cmp.config.compare.locality,
+                cmp.config.compare.kind,
+                cmp.config.compare.sort_text,
+                cmp.config.compare.length,
+                cmp.config.compare.order,
+            },
+        }
     }
 end
 

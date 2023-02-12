@@ -15,7 +15,7 @@ nm-applet --indicator &
 blueman-applet &
 
 # graphic stuff
-swaybg -i ~/Pictures/space.jpg &
+swaybg -i ~/Pictures/flowerboy.jpg &
 swayidle -w &
 gammastep &
 

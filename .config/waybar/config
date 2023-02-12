@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["wlr/workspaces", "gamemode", "idle_inhibitor"],
     "modules-center": ["clock"],
-    "modules-right": ["mpris", "temperature", "battery", "tray"],
+    "modules-right": ["custom/media", "temperature", "battery", "tray"],
 
 
     // Modules configuration
@@ -95,13 +95,12 @@
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
+        "battery": "BAT0",
         "states": {
             // "good": 95,
             "warning": 30,
             "critical": 20
         },
-        /* "full-at": "$(cat /sys/class/power_supply/BAT0/energy_full)", */
-        "full-at": 80,
         "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
@@ -111,7 +110,7 @@
         "format-icons": ["", "", "", "", ""],
         "format-alt": "{power} W",
         //"interval": 180,
-        "on-update": "batlvl",
+        /* "on-update": "batlvl", */
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface

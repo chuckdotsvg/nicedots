@@ -1,11 +1,12 @@
 return {
     {
-        "folke/tokyonight.nvim",
+        "catppuccin/nvim",
+        name = "catppuccin",
         lazy = false, -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             -- load the colorscheme here
-            vim.cmd([[colorscheme tokyonight-night]])
+            vim.cmd.colorscheme "catppuccin"
         end,
     },
     { "williamboman/mason.nvim" },
@@ -37,5 +38,12 @@ return {
         "lukas-reineke/indent-blankline.nvim",
         event = "BufWinEnter"
     },
-    { "mbbill/undotree", cmd = "UndotreeToggle" }
+
+    { "mbbill/undotree", cmd = "UndotreeToggle" },
+
+    {
+        'andweeb/presence.nvim',
+        config = function() require("presence").setup({}) end,
+    }
+
 }

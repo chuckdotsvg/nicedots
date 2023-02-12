@@ -1,5 +1,5 @@
 configuration{
-    modi: "run,drun,window";
+    modi: "run,drun,window,ssh";
     icon-theme: "Oranchelo";
     show-icons: true;
     drun-display-format: "{icon} {name}";
@@ -9,7 +9,9 @@ configuration{
     display-drun: "   Apps ";
     display-run: "   Run ";
     display-window: " 﩯  Window";
-    display-Network: " 󰤨  Network";
+    display-ssh: "   ssh";
+    terminal: "rofi-sensible-terminal";
+    /* run-shell-command: "{terminal} {cmd}"; */
     sidebar-mode: true;
 }
 

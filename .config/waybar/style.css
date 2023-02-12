@@ -1,3 +1,5 @@
+@import "mocha.css";
+
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: SF Pro Text, FontAwesome, Roboto, Helvetica, Arial, sans-serif;

@@ -16,7 +16,5 @@ vim.api.nvim_create_autocmd(
         { command = [[ if @% !~# '\.git[\/\\]COMMIT_EDITMSG$' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]] }
 )
 
-vim.g.mapleader = ' '
-
-require("lazy").setup("plugins")
 require("options")
+require("lazy").setup("plugins")

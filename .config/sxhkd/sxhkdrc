@@ -1,5 +1,5 @@
 super + shift + return
-    $TERMINAL
+    alacritty msg create-window || alacritty
 
 super + p
    rofi -show drun

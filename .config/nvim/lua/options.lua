@@ -21,3 +21,5 @@ vim.opt.listchars:append({
     eol = "↴",
     -- space = "⋅",
 })
+
+vim.g.mapleader = ' '

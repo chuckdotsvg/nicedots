@@ -2,25 +2,25 @@
 
 MENU="rofi -dmenu"
 
-action+=(
+action=(
     copy
     save
     copysave
 )
 
-zone+=(
+zone=(
     area
     active
     output
     screen
 )
 
-option+=(
+option=(
     edit
     img2txt
 )
 
-choice+=(
+choice=(
     yes
     no
 )
