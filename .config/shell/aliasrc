@@ -23,6 +23,7 @@ alias uni='cd ~/Documents/uni/'
 
 alias trash='gio trash'
 alias svn="svn --config-dir $XDG_CONFIG_HOME/subversion"
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 
 alias pbin="curl -F 'f:1=<-' ix.io"
 

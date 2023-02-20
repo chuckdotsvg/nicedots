@@ -11,6 +11,7 @@ return {
     },
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
+    { "mfussenegger/nvim-jdtls" },
     {
         "kylechui/nvim-surround",
         config = function() require("nvim-surround").setup() end
@@ -44,6 +45,12 @@ return {
     {
         'andweeb/presence.nvim',
         config = function() require("presence").setup({}) end,
+    },
+
+    {
+        "iamcco/markdown-preview.nvim",
+        ft = "markdown",
+        config = function() vim.fn["mkdp#util#install"]() end,
     }
 
 }

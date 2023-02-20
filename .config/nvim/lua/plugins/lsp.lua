@@ -27,7 +27,8 @@ function M.config()
         vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
         vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
         vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-        vim.keymap.set('n', '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
+        vim.keymap.set('n', '<leader>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
+            bufopts)
         vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
         vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
@@ -51,31 +52,51 @@ function M.config()
 
     require("mason").setup()
     require("mason-lspconfig").setup()
+    -- local servers = require("mason-lspconfig").get_installed_servers()
+
+    --[[ local function getIndex(tab, val)
+        local index = nil
+        for i, v in ipairs(tab) do
+            if (v == val) then
+                index = i
+            end
+        end
+        return index
+    end ]]
+    -- local custom = {"lua_ls", "jdtls"}
+
+    --[[ for _, srv in ipairs(custom) do
+        local idx = getIndex(servers, srv)
+        table.remove(servers, idx)
+    end ]]
     require("mason-lspconfig").setup_handlers {
         function(server_name)
+            -- for _, server_name in ipairs(servers) do
             lspconfig[server_name].setup {
-                -- lspconfig[server_name].setup(require('coq').lsp_ensure_capabilities({
                 on_attach = on_attach,
                 handlers = handlers,
                 capabilities = capabilities,
-                -- }))
             }
         end,
-    }
 
-    -- Server overrides
-    lspconfig.lua_ls.setup {
-        on_attach = on_attach,
-        handlers = handlers,
-        capabilities = capabilities,
-
-        settings = {
-            Lua = {
-                diagnostics = {
-                    globals = { 'vim' }
+        -- Server overrides
+        ["lua_ls"] = function()
+            lspconfig.lua_ls.setup {
+                on_attach = on_attach,
+                handlers = handlers,
+                capabilities = capabilities,
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { 'vim' }
+                        }
+                    }
                 }
             }
-        }
+        end,
+
+        -- ["jdtls"] = function () end,
+
     }
 
     local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
