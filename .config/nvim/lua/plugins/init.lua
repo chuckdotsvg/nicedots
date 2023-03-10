@@ -51,6 +51,11 @@ return {
         "iamcco/markdown-preview.nvim",
         ft = "markdown",
         config = function() vim.fn["mkdp#util#install"]() end,
-    }
+    },
+
+    {
+        'lewis6991/gitsigns.nvim',
+        config = function () require("gitsigns").setup() end,
+    },
 
 }

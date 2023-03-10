@@ -228,7 +228,7 @@ bindsym XF86Favorites exec playerctl next
 bindsym XF86Calculator exec mate-calc
 
 # STARTUP COMMANDS
-exec ~/scripts/startway.sh
+exec ~/.local/bin/startway.sh
 # exec dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 include /etc/sway/config.d/*
