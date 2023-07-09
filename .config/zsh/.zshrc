@@ -20,6 +20,7 @@ PROMPT=$'%B%{$fg[magenta]%}%n%{$reset_color%}%b in %B%{$fg[cyan]%}${PWD/#$HOME/~
 # The following lines were added by compinstall
 
 zstyle ':completion:*' menu select
+zstyle ':completion:*' completer _complete _expand _list _oldlist
 zstyle :compinstall filename '/home/chuck/.config/zsh/.zshrc'
 
 autoload -Uz compinit
