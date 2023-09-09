@@ -2,17 +2,12 @@
 
 step=5
 
-if [ "${1:1}" != "A" ] && [ "${1:1}" != "U" ]; then
-    notify-send "But nothing happened!"
-    exit 1
-fi
-
-brillo -q "$1" $step
-LVL=$( brillo )
+brightnessctl -n2 -e s $step%$1
+LVL=$(brightnessctl -e | grep % | awk '{print $4}')
 
 notify-send \
     -c "multimedial" \
     -r "10000" \
-    -h "int:value:${LVL}" \
+    -h "int:value:${LVL:1:-1}" \
     -i "mx-alerts" \
     "backlight: "

@@ -2,7 +2,7 @@ set drawbox
 set info size
 set icons
 set dircounts
-set autoquit on
+set autoquit true
 
 # commands
 

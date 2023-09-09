@@ -8,7 +8,7 @@ super + p
 #    backlight -{A,U}
 
 XF86Audio{Mute,RaiseVolume,LowerVolume}
-    changevolume.sh {muted,high,low}
+    changevolume.sh {muted,+,-}
 
 #XF86AudioMicMute
 #    pactl set-source-mute @DEFAULT_SOURCE@ toggle

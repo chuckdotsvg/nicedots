@@ -37,10 +37,12 @@ export GRIMBLAST_EDITOR="swappy"
 
 export WALLPAPER="$HOME/Pictures/tetris.png"
 
+# export GTK_THEME="Catppuccin-Mocha-Standard-Lavander-dark"
+
 #fake display manager
-if [ -z "${DISPLAY}" ]; then
-  case "${XDG_VTNR}" in
-#      1) exec startx ;;
-    1) exec Hyprland ;;
-  esac
-fi
+# if [ -z "${DISPLAY}" ]; then
+#   case "${XDG_VTNR}" in
+# #      1) exec startx ;;
+#     1) exec Hyprland ;;
+#   esac
+# fi

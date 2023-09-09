@@ -28,6 +28,9 @@ alias yarn="yarn --use-yarnrc $XDG_CONFIG_HOME/yarn/config"
 
 alias pbin="curl -F 'f:1=<-' ix.io"
 
+# CODING ALIASES
+# alias gdb='gdb --tui'
+
 # GITHUB ALIASES
 alias config='git --git-dir=$HOME/.nicedots --work-tree=$HOME'
 alias gps='git push origin main'

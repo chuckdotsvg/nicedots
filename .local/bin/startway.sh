@@ -18,6 +18,7 @@ blueman-applet &
 hyprpaper &
 swayidle -w &
 gammastep &
+xwaylandvideobridge &
 
 ~/.config/systemd/user/hotkeys.sh &
 
