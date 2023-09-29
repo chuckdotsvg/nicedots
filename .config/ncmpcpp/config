@@ -60,6 +60,7 @@ mpd_music_dir = ~/Music
 ## Note: If you're using Mopidy, an address of a udpsink gstreamer's output is
 ## also accepted. For example, the following section in mopidy.conf:
 ##
+[audio]
 ## [audio]
 ## output = tee name=t ! queue ! autoaudiosink t.
 ##        ! queue ! audio/x-raw,rate=44100,channels=2,format=S16LE
@@ -69,7 +70,7 @@ mpd_music_dir = ~/Music
 ## visualizer.
 ##
 #
-visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_data_source = "localhost:5555"
 #
 ##
 ## Note: Below parameter is needed for ncmpcpp to determine which output

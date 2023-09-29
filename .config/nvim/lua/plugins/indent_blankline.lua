@@ -1,11 +1,13 @@
 local M = {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
+    main = "ibl";
+    enabled = true,
 }
 
 function M.config()
 
-    require("indent_blankline").setup({
+    require("ibl").setup({
         use_treesitter_scope = false,
         show_trailing_blankline_indent = false,
         show_current_context = true,
@@ -16,7 +18,7 @@ function M.config()
             "Telescope",
             "Mason",
         },
-        filetype_exclude = {
+        --[[ filetype_exclude = {
             "help",
             "startify",
             "dashboard",
@@ -25,7 +27,7 @@ function M.config()
             "NvimTree",
             "neo-tree",
             "Trouble",
-        },
+        }, ]]
         context_patterns = {
             "class",
             "return",

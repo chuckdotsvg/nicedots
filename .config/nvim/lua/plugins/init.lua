@@ -2,13 +2,26 @@ return {
     {
         "catppuccin/nvim",
         name = "catppuccin",
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        enabled = false,
+        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             -- load the colorscheme here
             vim.cmd.colorscheme "catppuccin"
         end,
     },
+
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+        config = function()
+            -- load the colorscheme here
+            vim.cmd.colorscheme "tokyonight-night"
+        end,
+    },
+
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
     { "mfussenegger/nvim-jdtls" },
@@ -55,7 +68,11 @@ return {
 
     {
         'lewis6991/gitsigns.nvim',
-        config = function () require("gitsigns").setup() end,
+        config = function() require("gitsigns").setup() end,
+    },
+
+    {
+        "mfussenegger/nvim-dap",
     },
 
 }

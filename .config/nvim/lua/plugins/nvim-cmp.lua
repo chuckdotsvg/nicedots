@@ -128,7 +128,10 @@ function M.config()
             end
         end,
         view = {
-            { name = 'custom', selection_order = 'near_cursor' }
+            docs = {
+                auto_open = true,
+            },
+            { name = 'custom', selection_order = 'near_cursor' },
         },
         window = {
             completion = {

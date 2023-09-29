@@ -4,6 +4,7 @@ local M = {
             require('nvim-treesitter.install').update({ with_sync = true })
         end,
         event = "BufReadPost",
+        enabled = true,
     }
 
 function M.config()
@@ -12,7 +13,7 @@ require'nvim-treesitter.configs'.setup({
   -- A list of parser names, or "all"
   ensure_installed = {
       "c",
-      "lua",
+      -- "lua",
       "rust",
       "bash",
       "markdown",

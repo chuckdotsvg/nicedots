@@ -23,6 +23,6 @@ PERCENTAGE=$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $2*100}')
 [ $PERCENTAGE -gt 24 ] && VOLUME="medium"
 [ $PERCENTAGE -gt 49 ] && VOLUME="high"
 [ $PERCENTAGE -gt 74 ] && VOLUME="overamplified"
-[ -z "$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $3}')" ] && VOLUME="muted"
+[ "$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $3}')" ] && VOLUME="muted"
 
 notify-send "Volume $VOLUME: " -c "multimedial" -r "9993" -h int:value:"$PERCENTAGE" -i ~/Pictures/popcatpng/${VOLUME}.png

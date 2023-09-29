@@ -20,7 +20,7 @@ swayidle -w &
 gammastep &
 xwaylandvideobridge &
 
-~/.config/systemd/user/hotkeys.sh &
+# ~/.config/systemd/user/hotkeys.sh &
 
 # polkit agent
 /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
