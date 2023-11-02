@@ -11,7 +11,7 @@ ignore-empty-password
 fade-in=0.4
 grace=10
 
-image=~/Pictures/flowerboy.jpg
+# image=~/Pictures/flowerboy.jpg
 effect-greyscale
 effect-blur=8x5
 effect-pixelate=4

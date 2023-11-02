@@ -5,7 +5,7 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "gamemode", "idle_inhibitor"],
+    "modules-left": ["sway/workspaces", "hyprland/workspaces", "gamemode", "idle_inhibitor"],
     "modules-center": ["clock"],
     "modules-right": ["custom/media", "temperature", "battery", "tray"],
 

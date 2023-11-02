@@ -95,6 +95,7 @@ function M.config()
             }
         end,
 
+        -- start manually
         -- ["jdtls"] = function () end,
 
     }

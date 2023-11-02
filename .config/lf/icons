@@ -133,3 +133,11 @@ fi             # FILE
 
 # documents formats
 *.pdf   
+*.jar   󰬷
+*.java  󰬷
+
+# microsoft stuff
+*.docx  
+
+# tarballs
+*.deb  
