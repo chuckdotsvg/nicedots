@@ -32,14 +32,14 @@ createmenu(){
 
 paint(){
     if [ "$ACTION" = "copy" ]; then
-        wl-paste | swappy -f -
+        wl-paste | $GRIMBLAST_EDITOR -
     else
         CHOICE=$( createmenu "${choice[*]}" "Replace original? " )
         die "$CHOICE"
 
-        [ "$CHOICE" = "yes" ] && FLAGS="--output-file=${FN}"
-    
-        swappy -f "$FN" "$FLAGS"
+        [ "$CHOICE" = "yes" ] && FLAGS="--output-filename=${FN}"
+
+        $GRIMBLAST_EDITOR "$FN" "$FLAGS"
     fi
 
     # TODO: parse filename to modify only last part name

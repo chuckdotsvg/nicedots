@@ -6,7 +6,7 @@ case $1 in
 	+|-)
 		# Set the volume on (if it was muted)
         wpctl set-mute @DEFAULT_SINK@ 0
-        wpctl set-volume @DEFAULT_SINK@ $STEP%$1
+        wpctl set-volume @DEFAULT_SINK@ $STEP%"$1" --limit 1.0
 		;;
 	muted)
         wpctl set-mute @DEFAULT_SINK@ toggle
@@ -19,10 +19,10 @@ esac
 
 PERCENTAGE=$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $2*100}')
 
-[ $PERCENTAGE -ge 0  ] && VOLUME="low"
-[ $PERCENTAGE -gt 24 ] && VOLUME="medium"
-[ $PERCENTAGE -gt 49 ] && VOLUME="high"
-[ $PERCENTAGE -gt 74 ] && VOLUME="overamplified"
+[ "$PERCENTAGE" -ge 0  ] && VOLUME="low"
+[ "$PERCENTAGE" -gt 24 ] && VOLUME="medium"
+[ "$PERCENTAGE" -gt 49 ] && VOLUME="high"
+[ "$PERCENTAGE" -gt 74 ] && VOLUME="overamplified"
 [ "$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $3}')" ] && VOLUME="muted"
 
-notify-send "Volume $VOLUME: " -c "multimedial" -r "9993" -h int:value:"$PERCENTAGE" -i ~/Pictures/popcatpng/${VOLUME}.png
+notify-send "Volume $VOLUME: " -c "multimedial" -r "9993" -h int:value:"$PERCENTAGE" -i ~/Pictures/popcatpng/"${VOLUME}".png

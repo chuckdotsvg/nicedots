@@ -264,3 +264,33 @@ label:focus {
     background-color: #1ED760;
     color: #000000;
 }
+
+custom-example.Playing {
+    background-color: #1ED760;
+    color: #000000;
+}
+
+custom-example.Paused {
+    background-color: #1ED760;
+    color: #ffffff;
+}
+
+#backlight-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+#backlight-slider trough {
+    min-height: 10px;
+    min-width: 80px;
+    border-radius: 5px;
+    background-color: black;
+}
+#backlight-slider highlight {
+    min-width: 0px;
+    border-radius: 5px;
+    background-color: red;
+}

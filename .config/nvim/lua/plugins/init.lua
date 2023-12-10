@@ -35,10 +35,10 @@ return {
         config = function() require('Comment').setup() end,
     },
 
-    {
+    --[[ {
         "lukas-reineke/indent-blankline.nvim",
         event = "BufWinEnter"
-    },
+    }, ]]
 
     { "mbbill/undotree", cmd = "UndotreeToggle" },
 
@@ -70,4 +70,5 @@ return {
         end
     },
 
+    { "luckasRanarison/tree-sitter-hypr" },
 }

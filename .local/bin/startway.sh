@@ -1,26 +1,15 @@
 #!/bin/bash
 
 # audio
-#pipewire &
-#pipewire-pulse &
-#wireplumber &
 playerctld daemon &
-#mpd --no-daemon &
 
 # status bar
 waybar &
 
-# tray
-nm-applet --indicator &
-blueman-applet &
-
 # graphic stuff
-hyprpaper &
+swww init&
 swayidle -w &
 gammastep &
-xwaylandvideobridge &
+# xwaylandvideobridge &
 
-# ~/.config/systemd/user/hotkeys.sh &
-
-# polkit agent
-/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+dex -a -s ~/.config/autostart/

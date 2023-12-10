@@ -1,3 +1,8 @@
 [user]
 	name = Carlo Aspren Gines Lara
-	email = 101257700+PinoTheCreator@users.noreply.github.com
+	email = 101257700+chuckdotsvg@users.noreply.github.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
