@@ -32,7 +32,7 @@ export DIFFPROG="nvim -d"
 export EDITOR=nvim
 # export GTK_USE_PORTAL=1
 export QT_QPA_PLATFORMTHEME=qt5ct
-export TERMINAL="alacritty"
+# export TERMINAL="alacritty"
 export GRIMBLAST_EDITOR="satty --fullscreen --early-exit --filename"
 
 export WALLPAPER="$HOME/Pictures/tetris.png"
