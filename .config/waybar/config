@@ -11,6 +11,7 @@
         "gamemode",
         "idle_inhibitor",
         "hyprland/submap",
+        "hyprland/language",
     ],
     "modules-center": [
         "clock"

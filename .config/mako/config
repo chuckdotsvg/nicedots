@@ -13,10 +13,17 @@ font=SF Pro Text 12
 
 # Colors
 
+[mode=dark]
 background-color=#1e1e2e
 text-color=#cdd6f4
 border-color=#89b4fa
 progress-color=over #313244
+
+[mode=light]
+background-color=#eff1f5
+text-color=#4c4f69
+border-color=#1e66f5
+progress-color=over #ccd0da
 
 # Binding Options
 
@@ -28,7 +35,7 @@ icon-path=/usr/share/icons/Papirus/
 [urgency=high]
 border-color=#fe640b
 default-timeout=0
-border-color=#fab387
+# border-color=#fab387
 
 [category="multimedial"]
 default-timeout=2000

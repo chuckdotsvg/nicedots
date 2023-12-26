@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 case "$1" in
     daytime) set -- "Latte" "Light"
@@ -31,4 +31,18 @@ gsettings set org.gnome.desktop.interface icon-theme "$ICON_THEME"
 sed -i "s/catppuccin-.*/catppuccin-${1,,}\"/" .config/rofi/config.rasi
 
 # alacritty
-sed -i "0,/tokyonight_.*.yml/s//tokyonight_${2,,}.yml/" .config/alacritty/alacritty.yml | head -n20
+sed -i "0,/tokyonight_.*.yml/s//tokyonight_${2,,}.yml/" .config/alacritty/alacritty.yml
+
+# kitty
+# kitty kitten themes "Catppuccin-$1"
+
+# mako
+makoctl mode -s "${2,,}"
+
+#wallpaper
+export SWWW_TRANSITION=grow
+export SWWW_TRANSITION_POS=bottom
+export SWWW_TRANSITION_FPS=60
+export SWWW_TRANSITION_DURATION=2
+
+swww img ~/Pictures/flowerboy-"${2,,}".jpg
