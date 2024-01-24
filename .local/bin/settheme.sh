@@ -9,6 +9,9 @@ esac
 
 COLOUR=Lavender
 ICON_THEME=Papirus-"$2"
+CURSOR_THEME="capitaine-cursors"
+
+[[ "$2" = "Dark" ]] && CURSOR_THEME="$CURSOR_THEME-light"
 
 THEME_DIR=/usr/share/themes/Catppuccin-$1-Standard-$COLOUR-$2/
 
@@ -27,17 +30,31 @@ gsettings set org.gnome.desktop.interface gtk-theme Catppuccin-"$1"-Standard-"$C
 gsettings set org.gnome.desktop.interface color-scheme prefer-"${2,,}"
 gsettings set org.gnome.desktop.interface icon-theme "$ICON_THEME"
 
+# cursor
+# gsettings set org.gnome.desktop.interface cursor-theme "$CURSOR_THEME"
+# hyprctl setcursor "$CURSOR_THEME" 24
+
 # rofi
 sed -i "s/catppuccin-.*/catppuccin-${1,,}\"/" .config/rofi/config.rasi
 
 # alacritty
-sed -i "0,/tokyonight_.*.yml/s//tokyonight_${2,,}.yml/" .config/alacritty/alacritty.yml
+sed -i "s/catppuccin_.*\.toml/catppuccin_${1,,}\.toml/" ~/.config/alacritty/alacritty.toml
 
 # kitty
 # kitty kitten themes "Catppuccin-$1"
 
+# waybar
+killall waybar 
+waybar --style "$HOME/.config/waybar/${2,,}-style.css" &> /dev/null &
+
+# qt (theme only)
+kvantummanager --set "Catppuccin-Mocha-Lavender"
+
 # mako
 makoctl mode -s "${2,,}"
+
+# betterdiscord
+sed -i "s/catppuccin-.*-/catppuccin-${1,,}-/" ~/.config/BetterDiscord/data/stable/custom.css
 
 #wallpaper
 export SWWW_TRANSITION=grow

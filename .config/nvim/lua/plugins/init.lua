@@ -35,15 +35,14 @@ return {
         config = function() require('Comment').setup() end,
     },
 
-    --[[ {
-        "lukas-reineke/indent-blankline.nvim",
-        event = "BufWinEnter"
-    }, ]]
-
-    { "mbbill/undotree", cmd = "UndotreeToggle" },
+    {
+        "mbbill/undotree",
+        cmd = "UndotreeToggle"
+    },
 
     {
         'andweeb/presence.nvim',
+        enabled = false,
         config = function() require("presence").setup({}) end,
     },
 
@@ -60,7 +59,7 @@ return {
 
     {
         'rcarriga/nvim-notify',
-        config = function ()
+        config = function()
             vim.notify = require("notify")
 
             require('notify').setup({
@@ -71,4 +70,11 @@ return {
     },
 
     { "luckasRanarison/tree-sitter-hypr" },
+
+    {
+        'norcalli/nvim-colorizer.lua',
+        config = function()
+            require 'colorizer'.setup()
+        end
+    },
 }
