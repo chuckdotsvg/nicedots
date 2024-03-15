@@ -48,6 +48,7 @@ return {
 
     {
         "iamcco/markdown-preview.nvim",
+        enabled = true,
         ft = "markdown",
         config = function() vim.fn["mkdp#util#install"]() end,
     },

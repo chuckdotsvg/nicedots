@@ -8,7 +8,7 @@ waybar &
 
 # graphic stuff
 swww init&
-swayidle -w &
+hypridle &
 gammastep &
 # xwaylandvideobridge &
 

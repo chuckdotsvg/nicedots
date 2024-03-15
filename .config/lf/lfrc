@@ -26,7 +26,7 @@ cmd trash ${{
 }}
 
 cmd mkdir %mkdir "$@"
-cmd dragon %dragon-drop -a -x "$f"
+cmd ripdrag %ripdrag -n -a -x "$f"
 cmd mkfile %touch "$@"
 
 cmd open ${{
@@ -63,4 +63,4 @@ map mf push :mkfile<space>
 
 map dt :trash
 map dd :cut
-map dR :dragon
+map dr :ripdrag

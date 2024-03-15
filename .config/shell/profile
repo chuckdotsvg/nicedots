@@ -1,4 +1,4 @@
-export PATH=$PATH:$HOME/.local/bin/
+export PATH=$PATH:$HOME/scripts/:$HOME/miniforge3/bin/
 
 # XDG Variables
 export XDG_DATA_HOME=$HOME/.local/share
@@ -36,10 +36,5 @@ export GRIMBLAST_EDITOR="satty --fullscreen --early-exit --filename"
 
 export WALLPAPER="$HOME/Pictures/tetris.png"
 
-#fake display manager
-# if [ -z "${DISPLAY}" ]; then
-#   case "${XDG_VTNR}" in
-# #      1) exec startx ;;
-#     1) exec Hyprland ;;
-#   esac
-# fi
+export GPG_TTY=$(tty)
+
