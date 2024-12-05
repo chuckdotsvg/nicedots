@@ -21,7 +21,12 @@ function M.config()
             ["ui-select"] = {
                 require("telescope.themes").get_dropdown{}
             }
-        }
+        },
+
+        vim.keymap.set('n', '<leader>tf', '<cmd>Telescope find_files<cr>', { noremap = true, silent = true }),
+        vim.keymap.set('n', '<leader>tg', '<cmd>Telescope live_grep<cr>', { noremap = true, silent = true }),
+        vim.keymap.set('n', '<leader>tb', '<cmd>Telescope buffers<cr>', { noremap = true, silent = true }),
+        vim.keymap.set('n', '<leader>th', '<cmd>Telescope help_tags<cr>', { noremap = true, silent = true }),
     }
 
     require("telescope").load_extension("ui-select")

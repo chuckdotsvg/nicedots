@@ -1,18 +1,22 @@
-sort=-time
+max-history=20
 layer=overlay
+on-button-middle=dismiss-all
+
+default-timeout=5000
+ignore-timeout=1
+
 width=300
 height=110
 border-size=2
 border-radius=0
-icons=1
 max-icon-size=32
 markup=1
-default-timeout=5000
-ignore-timeout=1
-font=SF Pro Text 12
+font=SF-Pro-Text 12
+
+icons=1
+icon-path=/usr/share/icons/Papirus/
 
 # Colors
-
 [mode=dark]
 background-color=#1e1e2e
 text-color=#cdd6f4
@@ -25,12 +29,11 @@ text-color=#4c4f69
 border-color=#1e66f5
 progress-color=over #ccd0da
 
-# Binding Options
+[mode=do-not-disturb]
+invisible=1
 
-on-button-right=dismiss-all
-on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
-
-icon-path=/usr/share/icons/Papirus/
+[actionable=true]
+on-button-middle=exec makoctl menu -n "${id}" rofi -dmenu -p 'Select action: '
 
 [urgency=high]
 border-color=#fe640b
@@ -44,6 +47,3 @@ format=<b>%s</b>\n%b
 group-by=category
 history=0
 anchor=bottom-center
-
-[app-name="Brave"]
-anchor=bottom-left

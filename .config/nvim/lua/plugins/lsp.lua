@@ -95,6 +95,18 @@ function M.config()
             }
         end,
 
+        ["clangd"] = function()
+            lspconfig.clangd.setup {
+                on_attach = on_attach,
+                handlers = handlers,
+                capabilities = capabilities,
+                cmd = {
+                    "clangd",
+                    "--offset-encoding=utf-16",
+                }
+            }
+        end,
+
         -- start manually
         -- ["jdtls"] = function () end,
 

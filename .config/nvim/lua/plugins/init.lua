@@ -78,4 +78,8 @@ return {
             require 'colorizer'.setup()
         end
     },
+
+    {
+        'github/copilot.vim',
+    },
 }

@@ -15,7 +15,7 @@ function M.config()
     local wk = require("which-key")
     local ts = require("telescope.builtin")
 
-    wk.register({
+    --[[ wk.add({
         ["<leader>"] = {
             t = {
                 name = "+Telescope",
@@ -26,7 +26,7 @@ function M.config()
             },
             ["ut"] = { "<cmd>UndotreeToggle<cr>", "Toggle undo-history" },
         }
-    })
+    }) ]]
 end
 
 return M
