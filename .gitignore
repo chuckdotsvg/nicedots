@@ -1,2 +1,3 @@
-.nicedots
-~/.local/bin/xterm
+~/.nicedots
+~/scripts/xterm
+~/.config/nvim/lazy-lock.json

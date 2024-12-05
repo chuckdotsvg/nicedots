@@ -11,11 +11,11 @@ ignore-empty-password
 fade-in=0.4
 grace=10
 
-# image=~/Pictures/flowerboy.jpg
-screenshots
-effect-greyscale
-effect-blur=8x5
-effect-pixelate=4
+image=~/Pictures/manicomio.jpg
+#screenshots
+#effect-greyscale
+#effect-blur=8x5
+#effect-pixelate=4
 effect-vignette=0.5:0.5
 
 font=SF Pro Text

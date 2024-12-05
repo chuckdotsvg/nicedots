@@ -73,6 +73,7 @@
         // "timezone": "America/New_York",
         "format": "{:%a %d %b %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "on-click-middle": "/home/chuck/scripts/keyboard_toggle.sh",
         "calendar": {
             "mode": "year",
             "mode-mon-col": 3,
@@ -230,8 +231,7 @@
         },
         "status-icons": {
             "paused": "⏸"
-        },
-        // "ignored-players": ["firefox"]
+        }
     },
     "custom/example": {
         "exec": "playerctl -a metadata --format '{\"text\": \"{{playerName}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
@@ -248,7 +248,6 @@
         "max": 100,
         "orientation": "horizontal",
     },
-
     "hyprland/submap": {
         "tooltip": false,
     },

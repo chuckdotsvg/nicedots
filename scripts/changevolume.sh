@@ -6,7 +6,7 @@ case $1 in
 	+|-)
 		# Set the volume on (if it was muted)
         wpctl set-mute @DEFAULT_SINK@ 0
-        wpctl set-volume @DEFAULT_SINK@ $STEP%"$1" --limit 1.0
+        wpctl set-volume @DEFAULT_SINK@ $STEP%"$1" --limit 1.5
 		;;
 	muted)
         wpctl set-mute @DEFAULT_SINK@ toggle

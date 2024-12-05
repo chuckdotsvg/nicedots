@@ -62,10 +62,29 @@ rehash_precmd() {
 
 add-zsh-hook -Uz precmd rehash_precmd
 
+notify_precmd() {
+  emulate -L zsh  # Reset shell options inside this function.
+
+  # Fetch the last command with elapsed time from history:
+  local -a stats=( "${=$(fc -Dl -1)}" )
+  # = splits the string into an array of words.
+  # The elapsed time is the second word in the array.
+
+  local -a time=( "${(s.:.)stats[3]}" )
+
+  # check if take more than 1 minute
+  # (( time[-2] > 0 || ${#arr[@]} > 2 )) && 
+  #     notify-send -u critical \
+  #         "hey command '$stats[4,-1]' executed in ${stats[3]}"
+
+  RPROMPT="Executed in ${stats[3]}"
+}
+
+add-zsh-hook -Uz precmd notify_precmd
 
 # plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # conda
-[[ -e ~/.bashrc ]] && emulate sh -c 'source ~/.bashrc'
+# [[ -e ~/.bashrc ]] && emulate sh -c 'source ~/.bashrc'
