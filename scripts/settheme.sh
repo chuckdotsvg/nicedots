@@ -14,8 +14,9 @@ COLOUR=Lavender
 # [[ "$2" = "Dark" ]] && CURSOR_THEME="$CURSOR_THEME-light"
 
 # GTK3 theme
+mkdir -p "$HOME"/.local/share/nwg-look/themes
 unlink "$HOME"/.local/share/nwg-look/gsettings
-ln -s "$HOME"/.local/share/desktopthemes/"$2" "$HOME"/.local/share/nwg-look/gsettings
+ln -s "$HOME"/.local/share/nwg-look/themes/"$2" "$HOME"/.local/share/nwg-look/gsettings
 nwg-look -a
 
 # GTK4 theme
