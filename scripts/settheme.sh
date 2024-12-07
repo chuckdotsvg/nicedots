@@ -48,8 +48,8 @@ sed -i "s/catppuccin_.*\.toml/catppuccin_${1,,}\.toml/" ~/.config/alacritty/alac
 ~/scripts/update_spotify.sh "$1" "$2" &
 
 # waybar
-killall waybar 
-waybar --style "$HOME/.config/waybar/${2,,}-style.css" &> /dev/null &
+ln -sf "$HOME/.config/waybar/${2,,}-style.css" "$HOME/.config/waybar/style.css"
+killall -SIGUSR2 waybar
 
 # qt (theme only)
 kvantummanager --set "catppuccin-${1,,}-${COLOUR,,}"
@@ -58,7 +58,7 @@ kvantummanager --set "catppuccin-${1,,}-${COLOUR,,}"
 makoctl mode -s "${2,,}"
 
 # betterdiscord
-sed -i "s/catppuccin-.*-/catppuccin-${1,,}-/" ~/.config/BetterDiscord/data/stable/custom.css
+# sed -i "s/catppuccin-.*-/catppuccin-${1,,}-/" ~/.config/BetterDiscord/data/stable/custom.css
 
 #wallpaper
 export SWWW_TRANSITION=grow
