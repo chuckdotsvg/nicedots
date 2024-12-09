@@ -11,7 +11,8 @@
         "gamemode",
         "idle_inhibitor",
         "hyprland/submap",
-        "hyprland/language",
+        "custom/keyboardstatus",
+        "hyprland/language"
     ],
     "modules-center": [
         "clock"
@@ -144,7 +145,7 @@
             "",
             ""
         ],
-        "format-alt": "{power} W",
+        "format-alt": "{power} W"
         //"interval": 180,
         /* "on-update": "batlvl", */
     },
@@ -181,18 +182,6 @@
         },
         "on-click": "$TERMINAL -e pulsemixer"
     },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
-        "on-click-right": "playerctl play-pause",
-    },
     "bluetooth": {
         "format": " {status}",
         "format-connected": " {device_alias}",
@@ -201,14 +190,14 @@
         "tooltip-format-enumerate-connected": "{device_alias}",
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
         "on-click-right": "bluetooth toggle",
-        "on-click": "dmenu-bluetooth",
+        "on-click": "dmenu-bluetooth"
     },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
             "activated": "",
-            "deactivated": "",
-        },
+            "deactivated": ""
+        }
     },
     "gamemode": {
         "format": "{glyph}",
@@ -233,22 +222,22 @@
             "paused": "⏸"
         }
     },
-    "custom/example": {
-        "exec": "playerctl -a metadata --format '{\"text\": \"{{playerName}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-        // "escape": "true",
-        "return-type": "json",
-        "format": "{icon} {}",
-        "format-type": {
-            "Playing": " ",
-            "Paused": " "
-        }
-    },
     "backlight/slider": {
         "min": 0,
         "max": 100,
-        "orientation": "horizontal",
+        "orientation": "horizontal"
     },
     "hyprland/submap": {
-        "tooltip": false,
+        "tooltip": false
+    },
+    "custom/keyboardstatus": {
+        "format": "{icon}",
+        "exec": "touch /tmp/keyboard.status && tail -F /tmp/keyboard.status",
+        "format-icons": [
+            "󰌐",
+            "󰌌"
+        ],
+        "on-click": "~/scripts/keyboard_toggle.sh",
+        "return-type": "json"
     },
 }

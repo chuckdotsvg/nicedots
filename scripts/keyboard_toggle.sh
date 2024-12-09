@@ -1,25 +1,22 @@
 #!/usr/bin/env bash
 
-export STATUS_FILE="$XDG_RUNTIME_DIR/keyboard.status"
+export STATUS_FILE="/tmp/keyboard.status"
 
-enable_keyboard() {
-    printf "true" >"$STATUS_FILE"
-    notify-send -u normal "Enabling Keyboard"
-    hyprctl keyword '$LAPTOP_KB_ENABLED' "true" -r
+toggle_keyboard() {
+    # waybar part
+    CURPERC=$(tail -n 1 $STATUS_FILE | jq '.percentage')
+    NEWPERC=$((((CURPERC / 100) + 1) % 2))
+    [ $NEWPERC -eq 0 ] && NEWSTAT=disabled || NEWSTAT=enabled
+    echo "{\"class\": \"${NEWSTAT}\", \"percentage\": $((NEWPERC * 100))}" >> "$STATUS_FILE"
+
+    # functional part
+    notify-send -u normal -c multimedial "keyboard $NEWSTAT"
+    hyprctl keyword '$LAPTOP_KB_ENABLED' $NEWPERC -r
 }
 
-disable_keyboard() {
-    printf "false" >"$STATUS_FILE"
-    notify-send -u normal "Disabling Keyboard"
-    hyprctl keyword '$LAPTOP_KB_ENABLED' "false" -r
-}
-
-if ! [ -f "$STATUS_FILE" ]; then
-  disable_keyboard
+if ! [ -s "$STATUS_FILE" ]; then
+    echo "{\"class\": \"enabled\", \"percentage\": 100}" >> "$STATUS_FILE"
 else
-  if [ $(cat "$STATUS_FILE") = "true" ]; then
-    disable_keyboard
-  elif [ $(cat "$STATUS_FILE") = "false" ]; then
-    enable_keyboard
-  fi
+    toggle_keyboard
 fi
+
