@@ -13,7 +13,7 @@ alias cp="cp -iv"
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias icons='lf /usr/share/icons'
-alias ls='ls --color=auto --group-directories-first --classify --file-type'
+alias ls='ls -l --color=auto --group-directories-first --classify --file-type'
 alias mkdir="mkdir -pv"
 alias mv="mv -iv"
 alias rm="echo Not today :D && false"

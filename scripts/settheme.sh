@@ -8,10 +8,18 @@ case "$1" in
 esac
 
 COLOUR=Lavender
-#ICON_THEME=Papirus-"$2"
-# CURSOR_THEME="capitaine-cursors"
+CURSOR_THEME="capitaine-cursors-${1,,}"
 
-# [[ "$2" = "Dark" ]] && CURSOR_THEME="$CURSOR_THEME-light"
+# hyprland stuff
+if [ "$XDG_CURRENT_DESKTOP" = "Hyprland" ]; then
+    # cursor
+    hyprctl setcursor "$CURSOR_THEME" 24
+
+    # change hyprland colors
+    unlink "$HOME"/.config/hypr/catppuccin.conf
+    ln -s "$HOME"/.config/hypr/"${1,,}".conf "$HOME"/.config/hypr/catppuccin.conf
+    hyprctl reload
+fi
 
 # GTK3 theme
 mkdir -p "$HOME"/.local/share/nwg-look/themes
@@ -31,31 +39,24 @@ ln -sf "${THEME_DIR}/gtk-4.0/assets" "${HOME}/.config/gtk-4.0/assets"
 ln -sf "${THEME_DIR}/gtk-4.0/gtk.css" "${HOME}/.config/gtk-4.0/gtk.css"
 ln -sf "${THEME_DIR}/gtk-4.0/gtk-dark.css" "${HOME}/.config/gtk-4.0/gtk-dark.css"
 
-# cursor
-# gsettings set org.gnome.desktop.interface cursor-theme "$CURSOR_THEME"
-# hyprctl setcursor "$CURSOR_THEME" 24
-
 # rofi
 sed -i "s/catppuccin-.*/catppuccin-${1,,}\"/" ~/.config/rofi/config.rasi
 
 # alacritty
-sed -i "s/catppuccin_.*\.toml/catppuccin_${1,,}\.toml/" ~/.config/alacritty/alacritty.toml
-
-# kitty
-# kitty kitten themes "Catppuccin-$1"
+# sed -i "s/catppuccin_.*\.toml/catppuccin_${1,,}\.toml/" ~/.config/alacritty/alacritty.toml
 
 # spotify
 ~/scripts/update_spotify.sh "$1" "$2" &
 
 # waybar
 ln -sf "$HOME/.config/waybar/${2,,}-style.css" "$HOME/.config/waybar/style.css"
-killall -SIGUSR2 waybar
-
-# qt (theme only)
-kvantummanager --set "catppuccin-${1,,}-${COLOUR,,}"
+pidof waybar && killall -SIGUSR2 waybar || waybar
 
 # mako
 makoctl mode -s "${2,,}"
+
+# qt (theme only)
+kvantummanager --set "catppuccin-${1,,}-${COLOUR,,}"
 
 # betterdiscord
 # sed -i "s/catppuccin-.*-/catppuccin-${1,,}-/" ~/.config/BetterDiscord/data/stable/custom.css
