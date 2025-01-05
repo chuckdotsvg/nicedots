@@ -1,14 +1,18 @@
 #!/bin/bash
 
+CURSOR_THEME="capitaine-cursors"
+
 case "$1" in
-    daytime) set -- "Latte" "Light"
+    daytime)
+        set -- "Latte" "Light"
     ;;
-    *) set -- "Mocha" "Dark"
+    *)
+        set -- "Mocha" "Dark"
+        CURSOR_THEME+="-light"
     ;;
 esac
 
 COLOUR=Lavender
-CURSOR_THEME="capitaine-cursors-${1,,}"
 
 # hyprland stuff
 if [ "$XDG_CURRENT_DESKTOP" = "Hyprland" ]; then
@@ -50,7 +54,8 @@ sed -i "s/catppuccin-.*/catppuccin-${1,,}\"/" ~/.config/rofi/config.rasi
 
 # waybar
 ln -sf "$HOME/.config/waybar/${2,,}-style.css" "$HOME/.config/waybar/style.css"
-pidof waybar && killall -SIGUSR2 waybar || waybar
+pidof waybar && killall -SIGUSR2 waybar
+# if pidof waybar; then killall -SIGUSR2 waybar; else uwsm app -- waybar; fi
 
 # mako
 makoctl mode -s "${2,,}"
@@ -67,5 +72,6 @@ export SWWW_TRANSITION_POS=bottom
 export SWWW_TRANSITION_FPS=60
 export SWWW_TRANSITION_DURATION=2
 
-MONS=$(swww query | awk '{print $1}' | sed 's/:$/,/' | tr -d '\n')
-swww img -o "$MONS" ~/Pictures/"${2,,}".jpg
+#MONS=$(swww query | awk '{print $1}' | sed 's/:$/,/' | tr -d '\n')
+#swww img -o "$MONS" ~/Pictures/"${2,,}".jpg
+swww img  ~/Pictures/"${2,,}".jpg # MONS not needed(?)
