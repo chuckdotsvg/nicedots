@@ -1,0 +1,4 @@
+[manager]
+prepend_keymap = [
+    { on = [ "R", "d" ], run = ''' shell 'ripdrag "$@" -n -a -x 2>/dev/null &' --confirm ''', desc = "drag and drop files" }
+]

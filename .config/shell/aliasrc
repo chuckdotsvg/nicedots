@@ -18,6 +18,10 @@ alias mkdir="mkdir -pv"
 alias mv="mv -iv"
 alias rm="echo Not today :D && false"
 
+swapfiles() {
+    mv "$1" tmp && mv "$2" "$1" && mv tmp "$2"
+}
+
 # directories alias
 alias uni='cd ~/Documents/uni/'
 
@@ -46,3 +50,12 @@ alias gf='git fetch'
 
 # Use $XINITRC variable if file exists.
 [ -f "$XINITRC" ] && alias startx="ssh-agent startx $XINITRC"
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	\rm -f -- "$tmp"
+}

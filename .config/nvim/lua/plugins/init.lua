@@ -82,4 +82,6 @@ return {
     {
         'github/copilot.vim',
     },
+
+    -- { 'f-person/auto-dark-mode.nvim' },
 }

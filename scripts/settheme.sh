@@ -1,15 +1,18 @@
 #!/bin/bash
 
-CURSOR_THEME="capitaine-cursors"
 
 case "$1" in
     daytime)
         set -- "Latte" "Light"
+        CURSOR_THEME="Bibata-Modern-Classic"
+    ;;
+    night)
+        set -- "Mocha" "Dark"
+        CURSOR_THEME="Bibata-Modern-Ice"
     ;;
     *)
-        set -- "Mocha" "Dark"
-        CURSOR_THEME+="-light"
-    ;;
+        echo "Usage: settheme.sh <daytime|night>"
+        exit 1
 esac
 
 COLOUR=Lavender
@@ -61,12 +64,17 @@ pidof waybar && killall -SIGUSR2 waybar
 makoctl mode -s "${2,,}"
 
 # qt (theme only)
-kvantummanager --set "catppuccin-${1,,}-${COLOUR,,}"
+#kvantummanager --set "catppuccin-${1,,}-${COLOUR,,}"
+
+# proper nvim
+~/scripts/toggle_nvim_theme.sh "${2,,}"
 
 # betterdiscord
 # sed -i "s/catppuccin-.*-/catppuccin-${1,,}-/" ~/.config/BetterDiscord/data/stable/custom.css
 
 #wallpaper
+ln -sf ~/Pictures/"${2,,}".jpg /tmp/wallpaper.jpg
+
 export SWWW_TRANSITION=grow
 export SWWW_TRANSITION_POS=bottom
 export SWWW_TRANSITION_FPS=60

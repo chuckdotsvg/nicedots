@@ -2,6 +2,7 @@ export PATH=$PATH:$HOME/scripts/:$HOME/miniforge3/bin/:"$HOME"/.local/bin:$HOME/
 
 # XDG Variables
 export XDG_DATA_HOME=$HOME/.local/share
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:$HOME/.local/share/randomscripts
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME=$HOME/.cache
@@ -32,10 +33,10 @@ export ZDOTDIR="$HOME"/.config/zsh
 export DIFFPROG="nvim -d"
 export EDITOR=nvim
 # export GTK_USE_PORTAL=1
-export QT_QPA_PLATFORMTHEME=qt5ct
+#export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME=gtk3
 export GRIMBLAST_EDITOR="satty --fullscreen --early-exit --filename"
 
 export WALLPAPER="$HOME/Pictures/tetris.png"
 
 export GPG_TTY=$(tty)
-
