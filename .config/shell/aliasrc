@@ -41,11 +41,17 @@ alias gps='git push origin main'
 alias gf='git fetch'
 #alias grbs='git rebase'
 
-# progetto5cfu
-5cfu(){
-    cd ~/Documents/uni/progetto5cfu/chipyard/
-    [[ -e ~/.bashrc ]] && emulate sh -c 'source ~/.bashrc'
-    source ./env.sh
+fro() {
+    cd ~/fro-ci/
+    source ./bin/activate
+
+    NOTEBOOKS_DIR=~/Documents/uni/onedrivepoli/anno3/fro/labs/lab1
+    cd ${NOTEBOOKS_DIR}
+}
+
+5cfu() {
+    cd ~/projects/avalon_tg/
+    source ./bin/activate
 }
 
 # Use $XINITRC variable if file exists.

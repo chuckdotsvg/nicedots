@@ -107,6 +107,18 @@ function M.config()
             }
         end,
 
+        ["jdtls"] = function()
+            lspconfig.jdtls.setup {
+                on_attach = on_attach,
+                handlers = handlers,
+                capabilities = capabilities,
+                cmd = {
+                    "jdtls",
+                    "--offset-encoding=utf-16",
+                }
+            }
+        end,
+
         -- start manually
         -- ["jdtls"] = function () end,
 
